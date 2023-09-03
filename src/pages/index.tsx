@@ -5,6 +5,7 @@ import ServicesSection from '../sections/ServicesSection'
 import ShippingSection from '../sections/ShippingSection'
 import BusinessPresenceSection from '../sections/BusinessPresenceSection'
 import cargo from '../assets/images/cargo-ship-1.png'
+import Footer from '@/components/Footer'
 
 export default function Home() {
     return (
@@ -30,6 +31,7 @@ export default function Home() {
             <ServicesSection />
             <ShippingSection />
             <BusinessPresenceSection />
+            <Footer/>
         </Box>
     )
 }
