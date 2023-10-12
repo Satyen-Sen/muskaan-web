@@ -1,16 +1,61 @@
-import React from 'react'
-import { Box, Container, Grid } from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
+import { SelectChangeEvent } from '@mui/material/Select'
 import { useTheme } from '@mui/material/styles'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en-gb'
 import ShipmentCard from '../components/ShipmentCard'
 import PrimaryTextField from '../components/PrimaryTextField'
+import { fetchDataFromApi } from '../api/api'
 
 let currentDate = new Date()
 
+interface Port {
+    id: number
+    name: string
+}
+
 export default function ShipmentTracker() {
     const theme = useTheme()
+    const [originType, setOriginType] = useState('')
+    const [destinationType, setDestinationType] = useState('')
+    const [portList, setPortList] = useState<Port[]>([])
+    const [vesselData, setVesselData] = useState([])
+
+    const handleSetOrigin = (event: SelectChangeEvent) => {
+        setOriginType(event.target.value as string)
+    }
+
+    const handleSetDestination = (event: SelectChangeEvent) => {
+        setDestinationType(event.target.value as string)
+    }
+
+    const endpoint = 'api/port-list'
+
+    useEffect(() => {
+        fetchDataFromApi(endpoint)
+            .then((data) => {
+                console.log('API Data:', data)
+                setPortList(data)
+            })
+            .catch((error) => {
+                console.error('Error fetching port list:', error)
+            })
+    }, [])
+
+    useEffect(() => {
+        const secondEndpoint = 'api/vessel/?pol=1&pod=3&date=2023-09-10'
+
+        fetchDataFromApi(secondEndpoint)
+            .then((data) => {
+                console.log('Second API Data:', data)
+                setVesselData(data)
+            })
+            .catch((error) => {
+                console.error('Error fetching vessel data:', error)
+            })
+    }, [])
 
     return (
         <Box sx={{ mx: theme.spacing(4) }}>
@@ -46,16 +91,85 @@ export default function ShipmentTracker() {
                                         },
                                     }}
                                     format='DD-MM-YYYY'
-                                    // slotProps={{
-                                    //     textField: {
-                                    //         variant: 'outlined',
-                                    //     },
-                                    // }}
                                 />
                             }
                         >
-                            <PrimaryTextField label='Origin' placeholder='Enter Origin Point' />
-                            <PrimaryTextField label='Destination' placeholder='Enter Destination Point' />
+                            <Box sx={{ mb: theme.spacing(1) }}>
+                                <InputLabel>Origin</InputLabel>
+                                <FormControl fullWidth>
+                                    <Select
+                                        value={originType}
+                                        onChange={handleSetOrigin}
+                                        displayEmpty
+                                        renderValue={
+                                            originType !== ''
+                                                ? () => (
+                                                      <Typography
+                                                          textAlign='start'
+                                                          sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}
+                                                      >
+                                                          {originType}
+                                                      </Typography>
+                                                  )
+                                                : () => (
+                                                      <Typography
+                                                          textAlign='start'
+                                                          sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}
+                                                      >
+                                                          Select Origin Point
+                                                      </Typography>
+                                                  )
+                                        }
+                                    >
+                                        <MenuItem value=''>
+                                            <em>Select Location</em>
+                                        </MenuItem>
+                                        {portList.map((port) => (
+                                            <MenuItem key={port.id} value={port.name}>
+                                                {port.name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                            <Box sx={{ mb: theme.spacing(1) }}>
+                                <InputLabel>Destination</InputLabel>
+                                <FormControl fullWidth>
+                                    <Select
+                                        value={destinationType}
+                                        onChange={handleSetDestination}
+                                        displayEmpty
+                                        renderValue={
+                                            originType !== ''
+                                                ? () => (
+                                                      <Typography
+                                                          textAlign='start'
+                                                          sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}
+                                                      >
+                                                          {destinationType}
+                                                      </Typography>
+                                                  )
+                                                : () => (
+                                                      <Typography
+                                                          textAlign='start'
+                                                          sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}
+                                                      >
+                                                          Select Destination Point
+                                                      </Typography>
+                                                  )
+                                        }
+                                    >
+                                        <MenuItem value=''>
+                                            <em>Select Location</em>
+                                        </MenuItem>
+                                        {portList.map((port) => (
+                                            <MenuItem key={port.id} value={port.name}>
+                                                {port.name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                            </Box>
                         </ShipmentCard>
                     </Grid>
                 </Grid>
