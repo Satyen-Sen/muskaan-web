@@ -12,12 +12,12 @@ export default function FloatingActionButton({ href, text }: { href: string; tex
 
     return (
         <Fade in={trigger}>
-            <Link href={href} underline='none' target='_blank' rel='noopener noreferrer' >
+            <Link href={href} underline='none' target='_blank' rel='noopener noreferrer'>
                 <Box
                     sx={{
                         backgroundColor: '#E69B01',
                         borderRadius: '8px 0 0 8px',
-                        p: '1rem 0.5rem 1rem 0.75rem',
+                        p: { xs: '1rem', sm: '1rem 0.5rem 1rem 0.75rem' },
                         my: '1rem',
                         boxShadow: 5,
                     }}

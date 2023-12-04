@@ -70,7 +70,11 @@ export default function ServicesSectionMobile() {
                                         height: 'auto',
                                     }}
                                 />
-                                <Typography variant='h6' textAlign='center' sx={{ p: theme.spacing(1), position: 'absolute' }}>
+                                <Typography
+                                    variant='h6'
+                                    textAlign='center'
+                                    sx={{ p: theme.spacing(1), position: 'absolute', fontWeight: 600 }}
+                                >
                                     {item.title}
                                 </Typography>
                             </Box>

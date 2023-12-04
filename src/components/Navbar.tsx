@@ -213,7 +213,7 @@ export default function Navbar() {
                                 <Link href='/track'>Track Shipments</Link>
                             </MenuItem>
                             <MenuItem onClick={closeToolsMenu} sx={{ '& a': { color: 'inherit' } }}>
-                                <Link href='/vessel-schedule'>Vessel Schedules</Link>
+                                <Link href='/vessel-schedule'>Search Vessel Schedules</Link>
                             </MenuItem>
 
                             <MenuItem onClick={closeToolsMenu} sx={{ '& a': { color: 'inherit' } }}>

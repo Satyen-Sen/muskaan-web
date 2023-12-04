@@ -62,7 +62,7 @@ export default function ShipmentTracker() {
                                     color: activeTab === 2 ? theme.palette.primary.main : theme.palette.common.white,
                                 }}
                             >
-                                {smallMode ? 'Schedules' : 'Track Schedules'}
+                                {smallMode ? 'Vessel Scheduless' : 'Search Vessel Schedules'}
                             </Typography>
                         </Box>
                     </Box>

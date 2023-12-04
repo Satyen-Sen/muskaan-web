@@ -145,7 +145,7 @@ export default function BusinessPresenceSection() {
             <Box sx={{ my: theme.spacing(6), mx: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
                 <Container maxWidth='md' disableGutters>
                     <Typography variant='h2' textAlign='center' sx={{ fontFamily: oswald.style.fontFamily }}>
-                        Our Agents
+                        Our Network
                     </Typography>
                     {mobileMode ? (
                         <Box

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Container, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { oswald } from '../styles/fonts'
@@ -10,6 +10,16 @@ export default function HeroSection() {
     const mobileMode = useMediaQuery(' (min-width:450px) and (max-width:599px)')
     const ultraMobileMode = useMediaQuery(' (max-width:449px)')
     const smallMode = useMediaQuery('(max-width:399px)')
+
+    useEffect(() => {
+        const video = document.getElementById('video') as HTMLVideoElement | null
+        if (video) {
+            video.play().catch((error) => {
+                console.error('Autoplay failed:', error)
+            })
+        }
+    }, [])
+
     return (
         <Box
             sx={{
@@ -26,6 +36,7 @@ export default function HeroSection() {
                     muted
                     autoPlay
                     loop
+                    id='video'
                     style={{
                         width: smallMode ? 'auto' : '100%',
                         height: smallMode ? '70vw' : 'auto',

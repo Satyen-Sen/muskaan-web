@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Container, Grid, Slide, Snackbar, Typography, useMediaQuery } from '@mui/material'
+import { Box, Container, Grid, InputLabel, Slide, Snackbar, Typography, useMediaQuery } from '@mui/material'
 import contactbackground from '@/assets/images/contact-background.webp'
 // import contactBgSm from '@/assets/images/contact-bg-sm.png'
 import contactImage from '@/assets/images/contact-img.webp'
@@ -9,6 +9,7 @@ import PrimaryButton from '../components/PrimaryButton'
 import { postDataToApi } from '../api/api'
 import MuiAlert from '@mui/material/Alert'
 import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function ContactSection() {
     const theme = useTheme()
@@ -129,9 +130,9 @@ export default function ContactSection() {
                         <Typography variant='h3' textAlign='start'>
                             Get in touch
                         </Typography>
-                        <Typography variant='body2' sx={{ mt: theme.spacing(0.5) }}>
+                        {/* <Typography variant='body2' sx={{ mt: theme.spacing(0.5) }}>
                             Our team would love to hear from you
-                        </Typography>
+                        </Typography> */}
                         <Box sx={{ my: theme.spacing(1.5) }}>
                             <SecondaryTextField
                                 placeholder='Enter your name'
@@ -139,48 +140,35 @@ export default function ContactSection() {
                                 value={formData.name}
                                 onChange={handleInputChange}
                             />
-                            {wideMode ? (
-                                <Grid container spacing={0.8}>
-                                    <Grid item xs={6}>
-                                        <SecondaryTextField
-                                            placeholder='Enter email address'
-                                            name='email'
-                                            value={formData.email}
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <SecondaryTextField
-                                            placeholder='Enter phone number'
-                                            name='phone'
-                                            value={formData.phone}
-                                            onChange={handleInputChange}
-                                        />
-                                    </Grid>
-                                </Grid>
-                            ) : (
-                                <>
+
+                            <Grid container spacing={0.8}>
+                                <Grid item xs={6}>
                                     <SecondaryTextField
-                                        placeholder='Enter your email address'
+                                        placeholder='Enter email address'
                                         name='email'
                                         value={formData.email}
                                         onChange={handleInputChange}
                                     />
+                                </Grid>
+                                <Grid item xs={6}>
                                     <SecondaryTextField
-                                        placeholder='Enter your contact number'
+                                        placeholder='Enter phone number'
                                         name='phone'
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                     />
-                                </>
-                            )}
+                                </Grid>
+                            </Grid>
+
                             <SecondaryTextField
                                 placeholder='Enter your message'
-                                multiline={true}
                                 name='message'
                                 value={formData.message}
                                 onChange={handleInputChange}
                             />
+                            <Box sx={{ overflow: 'hidden', borderRadius: '8px', width: 'fit-content', height: 'fit-content' }}>
+                                <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''} />
+                            </Box>
                         </Box>
 
                         <Box sx={{ display: 'flex' }}>

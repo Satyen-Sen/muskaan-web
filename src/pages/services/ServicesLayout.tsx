@@ -6,6 +6,7 @@ import { AppBar, Box, Container, useScrollTrigger, useMediaQuery } from '@mui/ma
 import { useTheme } from '@mui/material/styles'
 import ServicesCards from '../../components/services/ServicesCards'
 import Navbar from '../../components/Navbar'
+import PrimaryButton from '@/components/PrimaryButton'
 
 interface Props {
     window?: () => Window
@@ -58,6 +59,7 @@ export default function ServicesLayout({ image, title, subtitle, children, props
                     </Container>
                 </Box>
                 <ServicesCards />
+                <PrimaryButton text='Quote Now' />
                 <FooterSection />
             </Box>
         </React.Fragment>

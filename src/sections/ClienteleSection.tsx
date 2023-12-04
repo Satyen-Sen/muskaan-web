@@ -58,7 +58,7 @@ export default function ClienteleSection() {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ position: 'relative', height: wideMobileMode ? '42rem' : '45rem' }}>
+                    {/* <Box sx={{ position: 'relative', height: wideMobileMode ? '42rem' : '45rem' }}>
                         {Array.from({ length: visibleIcons }).map((_, index) => {
                             const arrayIndex = (startIconIndex + index) % iconsLength
                             return (
@@ -88,7 +88,7 @@ export default function ClienteleSection() {
                                 </Box>
                             )
                         })}
-                    </Box>
+                    </Box> */}
                 </Container>
             ) : (
                 <>
@@ -102,13 +102,16 @@ export default function ClienteleSection() {
                             </Typography>
                         </Box>
                     ) : (
-                        <Typography variant='h2' textAlign='center'
-                                    sx={{ mb: theme.spacing(6), fontFamily: oswald.style.fontFamily, mt: '16rem'  }}>
+                        <Typography
+                            variant='h2'
+                            textAlign='center'
+                            sx={{ mb: theme.spacing(6), fontFamily: oswald.style.fontFamily, mt: '16rem' }}
+                        >
                             Appreciated by some of the best in industry
                         </Typography>
                     )}
 
-                    <Container
+                    {/* <Container
                         maxWidth='md'
                         disableGutters
                         sx={{
@@ -151,7 +154,7 @@ export default function ClienteleSection() {
                                 </Box>
                             )
                         })}
-                    </Container>
+                    </Container> */}
                 </>
             )}
             <Container maxWidth='md' disableGutters sx={{ mb: theme.spacing(4), position: 'relative' }}>
@@ -171,7 +174,7 @@ export default function ClienteleSection() {
                     {Array.from({ length: visibleIcons }).map((_, index) => {
                         const arrayIndex = (startIconIndex + index) % iconsLength
                         return (
-                            <Box sx={{ height: '3rem', display: 'flex' }} key={arrayIndex} onClick={() => changeCard(index)}>
+                            <Box sx={{ height: '4rem', display: 'flex' }} key={arrayIndex} onClick={() => changeCard(index)}>
                                 <img
                                     src={clientsData[arrayIndex].cardIcon}
                                     alt='client icon'

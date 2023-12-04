@@ -53,7 +53,7 @@ export default function CarouselCard({ coverImage, title, subtitle, footerImage,
                                 borderRadius: theme.spacing(1.125),
                             }}
                         >
-                            <Typography variant='h6' textAlign='center' sx={{ m: theme.spacing(1) }}>
+                            <Typography variant='h6' textAlign='center' sx={{ m: theme.spacing(1), fontWeight: 600 }}>
                                 {title}
                             </Typography>
                         </Box>
