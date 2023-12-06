@@ -2,7 +2,7 @@ import React from 'react'
 import type { StaticImageData } from 'next/image'
 import HeaderSection from '../../sections/HeaderSection'
 import FooterSection from '../../sections/FooterSection'
-import { AppBar, Box, Container, useScrollTrigger, useMediaQuery } from '@mui/material'
+import { AppBar, Box, Container, Link, useScrollTrigger, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import ServicesCards from '../../components/services/ServicesCards'
 import Navbar from '../../components/Navbar'
@@ -58,8 +58,21 @@ export default function ServicesLayout({ image, title, subtitle, children, props
                         {children}
                     </Container>
                 </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) },
+                        mt: theme.spacing(6),
+                        mb: theme.spacing(-6),
+                    }}
+                >
+                    <Link href='/quote'>
+                        <PrimaryButton text='Quote Now' />
+                    </Link>
+                </Box>
+
                 <ServicesCards />
-                <PrimaryButton text='Quote Now' />
                 <FooterSection />
             </Box>
         </React.Fragment>
