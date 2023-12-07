@@ -8,6 +8,7 @@ import PrimaryButton from './PrimaryButton'
 import Sidebar from './Sidebar'
 import logo from '@/assets/logo.png'
 import Link from 'next/link'
+import GoogleTranslate from '@/api/GoogleTranslate'
 
 export default function Navbar() {
     const [companiesMenu, setCompaniesMenu] = useState<null | HTMLElement>(null)
@@ -58,7 +59,8 @@ export default function Navbar() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                py: theme.spacing(1),
+                pt: theme.spacing(3),
+                pb: theme.spacing(1),
                 px: mobileMode ? theme.spacing(2) : theme.spacing(4),
             }}
         >
@@ -224,8 +226,12 @@ export default function Navbar() {
 
                     <Box sx={{ ml: theme.spacing(1.5) }}>
                         <MUILink href='http://app.muskan-group.com/'>
-                            <PrimaryButton text='Login' light width='6rem' height='2rem' />
+                            <PrimaryButton text='Login' light width='8rem' height='2rem' />
                         </MUILink>
+                    </Box>
+
+                    <Box sx={{ ml: theme.spacing(1.5) }}>
+                        <GoogleTranslate />
                     </Box>
                 </Box>
             )}
