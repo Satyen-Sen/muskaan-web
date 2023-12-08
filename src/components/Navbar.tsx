@@ -59,8 +59,7 @@ export default function Navbar() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                pt: theme.spacing(3),
-                pb: theme.spacing(1),
+                my: theme.spacing(2),
                 px: mobileMode ? theme.spacing(2) : theme.spacing(4),
             }}
         >

@@ -32,7 +32,7 @@ export default function HeroSection() {
         >
             <>
                 <video
-                    src='/video/container_terminal.webm'
+                    src='/video/video.mp4'
                     muted
                     autoPlay
                     loop
