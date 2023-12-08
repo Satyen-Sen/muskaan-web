@@ -42,12 +42,12 @@ export default function GoogleTranslate() {
     }
 
     return (
-        <Box sx={{ position: 'relative', width: '156px', overflow: 'hidden', display: 'flex', justifyContent: 'end' }}>
+        <Box sx={{ position: 'relative', width: '100px', overflow: 'hidden', display: 'flex', justifyContent: 'end' }}>
             <div id='google_translate_element' style={{ zIndex: 1, position: 'absolute', left: '0%', top: '1rem' }} />
 
             <SelectPicker
                 data={languages}
-                style={{ width: '156px', visibility: 'hidden' }}
+                style={{ width: '100px', visibility: 'hidden' }}
                 placement='bottomEnd'
                 cleanable={false}
                 value={selected}

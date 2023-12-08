@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Box, Container, IconButton, Menu, MenuItem, Typography, useMediaQuery, Link as MUILink } from '@mui/material'
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
@@ -59,7 +59,8 @@ export default function Navbar() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                my: theme.spacing(2),
+                mt: theme.spacing(3),
+                mb: theme.spacing(1),
                 px: mobileMode ? theme.spacing(2) : theme.spacing(4),
             }}
         >
@@ -223,15 +224,13 @@ export default function Navbar() {
                         </Menu>
                     </Box>
 
-                    <Box sx={{ ml: theme.spacing(1.5) }}>
+                    <Box sx={{ mx: theme.spacing(1.5) }}>
                         <MUILink href='http://app.muskan-group.com/'>
                             <PrimaryButton text='Login' light width='8rem' height='2rem' />
                         </MUILink>
                     </Box>
 
-                    <Box sx={{ ml: theme.spacing(1.5) }}>
-                        <GoogleTranslate />
-                    </Box>
+                    <GoogleTranslate />
                 </Box>
             )}
         </Container>
