@@ -32,6 +32,7 @@ declare type CompaniesLayoutProps = {
     subtitle?: string
     address?: String
     telephoneNumber?: String
+    email?: string
     children: React.ReactNode
     props?: Props
 }
@@ -45,6 +46,7 @@ export default function CompaniesLayout({
     mapSrc,
     address,
     telephoneNumber,
+    email,
 }: CompaniesLayoutProps) {
     const theme = useTheme()
     const trigger = useScrollTrigger({
@@ -72,7 +74,7 @@ export default function CompaniesLayout({
                         <Typography variant='h3' sx={{ textAlign: 'start', mb: '1rem', mt: '4rem', color: '#1B1B1F' }}>
                             Contact Us
                         </Typography>
-                        <MuskaanGroupHq address={address} mapSrc={mapSrc} telephoneNumber={telephoneNumber} />
+                        <MuskaanGroupHq address={address} mapSrc={mapSrc} telephoneNumber={telephoneNumber} email={email} />
                     </Container>
                 </Box>
                 <FooterSection />

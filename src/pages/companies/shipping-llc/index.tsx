@@ -64,6 +64,7 @@ export default function Home() {
             }
             address='Mohammed Noor Talib Bldg.,701, 7th floor, Khaleed bin waleed Road Opp.Royal Ascot Hotel Burdubai,PO Box : - 128160 Dubai'
             telephoneNumber='+97143511215'
+            email='Dubai@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
@@ -78,6 +79,54 @@ export default function Home() {
                             <Image src={titleImg} alt='' style={{ width: '100%', height: 'auto' }} />
                         </Grid>
                     </Grid>
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Core business of Muskaan Line:
+                    </Typography>
+                    <CustomText
+                        text={
+                            "The UAE has been ranked 11th globally in the export of goods in 2022 with the total value of its goods trade amounting to USD 599 billion. The country accounted for 2.4 per cent of global merchandise exports with a 41 per cent growth. When the European Union countries are treated as a single group, the UAE ranks seventh globally, according to the ‘World Trade Outlook and Statistics’ report issued by the World Trade Organization (WTO) on April 5, 2023.\nThe report ranked the UAE 18th globally in terms of merchandise imports in 2022, which went up by 22 per cent to reach USD 425 billion, and accounted for 1.7 per cent of the world’s merchandise imports. When EU countries are treated as a group, the UAE ranks 13th globally.\nH.E. Dr. Thani bin Ahmed Al Zeyoudi, Minister of State for Foreign Trade, said: “The forward-looking policies implemented by the UAE government in line with the directives of the wise leadership continue to prove their ability to support the country's economic position globally. Through these efforts, we are building the foundations of the UAE’s new economic model based on knowledge and innovation, while also adding more value to its sustainable competitiveness.”\nHE added: “Our national economy’s prestigious position, as underlined by leading global financial institutions, motivates us to keep developing such policies and programs to maintain this leadership. We will also continue to strengthen the UAE’s position on the international trade landscape through innovative initiatives such as the Comprehensive Economic Partnership Agreement (CEPA), the NextGenFDI initiative, startup support programs, and others.”\nExports and imports in services\nThe WTO report ranked the UAE 12th globally in service exports in 2022, with a value of USD 154 billion and a 2.2 per cent contribution to the world’s total exports of services. If the EU countries are treated as a single group, the UAE jumps to eighth globally.\nThe UAE also ranked 18th globally in 2022 in the imports of services at a value of USD 95 billion, with a contribution of 1.5per cent of the world’s imports of services. If the EU countries are treated as a single group, the UAE jumps to 11th place globally."
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Trade Balance:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'WTO’s statistics indicate that the UAE has achieved a surplus of USD 174 billion in its merchandise trade balance, as well as USD 59 billion in services. The report further highlights that the UAE’s trade in goods exceeded USD 1.024 trillion, in addition to USD 249 trillion in services trade. Thus, the UAE’s goods and services trade with the world totaled USD 1.273 trillion with a surplus of USD 233 billion in 2022.\nThe UAE also ranks first in the Middle East and Africa in goods and service exports and imports, maintaining its position as the leading exports and imports market in the region.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Digital Services:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'The UAE is one of the top exporters of digital services in 2022, ranking 21st globally with a total value of USD 45 billion and accounting for 1 per cent of the world’s digital service exports. The country achieved a 16 per cent growth in 2022 compared to that of 2021 and 55 per cent compared to that of 2019. The UAE ranks first in the Arab world in digital services and is the only Arab nation among the world’s top 30 digital service exporters. Digital services accounted for more than 29 per cent of the UAE’s total service exports last year.\nAccording to the WTO’s report, total global exports of digital services amounted to approximately USD 3.82 trillion in 2022, representing 54 per cent of total service exports.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Global Trade Outlook:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'In general, the WTO report projects a slowdown in global trade growth and expects it to grow by 1.7 per cent in 2023, down from 2.7 per cent in 2022. The report attributes the slowdown to various global geopolitical developments. WTO further points out that investment in multilateral collaboration will enhance economic growth and quality of life in the long term.\nMoreover, the WTO report highlighted that global commodity trade value reached USD 25.3 trillion in 2022 with a 12 per cent and 32 per cent growth compared to 2021 and 2019, respectively. The report shows that the value of global commercial service trade increased to reach USD 6.8 trillion in 2022, growing by 15 per cent and 12 per cent compared to that of 2022 and 2019, respectively.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Global GDP Growth:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'WTO pointed out that the global real GDP at market exchange rates will grow by 2.4 per cent in 2023, while trade and GDP are projected to grow by 2.6 per cent and 2.7 per cent respectively, down from the averages of the last 12 years.\nGlobal trade growth in Europe\nAccording to the WTO, global trade is expected to grow by 1.8 per cent in Europe, and 0.9 per cent in the Middle East, while the region’s imports are projected to increase by approximately 5.5 per cent in 2023. The expected 1.7 per cent trade growth in 2023, slightly higher than the 1 per cent projected previously, is attributed to easing the Covid-19 restrictions in China. This is expected to drive increase in consumer demand in China and boost global trade.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Global Trade in 2022:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'Global trade volume grew by 2.7 per cent in 2022, down from the 3.5 per cent projected by WTO in October. The larger-than-expected decline in Q4 contributed to growth decline in 2023. China and USA topped the list of largest exporters in 2022, recording USD 3.6 trillion and USD 2.1 trillion, respectively.\nAccording to WTO, the fluctuations in primary commodities were severely affected by inflation and trade volumes in 2022. Such fluctuations were particularly evident in the natural gas prices in Europe, which saw an increase of 48 per cent in the period from January to August 2022, and later dropped by 76 per cent by February 2023.\nWTO estimates that global exports of digitally-delivered services saw a four-fold rise in value since 2005 and increased by 8.1 per cent annually on average between 2005 and 2022.'
+                        }
+                    />
                     <Typography variant='h3' sx={{ textAlign: 'start', mt: '4rem', color: '#1B1B1F' }}>
                         Core Values
                     </Typography>

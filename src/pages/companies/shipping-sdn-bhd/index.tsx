@@ -4,14 +4,18 @@ import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import CompaniesLayout from '../CompaniesLayout'
 import shippingBg from '@/assets/companies/shipping-sdn-bhd-bg.webp'
-import titleImg from '@/assets/companies/muskaan_shipping_sdn/shipping.png'
-import statistics from '@/assets/companies/muskaan_shipping_sdn/statistics.png'
+import titleImg from '@/assets/companies/muskaan_shipping_sdn/shipping.webp'
+import statistics from '@/assets/companies/muskaan_shipping_sdn/statistics.webp'
+import statisticsMonthlyExport from '@/assets/companies/muskaan_shipping_sdn/monthly_export.webp'
+import statisticsTotalExports from '@/assets/companies/muskaan_shipping_sdn/total_exports.webp'
+import statisticsExportsCountries22 from '@/assets/companies/muskaan_shipping_sdn/export_countries22.webp'
+import statisticsExportsCountries23 from '@/assets/companies/muskaan_shipping_sdn/export_countries23.webp'
 import visionBg from '@/assets/companies/vision.webp'
 import visionIcon from '@/assets/companies/vision_icon.png'
 import targetIcon from '@/assets/companies/target.png'
-import customBrokerageImg from '@/assets/companies/muskaan_shipping/custom_brokerage.png'
-import logImg from '@/assets/companies/muskaan_shipping/logistic_transportation.png'
-import ourCommitmentImg from '@/assets/companies/muskaan_shipping/our_commitment.png'
+import customBrokerageImg from '@/assets/companies/muskaan_shipping/custom_brokerage.webp'
+import logImg from '@/assets/companies/muskaan_shipping/logistic_transportation.webp'
+import ourCommitmentImg from '@/assets/companies/muskaan_shipping/our_commitment.webp'
 import CustomText from '@/components/companies/CustomText'
 import ServicesCard from '@/components/companies/ServicesCard'
 import StatisticsCard from '@/components/companies/StatisticsCard'
@@ -33,6 +37,7 @@ export default function Home() {
             }
             address='Centro Business CentreSuite #16-02, level 16,No.8 Jalan Batu Tiga Lama,Klang 41200 Selangor, Malaysia'
             telephoneNumber='+603-33418460/61'
+            email='Malaysiapkl@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
@@ -59,7 +64,24 @@ export default function Home() {
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Country Growth V/S World Growth V/S GDP Growth
                     </Typography>
+                    <Image src={statisticsMonthlyExport} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
+                        Malaysia’s Monthly Exports by Main Sectors, January-November 2023
+                    </Typography>
+                    <Image src={statisticsTotalExports} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
+                        {"Malaysia’s Exports by Main Sectors, Jan-Nov 2023\nTotal Exports: RM1.308 trillion"}
+                    </Typography>
                     <StatisticsCard exporterRank={23} importerRank={25} tradeBalanceRank={10} totalTradeAmtList={totalTradeAmtList} />
+                    <Image src={statisticsExportsCountries22} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
+                        {"Top 10 Major Export Countries, Jan-Nov 2022\nTotal Exports: RM1.418 trillion"}
+                    </Typography>
+                    <Image src={statisticsExportsCountries23} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
+                        {"Top 10 Major Export Countries, Jan-Nov 2023\nTotal Exports: RM1.308 trillion"}
+                    </Typography>
+
                 </Container>
             </Box>
             <Box
@@ -144,7 +166,7 @@ export default function Home() {
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
                     <Typography variant='h3' sx={{ textAlign: 'start', mt: '4rem', mb: '1rem', color: '#1B1B1F' }}>
-                        Our Services
+                        Our Specialities
                     </Typography>
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
                         Core business of Muskan Line:
@@ -163,6 +185,22 @@ export default function Home() {
                         Navigational Safety and Environmental Responsibility:
                     </Typography>
                     <CustomText text="The paramount duty of a transportation carrier is to securely convey customers' cargo to its destination, maintaining its original condition. Beyond handling standard container freight, we offer technical assistance for the safe transport of hazardous materials and oversized items that cannot fit into containers, ensuring a seamless and secure marine and onshore journey. Furthermore, we are committed to environmental conservation, implementing practices like fuel-efficient cruising to mitigate ship-generated greenhouse gas emissions and employing shore power at our Long Beach, California terminal to eliminate ship fuel consumption." />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Ocean Freight:
+                    </Typography>
+                    <CustomText
+                        text={
+                            '(Providing you with the most flexible, cost-efficient and fully coordinated end-to-end ocean freight solutions)\n We’re here to ensure your cargo reaches the right place, at the right time, in the most economical way – without the need to compromise on quality or reliability. Through the extensive equipment and consolidation options of ocean freight, we work closely with you to find budget-friendly, end-to-end ocean cargo shipping solutions, tailored to your specific needs. We’re here to take the stress out of shipping for you. We give you confidence and control, providing full visibility of your shipments and offering a wide range of quality controlled equipment types that suit you.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Customs Services:
+                    </Typography>
+                    <CustomText
+                        text={
+                            '(Taking the complexity out of customs, so you can focus on your business and your customers)\n We understand that you need a resilient customs partner with the local expertise and global tools that provide you with a consistent, high-quality service, no matter where your business takes you. In an ever-changing regulatory environment, secure the peace of mind that comes with knowing that your goods are cleared fast, and in total compliance with the rules of your market. Let one of the world’s largest customs brokers put their global network at your disposal.'
+                        }
+                    />
                     {mobileMode ? (
                         <Box>
                             <ServicesCardMobile
