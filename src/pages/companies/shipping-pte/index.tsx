@@ -26,13 +26,15 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title={'Muskan Shipping PTE\nLtd.'}
+            title={'Muskan Shipping PTE Ltd.'}
+            subtitle='Effortless Shipping and Logisics'
+            caption='UEN 201219318Z'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.184303450182!2d103.9045156231366!3d1.333844262451175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17fac0a6a723%3A0x168dad5006e4ed5e!2sEunos%20Techpark!5e0!3m2!1sen!2sin!4v1702716372440!5m2!1sen!2sin'
             }
-            address='60 Kaki Bukit Place #02-13Suites 3 Eunos Techpark,Singapore 415979'
+            address='60 Kaki Bukit Place #02-13Suites 3 Eunos Techpark, Singapore 415979'
             telephoneNumber='+65 63224420'
-            email='Singapore@muskan-group.com'
+            emailId='Singapore@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
@@ -249,7 +251,7 @@ export default function Home() {
 }
 const totalTradeAmtList = ['$457,081,283,281', '$406,318,349,182', '$50,762,934,099', '186.55%', '150.31%']
 const innovationList = [
-    'upport start-ups to develop supply chain technologies',
+    'support start-ups to develop supply chain technologies',
     'Partner with emerging and established brands',
     'Invest in research to develop digital supply chains',
     'Automated pickup and order preparation for increased productivity.',

@@ -30,9 +30,11 @@ declare type CompaniesLayoutProps = {
     mapSrc?: string
     title?: string
     subtitle?: string
+    caption?: string
     address?: String
     telephoneNumber?: String
-    email?: string
+    emailId?: String
+    companyName?: String
     children: React.ReactNode
     props?: Props
 }
@@ -41,12 +43,14 @@ export default function CompaniesLayout({
     image,
     title,
     subtitle,
+    caption,
     children,
     props,
     mapSrc,
     address,
     telephoneNumber,
-    email,
+    emailId,
+    companyName,
 }: CompaniesLayoutProps) {
     const theme = useTheme()
     const trigger = useScrollTrigger({
@@ -63,7 +67,7 @@ export default function CompaniesLayout({
                 </AppBar>
             </ElevationScroll>
             <Box sx={{ backgroundColor: '#EFF6FF' }}>
-                <HeaderSection image={image} title={title} subtitle={subtitle} />
+                <HeaderSection image={image} title={title} subtitle={subtitle} caption={caption} />
 
                 <Container maxWidth='xl' disableGutters>
                     {children}
@@ -72,9 +76,9 @@ export default function CompaniesLayout({
                 <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                     <Container maxWidth='xl' disableGutters>
                         <Typography variant='h3' sx={{ textAlign: 'start', mb: '1rem', mt: '4rem', color: '#1B1B1F' }}>
-                            Contact Us
+                            {companyName || 'Contact Us'}
                         </Typography>
-                        <MuskaanGroupHq address={address} mapSrc={mapSrc} telephoneNumber={telephoneNumber} email={email} />
+                        <MuskaanGroupHq address={address} mapSrc={mapSrc} telephoneNumber={telephoneNumber} emailId={emailId} />
                     </Container>
                 </Box>
                 <FooterSection />
