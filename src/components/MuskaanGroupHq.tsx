@@ -12,7 +12,17 @@ function CompanyInfo({ title, body }: { title: String; body: String }) {
     )
 }
 
-function MuskaanGroupHq({ mapSrc, address, telephoneNumber }: { mapSrc?: string; address?: String; telephoneNumber?: String }) {
+function MuskaanGroupHq({
+    mapSrc,
+    address,
+    telephoneNumber,
+    emailId,
+}: {
+    mapSrc?: string
+    address?: String
+    telephoneNumber?: String
+    emailId?: String
+}) {
     const mobileMode = useMediaQuery('(max-width:599px)')
     const tabletMode = useMediaQuery('(max-width:899px)')
     return (
@@ -46,7 +56,7 @@ function MuskaanGroupHq({ mapSrc, address, telephoneNumber }: { mapSrc?: string;
                             <CompanyInfo title='Telephone No.' body={telephoneNumber || '011 41587468/40687469'} />
                         </Grid>
                         <Grid item xs={4}>
-                            <CompanyInfo title='Email ID' body='info@mclpl.co.in' />
+                            <CompanyInfo title='Email ID' body={emailId || 'info@mclpl.co.in'} />
                         </Grid>
                     </Grid>
                 </Box>
