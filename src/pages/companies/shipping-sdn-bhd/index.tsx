@@ -27,7 +27,10 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title={'Muskan Shipping SDN\nBHD'}
+            title={'Muskaan Shipping SDN BHD'}
+            subtitle='Penghantaran dan Logistik yang Mudah'
+            caption='(846593-A)'
+            companyName='MUSKAAN SHIPPING SDN BHD'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.2665006882808!2d101.46583722797837!3d3.0515958014528834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc533c31d06c2d%3A0xc1ad8304f5dad6f8!2sCENTRO+MALL!5e0!3m2!1sen!2sin!4v1558955895296!5m2!1sen!2sin'
             }

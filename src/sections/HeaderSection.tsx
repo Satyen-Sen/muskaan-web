@@ -11,9 +11,10 @@ declare type HeaderProps = {
     title?: string
     subtitle?: string
     customHeight?: string
+    caption?: string
 }
 
-export default function HeaderSection({ image, title, subtitle, customHeight }: HeaderProps) {
+export default function HeaderSection({ image, title, subtitle, caption, customHeight }: HeaderProps) {
     const theme = useTheme()
     const tabletMode = useMediaQuery('(max-width:749px)')
     const mobileMode = useMediaQuery('(max-width:599px)')
@@ -81,6 +82,20 @@ export default function HeaderSection({ image, title, subtitle, customHeight }: 
                             }}
                         >
                             {subtitle}
+                        </Typography>
+                        <Typography
+                            variant='h2'
+                            textAlign='center'
+                            sx={{
+                                mt: theme.spacing(1),
+                                fontFamily: oswald.style.fontFamily,
+                                color: 'common.white',
+                                fontWeight: 400,
+                                fontSize: ultraMobileMode ? '1rem' : mobileMode ? '1.25rem' : tabletMode ? '1.75rem' : '2.25rem',
+                                lineHeight: ultraMobileMode ? '1.25rem' : mobileMode ? '1.5rem' : tabletMode ? '2rem' : '2.5rem',
+                            }}
+                        >
+                            {caption}
                         </Typography>
                     </Container>
                 </VisibilityTracker>

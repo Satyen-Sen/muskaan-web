@@ -58,12 +58,15 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title={'Muskan Shipping LLC'}
+            title='Muskan Shipping LLC'
+            subtitle='جهد الشحن والخدمات اللوجستية'
+            companyName='MUSKAN SHIPPING LLC'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15145022.136160396!2d67.03364636869956!3d22.068134271266782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432a3cfe94f7%3A0x70f0d50a6e4cbbac!2sMUSKAAN+SHIPPING+LLC!5e0!3m2!1sen!2sin!4v1561552755032!5m2!1sen!2sin'
             }
             address='Mohammed Noor Talib Bldg.,701, 7th floor, Khaleed bin waleed Road Opp.Royal Ascot Hotel Burdubai,PO Box : - 128160 Dubai'
             telephoneNumber='+97143511215'
+            emailId='Dubai@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
