@@ -40,7 +40,7 @@ export default function Home() {
             }
             address='Centro Business CentreSuite #16-02, level 16,No.8 Jalan Batu Tiga Lama,Klang 41200 Selangor, Malaysia'
             telephoneNumber='+603-33418460/61'
-            email='Malaysiapkl@muskan-group.com'
+            emailId='Malaysiapkl@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
