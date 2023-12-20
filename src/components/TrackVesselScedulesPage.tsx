@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Box, FormControl, InputLabel, MenuItem, PopoverVirtualElement, Select, Typography, useMediaQuery } from '@mui/material'
-import { SelectChangeEvent } from '@mui/material/Select'
+import { Box, InputLabel, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import PrimaryButton from './PrimaryButton'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -9,7 +8,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en-gb'
-import { fetchDataFromApi } from '../api/api'
+import SelectOrigin from '@/components/api/SelectOrigin'
+import SelectDestination from '@/components/api/SelectDestination'
+import { fetchDataFromApi } from '@/api/api'
+
+let currentDate = new Date()
 
 interface Port {
     id: number
@@ -22,20 +25,11 @@ export default function TrackVesselScedulesPage() {
     const wideMode = useMediaQuery('(min-width:900px)')
     const mediumMode = useMediaQuery('(min-width:400px) and (max-width:899px)')
 
-    const [portList, setPortList] = useState<Port[]>([])
-    const [originLocation, setOriginLocation] = useState('')
-    const [destinationLocation, setDestinationLocation] = useState('')
-    const [selectedDate, setSelectedDate] = useState(dayjs(new Date()))
+    const [portDataList, setPortDataList] = useState<Port[]>([])
+    const [originLocation, setOriginLocation] = useState<Port | null>(null)
+    const [destinationLocation, setDestinationLocation] = useState<Port | null>(null)
 
-    const handleSetOrigin = (event: SelectChangeEvent) => {
-        const selectedId = event.target.value as string
-        setOriginLocation(selectedId)
-    }
-
-    const handleSetDestination = (event: SelectChangeEvent) => {
-        const selectedId = event.target.value as string
-        setDestinationLocation(selectedId)
-    }
+    const [selectedDate, setSelectedDate] = useState(dayjs(currentDate))
 
     const handleDateChange = (value: dayjs.Dayjs | null) => {
         if (value !== null) {
@@ -43,42 +37,9 @@ export default function TrackVesselScedulesPage() {
         }
     }
 
-    useEffect(() => {
-        async function fetchPortList() {
-            try {
-                const response = await fetchDataFromApi('api/port-list/')
-                setPortList(response)
-
-                const { pol, pod, dateValue } = router.query
-
-                if (pol && pod && typeof dateValue === 'string') {
-                    const newOriginLocation = response.find((port: Port) => port.id === Number(pol))?.name || ''
-                    const newDestinationLocation = response.find((port: Port) => port.id === Number(pod))?.name || ''
-                    const newSelectedDate = dayjs(dateValue)
-
-                    if (
-                        newOriginLocation !== originLocation ||
-                        newDestinationLocation !== destinationLocation ||
-                        !newSelectedDate.isSame(selectedDate)
-                    ) {
-                        setOriginLocation(newOriginLocation)
-                        setDestinationLocation(newDestinationLocation)
-                        setSelectedDate(newSelectedDate)
-                    }
-                }
-            } catch (error) {
-                console.error('Error in fetching Port data: ', error)
-            }
-        }
-        fetchPortList()
-    }, [router.query, portList, originLocation, destinationLocation, selectedDate])
-
-    const originPort = portList.find((port) => port.name === originLocation)
-    const destinationPort = portList.find((port) => port.name === destinationLocation)
-
     const onSubmit = () => {
-        const pol = originPort?.id
-        const pod = destinationPort?.id
+        const pol = originLocation?.id
+        const pod = destinationLocation?.id
         const dateValue = selectedDate.format('YYYY-MM-DD')
 
         router.push({
@@ -86,6 +47,32 @@ export default function TrackVesselScedulesPage() {
             query: { pol, pod, dateValue },
         })
     }
+
+    console.log('originLocation in Hook ==>', originLocation, 'destinationLocation in Hook ==> ', destinationLocation)
+
+    useEffect(() => {
+        const { pol, pod, dateValue } = router.query
+
+        const fetchPortList = async () => {
+            try {
+                const response = await fetchDataFromApi('api/port-list/')
+                setPortDataList(response)
+
+                if (pol && pod) {
+                    const originPort = response.find((port: Port) => port.id === Number(pol))
+                    const destinationPort = response.find((port: Port) => port.id === Number(pod))
+                    setOriginLocation(originPort || null)
+                    setDestinationLocation(destinationPort || null)
+                    console.log('originPort from URL', originPort, 'destinationPort from URL', destinationPort)
+                    console.log('dateValue', dateValue, 'currentDate', currentDate)
+                }
+            } catch (error) {
+                console.error('Error in fetching Port data: ', error)
+            }
+        }
+
+        fetchPortList()
+    }, [router.query])
 
     return (
         <Box
@@ -100,68 +87,10 @@ export default function TrackVesselScedulesPage() {
             }}
         >
             <Box sx={{ mb: theme.spacing(1) }}>
-                <InputLabel>Origin</InputLabel>
-                <FormControl fullWidth>
-                    <Select
-                        value={originLocation}
-                        onChange={handleSetOrigin}
-                        displayEmpty
-                        renderValue={
-                            originLocation !== ''
-                                ? () => (
-                                      <Typography textAlign='start' sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}>
-                                          {originLocation}
-                                      </Typography>
-                                  )
-                                : () => (
-                                      <Typography textAlign='start' sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}>
-                                          Select Origin Point
-                                      </Typography>
-                                  )
-                        }
-                    >
-                        <MenuItem value=''>
-                            <em>Select Location</em>
-                        </MenuItem>
-                        {portList.map((port: Port) => (
-                            <MenuItem key={port.id} value={port.name}>
-                                {port.name.toLowerCase()}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
+                <SelectOrigin onSelectOrigin={setOriginLocation} />
             </Box>
             <Box sx={{ mb: theme.spacing(1) }}>
-                <InputLabel>Destination</InputLabel>
-                <FormControl fullWidth>
-                    <Select
-                        value={destinationLocation}
-                        onChange={handleSetDestination}
-                        displayEmpty
-                        renderValue={
-                            originLocation !== ''
-                                ? () => (
-                                      <Typography textAlign='start' sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}>
-                                          {destinationLocation}
-                                      </Typography>
-                                  )
-                                : () => (
-                                      <Typography textAlign='start' sx={{ color: '#03122580', fontWeight: 600, ml: '-0.25rem' }}>
-                                          Select Destination Point
-                                      </Typography>
-                                  )
-                        }
-                    >
-                        <MenuItem value=''>
-                            <em>Select Location</em>
-                        </MenuItem>
-                        {portList.map((port) => (
-                            <MenuItem key={port.id} value={port.name}>
-                                {port.name.toLowerCase()}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
+                <SelectDestination onSelectDestination={setDestinationLocation} />
             </Box>
 
             <Box

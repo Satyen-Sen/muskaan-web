@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { postDataToApi } from '../../api/api'
 import {
     Box,
     FormControl,
@@ -24,6 +25,8 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
 import DeleteIcon from '@mui/icons-material/Delete'
 import CloseIcon from '@mui/icons-material/Close'
+import SelectOrigin from '@/components/api/SelectOrigin'
+import SelectDestination from '@/components/api/SelectDestination'
 
 // date -picker
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -35,6 +38,11 @@ import PrimaryButton from '@/components/PrimaryButton'
 import LayoutHeaderLess from '../LayoutHeaderLess'
 
 let currentDate = new Date()
+
+interface Port {
+    id: number
+    name: string
+}
 
 export default function Home() {
     const theme = useTheme()
@@ -75,6 +83,11 @@ export default function Home() {
         setOpen(false)
     }
 
+    const [originLocation, setOriginLocation] = useState<Port | null>(null)
+    const [destinationLocation, setDestinationLocation] = useState<Port | null>(null)
+    const originPort = originLocation?.id
+    const destinationPort = destinationLocation?.id
+
     return (
         <LayoutHeaderLess>
             <Typography
@@ -98,16 +111,16 @@ export default function Home() {
                 <Box sx={{ my: theme.spacing(1) }}>
                     <Grid container spacing={mobileMode ? 0 : 2}>
                         <Grid item xs={12} md={6}>
-                            <PrimaryTextField label='Origin' placeholder='Enter origin city' />
+                            <SelectOrigin onSelectOrigin={setOriginLocation} />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <PrimaryTextField label='Destination' placeholder='Enter destination city' />
+                            <SelectDestination onSelectDestination={setDestinationLocation} />
                         </Grid>
                     </Grid>
                 </Box>
 
-                <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600 }}>
-                    Container
+                <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
+                    Container Details
                 </Typography>
 
                 <Box sx={{ my: theme.spacing(1) }}>
@@ -184,9 +197,7 @@ export default function Home() {
                                     <IconButton onClick={decreaseCount}>
                                         <RemoveIcon />
                                     </IconButton>
-                                    <Typography sx={{ color: '#03122580', fontWeight: 600 }}>
-                                        {containerCount}
-                                    </Typography>
+                                    <Typography sx={{ color: '#03122580', fontWeight: 600 }}>{containerCount}</Typography>
                                     <IconButton onClick={increaseCount}>
                                         <AddIcon />
                                     </IconButton>
@@ -266,11 +277,7 @@ export default function Home() {
                     </Grid>
                 </Box>
 
-                <Typography
-                    variant='h4'
-                    textAlign='start'
-                    sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}
-                >
+                <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
                     Customer Status
                 </Typography>
 
