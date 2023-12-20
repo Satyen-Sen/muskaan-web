@@ -107,6 +107,14 @@ export default function Home() {
                 const response = await fetchDataFromApi(`api/vessel/?pol=${pol}&pod=${pod}&date=${dateValue}`)
                 setVesselData(response)
                 setExpanded(false)
+
+                const locationElement = document.querySelector('.location') as HTMLElement
+                if (locationElement) {
+                    window.scrollTo({
+                        top: locationElement.offsetTop,
+                        behavior: 'smooth',
+                    })
+                }
             } catch (error) {
                 console.error('Error in fetching vessel data: ', error)
             }
@@ -135,6 +143,9 @@ export default function Home() {
                     <TrackVesselScedulesPage />
                 </Container>
             </Box>
+
+            <div className='location'></div>
+
             {vesselData.length === 0 ? (
                 <Container maxWidth='xl' disableGutters>
                     <Typography variant='h4' sx={{ textAlign: 'center', color: '#003A9B', py: '4rem' }}>
@@ -187,7 +198,7 @@ export default function Home() {
                                 <Typography
                                     variant='body1'
                                     sx={{ textAlign: 'start', color: '#1B1B1F', mx: '1.25rem' }}
-                                >
+                                    >
                                     Next Page
                                 </Typography>
                                 <Image src={rightArrowIcon} alt='' style={{ height: 'auto', width: '1.25rem' }} />

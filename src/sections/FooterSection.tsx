@@ -12,6 +12,7 @@ import phone from '@/assets/icons/phone.png'
 import arrowRight from '@/assets/icons/arrow-right.png'
 import SecondaryTextField from '../components/SecondaryTextField'
 import CircleIcon from '@mui/icons-material/Circle'
+import GoogleTranslate from '@/api/GoogleTranslate'
 
 export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
     const theme = useTheme()
@@ -605,6 +606,9 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                         }}
                                     />
                                 </Link> */}
+                                </Box>
+                                <Box sx={{ px: '3.4rem' }}>
+                                    <GoogleTranslate />
                                 </Box>
                             </Grid>
 

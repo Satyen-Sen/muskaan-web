@@ -8,7 +8,6 @@ import PrimaryButton from './PrimaryButton'
 import Sidebar from './Sidebar'
 import logo from '@/assets/logo.png'
 import Link from 'next/link'
-import GoogleTranslate from '@/api/GoogleTranslate'
 
 export default function Navbar() {
     const [companiesMenu, setCompaniesMenu] = useState<null | HTMLElement>(null)
@@ -228,8 +227,6 @@ export default function Navbar() {
                             <PrimaryButton text='Login' light width='8rem' height='2rem' />
                         </MUILink>
                     </Box>
-
-                    <GoogleTranslate />
                 </Box>
             )}
         </Container>

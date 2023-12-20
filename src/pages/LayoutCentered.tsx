@@ -53,32 +53,30 @@ export default function LayoutCentered({ image, title, children, props }: Layout
                 </AppBar>
             </ElevationScroll>
             <Box sx={{ backgroundColor: '#EFF6FF' }}>
-                <VisibilityTracker animationType={AnimationType.COLLAPSE} timeout={2000}>
-                    <Box
-                        sx={{
-                            position: 'relative',
-                            height: '42vw',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <Image src={image} alt='header image' style={{ width: '100%', height: 'auto', position: 'absolute' }} />
-                        <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
-                            <Typography
-                                variant='h1'
-                                sx={{
-                                    fontSize: ultraMobileMode ? '3.8rem' : mobileMode ? '4.2rem' : wideMobileMode ? '5rem' : '5.4rem',
-                                    pt: mobileMode ? '3.5rem' : '0rem',
-                                    position: 'relative',
-                                    zIndex: 1,
-                                }}
-                            >
-                                {title}
-                            </Typography>
-                        </Box>
+                <Box
+                    sx={{
+                        position: 'relative',
+                        height: '42vw',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Image src={image} alt='header image' style={{ width: '100%', height: 'auto', position: 'absolute' }} />
+                    <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
+                        <Typography
+                            variant='h1'
+                            sx={{
+                                fontSize: ultraMobileMode ? '3.8rem' : mobileMode ? '4.2rem' : wideMobileMode ? '5rem' : '5.4rem',
+                                pt: mobileMode ? '3.5rem' : '0rem',
+                                position: 'relative',
+                                zIndex: 1,
+                            }}
+                        >
+                            {title}
+                        </Typography>
                     </Box>
-                </VisibilityTracker>
+                </Box>
                 <Container maxWidth='xl' disableGutters sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
                     {children}
                 </Container>
