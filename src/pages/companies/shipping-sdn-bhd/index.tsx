@@ -50,10 +50,10 @@ export default function Home() {
                         src={malayFlag}
                         alt='malayFlag'
                         style={{
-                            width: '8rem',
+                            width: customMobileMode || mobileMode ? '6rem' : '8rem',
+                            top: customMobileMode || mobileMode ? '-10rem' : '-11rem',
                             height: 'auto',
                             position: 'absolute',
-                            top: '-11rem',
                             left: 0,
                             filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.6))',
                         }}
@@ -237,19 +237,11 @@ export default function Home() {
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
                         Ocean Freight:
                     </Typography>
-                    <CustomText
-                        text={
-                            '(Providing you with the most flexible, cost-efficient and fully coordinated end-to-end ocean freight solutions)\n We’re here to ensure your cargo reaches the right place, at the right time, in the most economical way – without the need to compromise on quality or reliability. Through the extensive equipment and consolidation options of ocean freight, we work closely with you to find budget-friendly, end-to-end ocean cargo shipping solutions, tailored to your specific needs. We’re here to take the stress out of shipping for you. We give you confidence and control, providing full visibility of your shipments and offering a wide range of quality controlled equipment types that suit you.'
-                        }
-                    />
+                    <CustomText text='Providing you with the most flexible, cost-efficient and fully coordinated end-to-end ocean freight solutions. We’re here to ensure your cargo reaches the right place, at the right time, in the most economical way – without the need to compromise on quality or reliability. Through the extensive equipment and consolidation options of ocean freight, we work closely with you to find budget-friendly, end-to-end ocean cargo shipping solutions, tailored to your specific needs. We’re here to take the stress out of shipping for you. We give you confidence and control, providing full visibility of your shipments and offering a wide range of quality controlled equipment types that suit you.' />
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
                         Customs Services:
                     </Typography>
-                    <CustomText
-                        text={
-                            '(Taking the complexity out of customs, so you can focus on your business and your customers)\n We understand that you need a resilient customs partner with the local expertise and global tools that provide you with a consistent, high-quality service, no matter where your business takes you. In an ever-changing regulatory environment, secure the peace of mind that comes with knowing that your goods are cleared fast, and in total compliance with the rules of your market. Let one of the world’s largest customs brokers put their global network at your disposal.'
-                        }
-                    />
+                    <CustomText text='Taking the complexity out of customs, so you can focus on your business and your customers. We understand that you need a resilient customs partner with the local expertise and global tools that provide you with a consistent, high-quality service, no matter where your business takes you. In an ever-changing regulatory environment, secure the peace of mind that comes with knowing that your goods are cleared fast, and in total compliance with the rules of your market. Let one of the world’s largest customs brokers put their global network at your disposal.' />
                     {mobileMode ? (
                         <Box>
                             <ServicesCardMobile

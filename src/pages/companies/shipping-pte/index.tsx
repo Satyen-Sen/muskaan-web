@@ -44,10 +44,10 @@ export default function Home() {
                         src={singaporeFlag}
                         alt='singaporeFlag'
                         style={{
-                            width: '8rem',
+                            width: customMobileMode || mobileMode ? '6rem' : '8rem',
+                            top: customMobileMode || mobileMode ? '-10rem' : '-11rem',
                             height: 'auto',
                             position: 'absolute',
-                            top: '-11rem',
                             left: 0,
                             filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.6))',
                         }}

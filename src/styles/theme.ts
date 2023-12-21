@@ -150,7 +150,6 @@ const theme = createTheme({
                     color: '#003A9B',
                     backgroundColor: '#FFFFFF',
                     fontSize: '1.25rem',
-                    '&.Mui-selected': { color: '#FFFFFF', border: 0 },
                 },
             },
         },
@@ -163,6 +162,15 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     borderBottom: 'none',
+                },
+            },
+        },
+        MuiTooltip: {
+            styleOverrides: {
+                tooltip: {
+                    fontSize: '0.85rem',
+                    color: '#FFFFFF',
+                    backgroundColor: '#003A9B',
                 },
             },
         },
