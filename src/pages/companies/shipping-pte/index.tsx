@@ -1,9 +1,10 @@
 import React from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import CompaniesLayout from '../CompaniesLayout'
 import shippingBg from '@/assets/companies/shipping-pte-bg.webp'
+import singaporeFlag from '@/assets/companies/flags/singapore.webp'
 import titleImg from '@/assets/companies/muskaan_shipping/shipping.webp'
 import statistics18 from '@/assets/companies/muskaan_shipping/statistics.webp'
 import statisticsMerchandiseTrade from '@/assets/companies/muskaan_shipping/merchandise_trade.webp'
@@ -26,18 +27,32 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title={'Muskan Shipping PTE Ltd.'}
+            title='Muskan Shipping PTE Ltd.'
             subtitle='Effortless Shipping and Logisics'
             caption='UEN 201219318Z'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.184303450182!2d103.9045156231366!3d1.333844262451175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17fac0a6a723%3A0x168dad5006e4ed5e!2sEunos%20Techpark!5e0!3m2!1sen!2sin!4v1702716372440!5m2!1sen!2sin'
             }
-            address='60 Kaki Bukit Place #02-13Suites 3 Eunos Techpark, Singapore 415979'
+            mapTitle='Muskan Shipping PTE Ltd.'
+            address='60 Kaki Bukit Place, #02-13 Suites 3, Eunos Techpark, Singapore 415979'
             telephoneNumber='+65 63224420'
             emailId='Singapore@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
-                <Container maxWidth='xl' disableGutters>
+                <Container maxWidth='xl' disableGutters sx={{ position: 'relative' }}>
+                    <Image
+                        src={singaporeFlag}
+                        alt='singaporeFlag'
+                        style={{
+                            width: '8rem',
+                            height: 'auto',
+                            position: 'absolute',
+                            top: '-11rem',
+                            left: 0,
+                            filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.6))',
+                        }}
+                    />
+
                     <Typography variant='h2' sx={{ mb: '1rem', color: '#1B1B1F' }}>
                         About Us
                     </Typography>
@@ -55,16 +70,28 @@ export default function Home() {
                     <Typography variant='h3' sx={{ textAlign: 'start', mt: theme.spacing(4), color: '#1B1B1F' }}>
                         Statistics
                     </Typography>
-                    <Image src={statistics18} alt='' style={{ width: '100%', height: 'auto', padding: '1rem 8rem' }} />
+                    <Image
+                        src={statistics18}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '1rem 0rem' : '1rem 8rem' }}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Overall Exports & Imports of Services (2014-18)
                     </Typography>
-                    <Image src={statisticsMerchandiseTrade} alt='' style={{ width: '100%', height: 'auto', padding: '1rem 8rem' }} />
+                    <Image
+                        src={statisticsMerchandiseTrade}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '1rem 0rem' : '1rem 8rem' }}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Total Merchandise Tradeat Current Prices, 2018-2022
                     </Typography>
                     <StatisticsCard exporterRank={14} importerRank={15} tradeBalanceRank={13} totalTradeAmtList={totalTradeAmtList} />
-                    <Image src={statisticsNonOilMerchandiseTrade} alt='' style={{ width: '100%', height: 'auto', padding: '1rem 8rem' }} />
+                    <Image
+                        src={statisticsNonOilMerchandiseTrade}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '1rem 0rem' : '1rem 8rem' }}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Non-Oil Merchandise trade BYMAJOR Commodity Section, 2022
                     </Typography>

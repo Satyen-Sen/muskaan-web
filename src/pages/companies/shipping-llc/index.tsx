@@ -3,6 +3,7 @@ import Image, { StaticImageData } from 'next/image'
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import CompaniesLayout from '../CompaniesLayout'
+import dubaiFlag from '@/assets/companies/flags/dubai.webp'
 import shippingBg from '@/assets/companies/shipping-llc-bg.webp'
 import titleImg from '@/assets/companies/muskaan_shipping_llc/shipping.png'
 import airFreightImg from '@/assets/companies/muskaan_shipping_llc/air_freight.png'
@@ -64,12 +65,25 @@ export default function Home() {
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15145022.136160396!2d67.03364636869956!3d22.068134271266782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432a3cfe94f7%3A0x70f0d50a6e4cbbac!2sMUSKAAN+SHIPPING+LLC!5e0!3m2!1sen!2sin!4v1561552755032!5m2!1sen!2sin'
             }
-            address='Mohammed Noor Talib Bldg.,701, 7th floor, Khaleed bin waleed Road Opp.Royal Ascot Hotel Burdubai,PO Box : - 128160 Dubai'
+            mapTitle='Muskaan Shipping LLC'
+            address={`Mohammed Noor Talib Building, 701, 7th floor, Khaleed bin waleed Road, Opp. Royal Ascot Hotel Burdubai, \n Dubai - 128160. `}
             telephoneNumber='+97143511215'
             emailId='Dubai@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
-                <Container maxWidth='xl' disableGutters>
+                <Container maxWidth='xl' disableGutters sx={{ position: 'relative' }}>
+                    <Image
+                        src={dubaiFlag}
+                        alt='dubaiFlag'
+                        style={{
+                            width: '8rem',
+                            height: 'auto',
+                            position: 'absolute',
+                            top: '-11rem',
+                            left: 0,
+                            filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.6))',
+                        }}
+                    />
                     <Typography variant='h2' sx={{ mb: '1rem', color: '#1B1B1F' }}>
                         About Us
                     </Typography>
@@ -82,7 +96,7 @@ export default function Home() {
                         </Grid>
                     </Grid>
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
-                        Core business of Muskaan Line:
+                        Expertise of Muskaan shipping
                     </Typography>
                     <CustomText
                         text={
@@ -118,7 +132,15 @@ export default function Home() {
                     </Typography>
                     <CustomText
                         text={
-                            'WTO pointed out that the global real GDP at market exchange rates will grow by 2.4 per cent in 2023, while trade and GDP are projected to grow by 2.6 per cent and 2.7 per cent respectively, down from the averages of the last 12 years.\nGlobal trade growth in Europe\nAccording to the WTO, global trade is expected to grow by 1.8 per cent in Europe, and 0.9 per cent in the Middle East, while the region’s imports are projected to increase by approximately 5.5 per cent in 2023. The expected 1.7 per cent trade growth in 2023, slightly higher than the 1 per cent projected previously, is attributed to easing the Covid-19 restrictions in China. This is expected to drive increase in consumer demand in China and boost global trade.'
+                            'WTO pointed out that the global real GDP at market exchange rates will grow by 2.4 per cent in 2023, while trade and GDP are projected to grow by 2.6 per cent and 2.7 per cent respectively, down from the averages of the last 12 years.'
+                        }
+                    />
+                    <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
+                        Global trade growth in Europe:
+                    </Typography>
+                    <CustomText
+                        text={
+                            'According to the WTO, global trade is expected to grow by 1.8 per cent in Europe, and 0.9 per cent in the Middle East, while the region’s imports are projected to increase by approximately 5.5 per cent in 2023. The expected 1.7 per cent trade growth in 2023, slightly higher than the 1 per cent projected previously, is attributed to easing the Covid-19 restrictions in China. This is expected to drive increase in consumer demand in China and boost global trade.'
                         }
                     />
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>

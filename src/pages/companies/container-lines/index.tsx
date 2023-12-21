@@ -181,8 +181,8 @@ export default function Home() {
                     </Grid>
                     <Typography paragraph variant='subtitle2' sx={{ color: '#031225', fontWeight: '300', textAlign: 'justify' }}>
                         Shipping cargo often requires specialized containers to ensure safe and efficient transportation. Our company
-                        provides a variety of specialized containers tailored to different cargo needs. These include:{' '}
-                    </Typography>{' '}
+                        provides a variety of specialized containers tailored to different cargo needs. These include:
+                    </Typography>
                     <Grid container spacing={1} sx={{ my: '4rem' }}>
                         <Grid item xs={12} sm={6}>
                             <ContainerType

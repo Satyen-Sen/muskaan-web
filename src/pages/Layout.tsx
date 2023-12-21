@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import type { StaticImageData } from 'next/image'
 import HeaderSection from '../sections/HeaderSection'
 import FooterSection from '../sections/FooterSection'
@@ -28,13 +29,14 @@ declare type LayoutProps = {
     image: string | StaticImageData
     title?: string
     subtitle?: string
+    pageTitle?: string
     withTabs?: boolean
     children: React.ReactNode
     props?: Props
     customHeight?: string
 }
 
-export default function Layout({ image, title, subtitle, withTabs, children, props, customHeight }: LayoutProps) {
+export default function Layout({ image, title, subtitle, withTabs, children, props, customHeight, pageTitle }: LayoutProps) {
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 0,
@@ -42,17 +44,23 @@ export default function Layout({ image, title, subtitle, withTabs, children, pro
     })
 
     return (
-        <React.Fragment>
-            <ElevationScroll {...props}>
-                <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
-                    <Navbar />
-                </AppBar>
-            </ElevationScroll>
-            <Box sx={{ backgroundColor: '#EFF6FF' }}>
-                <HeaderSection image={image} title={title} subtitle={subtitle} customHeight={customHeight} />
-                <Box>{withTabs ? <Box>{children}</Box> : <Container maxWidth='xl'>{children}</Container>}</Box>
-                <FooterSection />
-            </Box>
-        </React.Fragment>
+        <>
+            <Head>
+                <title>{pageTitle} | Muskan Group </title>
+            </Head>
+
+            <React.Fragment>
+                <ElevationScroll {...props}>
+                    <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
+                        <Navbar />
+                    </AppBar>
+                </ElevationScroll>
+                <Box sx={{ backgroundColor: '#EFF6FF' }}>
+                    <HeaderSection image={image} title={title} subtitle={subtitle} customHeight={customHeight} />
+                    <Box>{withTabs ? <Box>{children}</Box> : <Container maxWidth='xl'>{children}</Container>}</Box>
+                    <FooterSection />
+                </Box>
+            </React.Fragment>
+        </>
     )
 }

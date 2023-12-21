@@ -5,7 +5,7 @@ function CompanyInfo({ title, body }: { title: String; body: String }) {
     return (
         <Box sx={{ mb: '1rem' }}>
             <InputLabel>{title}</InputLabel>
-            <Typography variant='subtitle2' sx={{ textAlign: 'start', mb: '0.5rem', color: '#1B1B1F' }}>
+            <Typography variant='subtitle2' sx={{ textAlign: 'start', mb: '0.5rem', color: '#1B1B1F', whiteSpace: 'pre-line' }}>
                 {body}
             </Typography>
         </Box>
@@ -14,11 +14,13 @@ function CompanyInfo({ title, body }: { title: String; body: String }) {
 
 function MuskaanGroupHq({
     mapSrc,
+    mapTitle,
     address,
     telephoneNumber,
     emailId,
 }: {
     mapSrc?: string
+    mapTitle?: string
     address?: String
     telephoneNumber?: String
     emailId?: String
@@ -46,14 +48,14 @@ function MuskaanGroupHq({
             <Grid item xs={12} sm={6}>
                 <Box>
                     <Typography variant='h3' textAlign='start' sx={{ mb: '1.5rem', color: '#1B1B1F' }}>
-                        Muskan group of Companies
+                        {mapTitle || 'Muskan group of Companies'}
                     </Typography>
 
                     <Grid container spacing={2}>
                         <Grid item xs={8}>
                             <CompanyInfo
                                 title='Registered Office'
-                                body={address || 'Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor,NEW DELHI - 110078'}
+                                body={address || `Muskan Tower, Plot no. 83, Old Palam Rd, Shiv Park, kakrola Mor, \n NEW DELHI - 110078`}
                             />
                             <CompanyInfo title='Telephone No.' body={telephoneNumber || '011 41587468/40687469'} />
                         </Grid>

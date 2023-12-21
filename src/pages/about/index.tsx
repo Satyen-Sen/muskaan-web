@@ -25,7 +25,13 @@ export default function Home() {
     }
 
     return (
-        <Layout image={aboutBackground} title='Muskan Group Of Companies' withTabs customHeight={mobileMode ? '45vw' : '35vw'}>
+        <Layout
+            image={aboutBackground}
+            title='Muskan Group Of Companies'
+            withTabs
+            customHeight={mobileMode ? '45vw' : '35vw'}
+            pageTitle='About'
+        >
             <Tabs value={value} onChange={handleChange} variant='fullWidth'>
                 <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF' }} />
                 <Tab label='Companies' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF' }} />

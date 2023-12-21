@@ -3,6 +3,7 @@ import Image, { StaticImageData } from 'next/image'
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import CompaniesLayout from '../CompaniesLayout'
+import malayFlag from '@/assets/companies/flags/malay.webp'
 import shippingBg from '@/assets/companies/shipping-sdn-bhd-bg.webp'
 import titleImg from '@/assets/companies/muskaan_shipping_sdn/shipping.webp'
 import statistics from '@/assets/companies/muskaan_shipping_sdn/statistics.webp'
@@ -31,19 +32,32 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title={'Muskaan Shipping SDN BHD'}
+            title='Muskaan Shipping SDN BHD'
             subtitle='Penghantaran dan Logistik yang Mudah'
             caption='(846593-A)'
             companyName='MUSKAAN SHIPPING SDN BHD'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.2665006882808!2d101.46583722797837!3d3.0515958014528834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc533c31d06c2d%3A0xc1ad8304f5dad6f8!2sCENTRO+MALL!5e0!3m2!1sen!2sin!4v1558955895296!5m2!1sen!2sin'
             }
-            address='Centro Business CentreSuite #16-02, level 16,No.8 Jalan Batu Tiga Lama,Klang 41200 Selangor, Malaysia'
+            mapTitle='Muskaan Shipping SDN BHD'
+            address='Centro Business Centre, Suite #16-02, level 16, No.8 Jalan Batu Tiga Lama, Klang 41200 Selangor, Malaysia'
             telephoneNumber='+603-33418460/61'
             emailId='Malaysiapkl@muskan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
-                <Container maxWidth='xl' disableGutters>
+                <Container maxWidth='xl' disableGutters sx={{ position: 'relative' }}>
+                    <Image
+                        src={malayFlag}
+                        alt='malayFlag'
+                        style={{
+                            width: '8rem',
+                            height: 'auto',
+                            position: 'absolute',
+                            top: '-11rem',
+                            left: 0,
+                            filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.6))',
+                        }}
+                    />
                     <Typography variant='h2' sx={{ mb: '1rem', color: '#1B1B1F' }}>
                         About Us
                     </Typography>
@@ -63,28 +77,60 @@ export default function Home() {
                     <Typography variant='h3' sx={{ textAlign: 'start', mt: '4rem', mb: '1rem', color: '#1B1B1F' }}>
                         Statistics
                     </Typography>
-                    <Image src={statistics} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Image
+                        src={statistics}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '2rem 0rem' : '2rem 6rem' }}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Country Growth V/S World Growth V/S GDP Growth
                     </Typography>
-                    <Image src={statisticsMonthlyExport} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
+                    <Image
+                        src={statisticsMonthlyExport}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '2rem 0rem' : '2rem 6rem' }}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Malaysia’s Monthly Exports by Main Sectors, January-November 2023
                     </Typography>
-                    <Image src={statisticsTotalExports} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
-                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
-                        {"Malaysia’s Exports by Main Sectors, Jan-Nov 2023\nTotal Exports: RM1.308 trillion"}
+                    <Image
+                        src={statisticsTotalExports}
+                        alt=''
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            padding: mobileMode || customMobileMode ? '2rem 0rem' : '2rem 6rem',
+                        }}
+                    />
+                    <Typography
+                        variant='h4'
+                        sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}
+                    >
+                        {'Malaysia’s Exports by Main Sectors, Jan-Nov 2023\nTotal Exports: RM1.308 trillion'}
                     </Typography>
                     <StatisticsCard exporterRank={23} importerRank={25} tradeBalanceRank={10} totalTradeAmtList={totalTradeAmtList} />
-                    <Image src={statisticsExportsCountries22} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
-                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
-                        {"Top 10 Major Export Countries, Jan-Nov 2022\nTotal Exports: RM1.418 trillion"}
+                    <Image
+                        src={statisticsExportsCountries22}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '2rem 0rem' : '2rem 6rem' }}
+                    />
+                    <Typography
+                        variant='h4'
+                        sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}
+                    >
+                        {'Top 10 Major Export Countries, Jan-Nov 2022\nTotal Exports: RM1.418 trillion'}
                     </Typography>
-                    <Image src={statisticsExportsCountries23} alt='' style={{ width: '100%', height: 'auto', padding: '2rem 6rem' }} />
-                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}>
-                        {"Top 10 Major Export Countries, Jan-Nov 2023\nTotal Exports: RM1.308 trillion"}
+                    <Image
+                        src={statisticsExportsCountries23}
+                        alt=''
+                        style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '2rem 0rem' : '2rem 6rem' }}
+                    />
+                    <Typography
+                        variant='h4'
+                        sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600, whiteSpace: 'pre-line' }}
+                    >
+                        {'Top 10 Major Export Countries, Jan-Nov 2023\nTotal Exports: RM1.308 trillion'}
                     </Typography>
-
                 </Container>
             </Box>
             <Box

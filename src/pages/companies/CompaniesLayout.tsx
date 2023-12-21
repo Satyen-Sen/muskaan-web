@@ -1,8 +1,9 @@
 import React from 'react'
+import Head from 'next/head'
 import type { StaticImageData } from 'next/image'
 import HeaderSection from '../../sections/HeaderSection'
 import FooterSection from '../../sections/FooterSection'
-import { AppBar, Box, Container, Typography, useScrollTrigger } from '@mui/material'
+import { AppBar, Box, Container, Typography, useMediaQuery, useScrollTrigger } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import MuskaanGroupHq from '../../components/MuskaanGroupHq'
 import Navbar from '../../components/Navbar'
@@ -31,10 +32,11 @@ declare type CompaniesLayoutProps = {
     title?: string
     subtitle?: string
     caption?: string
-    address?: String
-    telephoneNumber?: String
-    emailId?: String
-    companyName?: String
+    mapTitle?: string
+    address?: string
+    telephoneNumber?: string
+    emailId?: string
+    companyName?: string
     children: React.ReactNode
     props?: Props
 }
@@ -47,6 +49,7 @@ export default function CompaniesLayout({
     children,
     props,
     mapSrc,
+    mapTitle,
     address,
     telephoneNumber,
     emailId,
@@ -59,30 +62,44 @@ export default function CompaniesLayout({
         target: props?.window ? props.window() : undefined,
     })
 
+    const tabletMode = useMediaQuery('(max-width:899px)')
+    const mobileMode = useMediaQuery('(max-width:649px)')
+
     return (
-        <React.Fragment>
-            <ElevationScroll {...props}>
-                <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
-                    <Navbar />
-                </AppBar>
-            </ElevationScroll>
-            <Box sx={{ backgroundColor: '#EFF6FF' }}>
-                <HeaderSection image={image} title={title} subtitle={subtitle} caption={caption} />
+        <>
+            <Head>
+                <title>{title} | Muskan Group </title>
+            </Head>
+            <React.Fragment>
+                <ElevationScroll {...props}>
+                    <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
+                        <Navbar />
+                    </AppBar>
+                </ElevationScroll>
+                <Box sx={{ backgroundColor: '#EFF6FF' }}>
+                    <HeaderSection image={image} title={title} subtitle={subtitle} caption={caption} />
 
-                <Container maxWidth='xl' disableGutters>
-                    {children}
-                </Container>
-
-                <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
-                    <Container maxWidth='xl' disableGutters>
-                        <Typography variant='h3' sx={{ textAlign: 'start', mb: '1rem', mt: '4rem', color: '#1B1B1F' }}>
-                            {companyName || 'Contact Us'}
-                        </Typography>
-                        <MuskaanGroupHq address={address} mapSrc={mapSrc} telephoneNumber={telephoneNumber} emailId={emailId} />
+                    <Container maxWidth='xl' disableGutters sx={{ pt: theme.spacing(tabletMode ? 7 : 2) }}>
+                        {children}
                     </Container>
+
+                    <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
+                        <Container maxWidth='xl' disableGutters>
+                            <Typography variant='h3' sx={{ textAlign: 'start', mb: '1rem', mt: '4rem', color: '#1B1B1F' }}>
+                                Contact Us
+                            </Typography>
+                            <MuskaanGroupHq
+                                address={address}
+                                mapSrc={mapSrc}
+                                mapTitle={mapTitle}
+                                telephoneNumber={telephoneNumber}
+                                emailId={emailId}
+                            />
+                        </Container>
+                    </Box>
+                    <FooterSection />
                 </Box>
-                <FooterSection />
-            </Box>
-        </React.Fragment>
+            </React.Fragment>
+        </>
     )
 }

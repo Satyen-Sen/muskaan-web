@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import type { StaticImageData } from 'next/image'
 import HeaderSection from '../../sections/HeaderSection'
 import FooterSection from '../../sections/FooterSection'
@@ -45,36 +46,41 @@ export default function ServicesLayout({ image, title, subtitle, children, props
     })
 
     return (
-        <React.Fragment>
-            <ElevationScroll {...props}>
-                <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
-                    <Navbar />
-                </AppBar>
-            </ElevationScroll>
-            <Box sx={{ backgroundColor: '#EFF6FF' }}>
-                <HeaderSection image={image} title={ultraMobileMode ? '' : title} subtitle={subtitle} />
-                <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
-                    <Container maxWidth='xl' disableGutters>
-                        {children}
-                    </Container>
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                        px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) },
-                        mt: theme.spacing(6),
-                        mb: theme.spacing(-6),
-                    }}
-                >
-                    <Link href='/quote'>
-                        <PrimaryButton text='Quote Now' />
-                    </Link>
-                </Box>
+        <>
+            <Head>
+                <title>{subtitle} | Muskan Group </title>
+            </Head>
+            <React.Fragment>
+                <ElevationScroll {...props}>
+                    <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
+                        <Navbar />
+                    </AppBar>
+                </ElevationScroll>
+                <Box sx={{ backgroundColor: '#EFF6FF' }}>
+                    <HeaderSection image={image} title={ultraMobileMode ? '' : title} subtitle={subtitle} />
+                    <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
+                        <Container maxWidth='xl' disableGutters>
+                            {children}
+                        </Container>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) },
+                            mt: theme.spacing(6),
+                            mb: theme.spacing(-6),
+                        }}
+                    >
+                        <Link href='/quote'>
+                            <PrimaryButton text='Quote Now' />
+                        </Link>
+                    </Box>
 
-                <ServicesCards />
-                <FooterSection />
-            </Box>
-        </React.Fragment>
+                    <ServicesCards />
+                    <FooterSection />
+                </Box>
+            </React.Fragment>
+        </>
     )
 }

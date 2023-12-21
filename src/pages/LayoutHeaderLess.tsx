@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import FooterSection from '../sections/FooterSection'
 import { AppBar, Box, Container, useScrollTrigger } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
@@ -22,22 +23,27 @@ function ElevationScroll(props: Props) {
     })
 }
 
-export default function LayoutHeaderLess({ children, props }: { children: React.ReactNode; props?: Props }) {
+export default function LayoutHeaderLess({ pageTitle, children, props }: { pageTitle?: string; children: React.ReactNode; props?: Props }) {
     const theme = useTheme()
 
     return (
-        <React.Fragment>
-            <ElevationScroll {...props}>
-                <AppBar>
-                    <Navbar />
-                </AppBar>
-            </ElevationScroll>
-            <Box sx={{ backgroundColor: '#EFF6FF', mx: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
-                <Container maxWidth='xl' disableGutters>
-                    {children}
-                </Container>
-            </Box>
-            <FooterSection />
-        </React.Fragment>
+        <>
+            <Head>
+                <title>{pageTitle} | Muskan Group </title>
+            </Head>
+            <React.Fragment>
+                <ElevationScroll {...props}>
+                    <AppBar>
+                        <Navbar />
+                    </AppBar>
+                </ElevationScroll>
+                <Box sx={{ backgroundColor: '#EFF6FF', mx: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
+                    <Container maxWidth='xl' disableGutters>
+                        {children}
+                    </Container>
+                </Box>
+                <FooterSection />
+            </React.Fragment>
+        </>
     )
 }

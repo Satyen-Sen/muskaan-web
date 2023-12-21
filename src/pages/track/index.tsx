@@ -96,7 +96,7 @@ export default function Home() {
     const [shipmentData, setShipmentData] = useState([1, 2, 3])
 
     return (
-        <LayoutCentered image={titleImg} title={ultraMobileMode ? 'Track' : 'Track Shipments'}>
+        <LayoutCentered image={titleImg} title={ultraMobileMode ? 'Track' : 'Track Shipments'} pageTitle='Track Shipments'>
             <Box sx={{ mx: ultraMobileMode ? '0rem' : mobileMode ? '2rem' : wideMobileMode ? '4rem' : '6rem' }}>
                 <Box
                     sx={{

@@ -123,7 +123,7 @@ export default function Home() {
     }, [pol, pod, dateValue])
 
     return (
-        <LayoutCentered image={titleImg} title={ultraMobileMode ? 'Schedules' : 'Vessel Schedules'}>
+        <LayoutCentered image={titleImg} title={ultraMobileMode ? 'Schedules' : 'Vessel Schedules'} pageTitle='Search Vessel Schedules'>
             <Box
                 sx={{
                     position: 'relative',

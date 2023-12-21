@@ -34,6 +34,7 @@ export default function Home() {
             subtitle={'Range of container types tailored\n to your shipping needs'}
             customHeight={mobileMode ? '48vw' : '42vw'}
             withTabs
+            pageTitle='Equipments'
         >
             <Box sx={{ overflowX: 'auto' }}>
                 <Tabs value={value} onChange={handleChange} variant='fullWidth'>

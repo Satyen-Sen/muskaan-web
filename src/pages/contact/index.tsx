@@ -109,7 +109,12 @@ export default function Home() {
     }
 
     return (
-        <Layout image={contactBackground} title="Let's Talk" subtitle={mobileMode ? '' : 'We would love to deliver your goods'}>
+        <Layout
+            image={contactBackground}
+            title="Let's Talk"
+            subtitle={mobileMode ? '' : 'We would love to deliver your goods'}
+            pageTitle='Contact'
+        >
             <Box sx={{ mx: { xs: 0, sm: '1rem', md: '9rem' }, my: '2rem' }}>
                 <MuskaanGroupHq />
 

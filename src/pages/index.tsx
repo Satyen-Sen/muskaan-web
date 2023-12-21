@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import { useTheme } from '@mui/material/styles'
 import { AppBar, Box, useMediaQuery, useScrollTrigger } from '@mui/material'
 import HeroSection from '../sections/HeroSection'
@@ -42,34 +43,39 @@ export default function ElevateAppBar(props: Props) {
     })
 
     return (
-        <React.Fragment>
-            <ElevationScroll {...props}>
-                <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
-                    <Navbar />
-                </AppBar>
-            </ElevationScroll>
-            <Box sx={{ background: '#EFF6FF', width: '100vw' }}>
-                <HeroSection />
+        <>
+            <Head>
+                <title>Home | Muskan Group </title>
+            </Head>
+            <React.Fragment>
+                <ElevationScroll {...props}>
+                    <AppBar position='fixed' style={{ backgroundColor: trigger ? '#003A9B' : '#003A9B40' }}>
+                        <Navbar />
+                    </AppBar>
+                </ElevationScroll>
+                <Box sx={{ background: '#EFF6FF', width: '100vw' }}>
+                    <HeroSection />
 
-                <Box
-                    sx={{
-                        position: 'relative',
-                        top: desktopMode ? '-18vh' : tabletMode ? '-16vh' : mobileMode ? '-12vh' : SmallMobileMode ? '-9vh' : '0vh',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        mx: theme.spacing(2),
-                    }}
-                >
-                    <ShipmentTracker />
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            top: desktopMode ? '-18vh' : tabletMode ? '-16vh' : mobileMode ? '-12vh' : SmallMobileMode ? '-9vh' : '0vh',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            mx: theme.spacing(2),
+                        }}
+                    >
+                        <ShipmentTracker />
+                    </Box>
+
+                    <ServicesSection />
+                    <ShippingSection />
+                    <BusinessPresenceSection />
+                    <ClienteleSection />
+                    <ContactSection />
+                    <FooterSection />
                 </Box>
-
-                <ServicesSection />
-                <ShippingSection />
-                <BusinessPresenceSection />
-                <ClienteleSection />
-                <ContactSection />
-                <FooterSection />
-            </Box>
-        </React.Fragment>
+            </React.Fragment>
+        </>
     )
 }

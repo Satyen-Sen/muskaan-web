@@ -43,7 +43,12 @@ export default function Home() {
     }
 
     return (
-        <Layout image={careerBackground} title='Join Muskan' subtitle={mobileMode ? '' : 'Unlock a World of Career Possibilities'}>
+        <Layout
+            image={careerBackground}
+            title='Join Muskan'
+            subtitle={mobileMode ? '' : 'Unlock a World of Career Possibilities'}
+            pageTitle='Career'
+        >
             <Box sx={{ px: { xs: theme.spacing(mobileMode ? 0 : 2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Typography variant='h2' textAlign='center' gutterBottom sx={{ fontSize: tabMode ? '2.4rem' : '3rem' }}>
                     Interested? We are Hiring

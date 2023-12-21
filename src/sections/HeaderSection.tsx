@@ -16,7 +16,9 @@ declare type HeaderProps = {
 
 export default function HeaderSection({ image, title, subtitle, caption, customHeight }: HeaderProps) {
     const theme = useTheme()
+    const widetabletMode = useMediaQuery('(max-width:899px)')
     const tabletMode = useMediaQuery('(max-width:749px)')
+    const widemobileMode = useMediaQuery('(max-width:649px)')
     const mobileMode = useMediaQuery('(max-width:599px)')
     const ultraMobileMode = useMediaQuery('(max-width:399px)')
 
@@ -35,8 +37,8 @@ export default function HeaderSection({ image, title, subtitle, caption, customH
                     src={image}
                     alt='cargo'
                     style={{
-                        width: mobileMode ? 'auto' : '100%',
-                        height: mobileMode ? '50vw' : 'auto',
+                        width: widetabletMode ? 'auto' : '100%',
+                        height: widetabletMode ? '100%' : 'auto',
                         position: 'absolute',
                     }}
                     loading='lazy'
@@ -59,7 +61,7 @@ export default function HeaderSection({ image, title, subtitle, caption, customH
                         <Typography
                             variant='h1'
                             sx={{
-                                mt: theme.spacing(mobileMode ? 6 : 8),
+                                mt: theme.spacing(widemobileMode ? 6 : 8),
                                 fontSize: ultraMobileMode ? '1.8rem' : mobileMode ? '2.4rem' : tabletMode ? '3rem' : '4.5rem',
                                 whiteSpace: 'pre-line',
                                 lineHeight: ultraMobileMode ? '2.2rem' : mobileMode ? '3rem' : tabletMode ? '3.8rem' : '6.2rem',
