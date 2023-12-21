@@ -5,6 +5,7 @@ import { AppBar, Box, useMediaQuery, useScrollTrigger } from '@mui/material'
 import HeroSection from '../sections/HeroSection'
 import ServicesSection from '../sections/ServicesSection'
 import ShippingSection from '../sections/ShippingSection'
+import NetworkSection from '@/sections/NetworkSection'
 import BusinessPresenceSection from '../sections/BusinessPresenceSection'
 import ClienteleSection from '../sections/ClienteleSection'
 import ContactSection from '../sections/ContactSection'
@@ -70,6 +71,7 @@ export default function ElevateAppBar(props: Props) {
 
                     <ServicesSection />
                     <ShippingSection />
+                    <NetworkSection />
                     <BusinessPresenceSection />
                     <ClienteleSection />
                     <ContactSection />

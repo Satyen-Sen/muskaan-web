@@ -21,7 +21,7 @@ export default function ServicesSection() {
             id='services'
         >
             <Container disableGutters maxWidth='xl'>
-                <Typography variant='h2' textAlign='center' sx={{fontFamily: oswald.style.fontFamily,}}>
+                <Typography variant='h2' textAlign='center' sx={{ fontFamily: oswald.style.fontFamily }}>
                     Our Services
                 </Typography>
 

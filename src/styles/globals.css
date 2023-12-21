@@ -69,8 +69,11 @@ html {
         font-size: 110%;
     }
 }
-@media screen and (min-width: 1700px) {
-    html {
-        font-size: 120%;
-    }
+
+.ellipsis-8-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
