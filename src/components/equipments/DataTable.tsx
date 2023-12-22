@@ -102,60 +102,36 @@ export default function DataTable({ column, lessRows }: DataTableProps) {
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.l?.mm}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.l?.ft}
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.w?.mm}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.w?.ft}
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.h?.mm}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.h?.ft}
                     </Typography>
                 </TableCell>
@@ -200,40 +176,24 @@ export default function DataTable({ column, lessRows }: DataTableProps) {
 
                     <TableRow sx={{ height: '4rem' }}>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.doorWidth?.mm}
                             </Typography>
                         </TableCell>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.doorWidth?.ft}
                             </Typography>
                         </TableCell>
                     </TableRow>
                     <TableRow sx={{ height: '4rem' }}>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.doorHeight?.ft}
                             </Typography>
                         </TableCell>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.doorHeight?.ft}
                             </Typography>
                         </TableCell>
@@ -275,80 +235,48 @@ export default function DataTable({ column, lessRows }: DataTableProps) {
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.gross?.kg}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.gross?.lbs}
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.twe?.kg}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.twe?.lbs}
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.twi?.kg}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.twi?.lbs}
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.maxPayload?.kg}
                     </Typography>
                 </TableCell>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.weight?.maxPayload?.lbs}
                     </Typography>
                 </TableCell>
@@ -390,20 +318,12 @@ export default function DataTable({ column, lessRows }: DataTableProps) {
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell sx={{ height: theme.spacing(3) }}>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.maxLoad?.t}
                     </Typography>
                 </TableCell>
                 <TableCell sx={{ height: theme.spacing(3) }}>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         {column?.maxLoad?.lbs}
                     </Typography>
                 </TableCell>
@@ -449,20 +369,12 @@ export default function DataTable({ column, lessRows }: DataTableProps) {
                     </TableRow>
                     <TableRow sx={{ height: '4rem' }}>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.capacity?.m}
                             </Typography>
                         </TableCell>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 {column?.capacity?.ft}
                             </Typography>
                         </TableCell>

@@ -71,30 +71,37 @@ export default function Home() {
         setFormData({ ...formData, enquiry_type: event.target.value })
     }
 
-    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const [successSnackbar, setSuccessSnackbar] = useState(false)
+    const [errorSnackbar, setErrorSnackbar] = useState(false)
     const [snackbarMessage, setSnackbarMessage] = useState('')
 
-    const openSnackbar = (message: string) => {
+    const openSuccessSnackbar = () => {
+        setSuccessSnackbar(true)
+    }
+    const openErrorSnackbar = (message: string) => {
         setSnackbarMessage(message)
-        setSnackbarOpen(true)
+        setErrorSnackbar(true)
     }
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false)
+    const closeSuccessSnackbar = () => {
+        setSuccessSnackbar(false)
     }
+    const closeErrorSnackbar = () => {
+        setErrorSnackbar(false)
+    }
+
     const handleFormSubmit = async () => {
         // Check if any field is empty
         const isAnyFieldEmpty = Object.values(formData).some((value) => value === '')
 
         if (isAnyFieldEmpty) {
-            openSnackbar('Please fill in all fields')
+            openErrorSnackbar('Please fill in all fields')
             return
         }
 
         try {
             const response = await postDataToApi('api/contact-us/', formData)
             console.log('Form submitted successfully:', response)
-            openSnackbar('Your message has been sent successfully')
-            // Reset form fields after successful submission
+            openSuccessSnackbar()
             setFormData({
                 name: '',
                 phone: '',
@@ -103,8 +110,8 @@ export default function Home() {
                 message: '',
             })
         } catch (error) {
-            console.error('Error submitting the form:', error)
-            openSnackbar('Form Submission Unsuccessful')
+            // openErrorSnackbar(error as string)
+            openErrorSnackbar(JSON.stringify(error))
         }
     }
 
@@ -294,13 +301,24 @@ export default function Home() {
                     </Box>
                 </Paper>
                 <Snackbar
-                    open={snackbarOpen}
+                    open={successSnackbar}
                     autoHideDuration={4000}
-                    onClose={handleSnackbarClose}
+                    onClose={closeSuccessSnackbar}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     TransitionComponent={(props) => <Slide {...props} direction='right' />}
                 >
                     <MuiAlert elevation={6} variant='filled' severity='success'>
+                        Your message has been sent successfully
+                    </MuiAlert>
+                </Snackbar>
+                <Snackbar
+                    open={errorSnackbar}
+                    autoHideDuration={4000}
+                    onClose={closeErrorSnackbar}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                    TransitionComponent={(props) => <Slide {...props} direction='right' />}
+                >
+                    <MuiAlert elevation={6} variant='filled' severity='error'>
                         {snackbarMessage}
                     </MuiAlert>
                 </Snackbar>

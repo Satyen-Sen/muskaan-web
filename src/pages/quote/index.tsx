@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import { postDataToApi } from '../../api/api'
-import {
-    Box,
-    FormControl,
-    FormControlLabel,
-    Grid,
-    IconButton,
-    InputLabel,
-    MenuItem,
-    Paper,
-    Radio,
-    RadioGroup,
-    Select,
-    Slide,
-    Snackbar,
-    TextField,
-    Typography,
-    useMediaQuery,
-} from '@mui/material'
-import { SelectChangeEvent } from '@mui/material/Select'
+import { Box, Grid, IconButton, InputLabel, Paper, Slide, Snackbar, TextField, Typography, useMediaQuery } from '@mui/material'
+import { FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import MuiAlert from '@mui/material/Alert'
 import { useTheme } from '@mui/material/styles'
 import PrimaryTextField from '../../components/PrimaryTextField'
 import RemoveIcon from '@mui/icons-material/Remove'
@@ -27,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import CloseIcon from '@mui/icons-material/Close'
 import SelectOrigin from '@/components/api/SelectOrigin'
 import SelectDestination from '@/components/api/SelectDestination'
+import SelectSearch from '@/components/api/SelectSearch'
 
 // date -picker
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -48,45 +33,131 @@ export default function Home() {
     const theme = useTheme()
     const mobileMode = useMediaQuery('(max-width:599px)')
 
-    const [containerType, setContainerType] = React.useState('')
-    const [weightType, setWeightType] = React.useState('')
-    const [containerCount, setContainerCount] = React.useState(0)
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setContainerType(event.target.value as string)
-    }
-    const handleSetWeight = (event: SelectChangeEvent) => {
-        setWeightType(event.target.value as string)
-    }
-
-    const increaseCount = () => {
-        setContainerCount(containerCount + 1)
-    }
-    const decreaseCount = () => {
-        if (containerCount > 0) {
-            setContainerCount(containerCount - 1)
-        }
-    }
-    const resetCount = () => {
-        setContainerCount(0)
-    }
-    const onClick = () => {
-        setOpen(true)
-    }
-
-    const [open, setOpen] = React.useState(false)
-
-    const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-        if (reason === 'clickaway') {
-            return
-        }
-        setOpen(false)
-    }
-
     const [originLocation, setOriginLocation] = useState<Port | null>(null)
     const [destinationLocation, setDestinationLocation] = useState<Port | null>(null)
-    const originPort = originLocation?.id
-    const destinationPort = destinationLocation?.id
+    const [containerSize, setContainerSize] = useState<string | null>('')
+    const [containerType, setContainerType] = useState<string | null>('')
+    const [containerCount, setContainerCount] = useState(0)
+    const [weightValue, setWeightValue] = useState<number | undefined>(undefined)
+    const [weightType, setWeightType] = useState<string | null>('')
+    const [customerType, setCustomerType] = useState<string | null>('')
+    const [cxName, setCxName] = useState<string>('')
+    const [emailList, setEmailList] = useState<string>('')
+    const [commodity, setCommodity] = useState<string>('')
+    const [isHazardous, setIsHazardous] = useState(false)
+    const [unCode, setUnCode] = useState<string>('')
+    const [imcoCode, setImcoCode] = useState<string>('')
+    const [packageGroup, setPackageGroup] = useState<string>('')
+    const [psnCode, setPsnCode] = useState<string>('')
+    const [isOOG, setIsOOG] = useState(false)
+    const [length, setLength] = useState<string>('')
+    const [breadth, setBreadth] = useState<string>('')
+    const [height, setHeight] = useState<string>('')
+    const [isTCR, setIsTCR] = useState(false)
+    const [temp, setTemp] = useState<string>('')
+    const [ventilation, setVentilation] = useState<string>('')
+    const [selectedDate, setSelectedDate] = useState(dayjs(currentDate))
+
+    const decreaseContainerQuantity = () => {
+        if (containerCount > 0) setContainerCount(containerCount - 1)
+    }
+    const handleHazardous = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsHazardous(event.target.checked)
+    }
+    const handleOOG = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsOOG(event.target.checked)
+    }
+    const handleTCR = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsTCR(event.target.checked)
+    }
+    const handleDateChange = (value: dayjs.Dayjs | null) => {
+        if (value !== null) {
+            setSelectedDate(value)
+        }
+    }
+
+    const formData = {
+        origin: originLocation?.id,
+        destination: destinationLocation?.id,
+        container_details: [
+            {
+                type: containerSize,
+                size: containerType,
+                quantity: containerCount,
+                weight: weightValue,
+                unit: weightType,
+            },
+        ],
+        customer_type: customerType,
+        customer_name: cxName,
+        email: emailList,
+        commodity: commodity,
+        is_haz: isHazardous,
+        un_no: isHazardous ? unCode : null,
+        imco: isHazardous ? imcoCode : null,
+        package_group: isHazardous ? packageGroup : null,
+        psn: isHazardous ? psnCode : null,
+        is_oog: isOOG,
+        length: isOOG ? length : null,
+        breadth: isOOG ? breadth : null,
+        height: isOOG ? height : null,
+        is_temp: isTCR,
+        temp: isTCR ? temp : null,
+        ventilation: isTCR ? ventilation : null,
+        cargo_date: selectedDate,
+    }
+
+    const [successSnackbar, setSuccessSnackbar] = useState(false)
+    const [errorSnackbar, setErrorSnackbar] = useState(false)
+    const [snackbarMessage, setSnackbarMessage] = useState('')
+
+    const openSuccessSnackbar = () => {
+        setSuccessSnackbar(true)
+    }
+    const openErrorSnackbar = (message: string) => {
+        setSnackbarMessage(message)
+        setErrorSnackbar(true)
+    }
+    const closeSuccessSnackbar = () => {
+        setSuccessSnackbar(false)
+    }
+    const closeErrorSnackbar = () => {
+        setErrorSnackbar(false)
+    }
+
+    const handleFormSubmit = async () => {
+        try {
+            const response = await postDataToApi('api/quote-request/', formData)
+            openSuccessSnackbar()
+            // form reset
+            setOriginLocation(null)
+            setDestinationLocation(null)
+            setContainerSize('')
+            setContainerType('')
+            setWeightValue(undefined)
+            setWeightType('')
+            setCustomerType('')
+            setCxName('')
+            setEmailList('')
+            setCommodity('')
+            setIsHazardous(false)
+            setUnCode('')
+            setImcoCode('')
+            setPsnCode('')
+            setPackageGroup('')
+            setIsOOG(false)
+            setLength('')
+            setBreadth('')
+            setHeight('')
+            setIsTCR(false)
+            setTemp('')
+            setVentilation('')
+            setSelectedDate(dayjs(currentDate))
+        } catch (error) {
+            // openErrorSnackbar(error as string)
+            openErrorSnackbar(JSON.stringify(error))
+        }
+    }
 
     return (
         <LayoutHeaderLess pageTitle='Send Your Quotation'>
@@ -103,6 +174,7 @@ export default function Home() {
             >
                 Booking Details
             </Typography>
+
             <Paper sx={{ borderRadius: '16px', p: theme.spacing(1), width: { sm: '40rem', md: '100%' }, mx: 'auto' }}>
                 <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600 }}>
                     Location Information
@@ -125,60 +197,29 @@ export default function Home() {
 
                 <Box sx={{ my: theme.spacing(1) }}>
                     <Grid container spacing={mobileMode ? 0 : 2}>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} sm={6} md={3}>
+                            <InputLabel>Container Size</InputLabel>
+                            <SelectSearch
+                                value={containerSize}
+                                onChange={(event, newValue) => setContainerSize(newValue)}
+                                options={['20', '40']}
+                                placeholder='Select Container Size'
+                            />
+                        </Grid>
+
+                        <Grid item xs={12} sm={6} md={3}>
                             <Box sx={{ mb: theme.spacing(1) }}>
                                 <InputLabel>Container Type</InputLabel>
-                                <FormControl fullWidth>
-                                    <Select
-                                        value={containerType}
-                                        onChange={handleChange}
-                                        displayEmpty
-                                        renderValue={
-                                            containerType !== ''
-                                                ? () => (
-                                                      <Typography
-                                                          textAlign='start'
-                                                          sx={{
-                                                              color: '#03122580',
-                                                              fontWeight: 600,
-                                                              ml: '-0.25rem',
-                                                          }}
-                                                      >
-                                                          {containerType}
-                                                      </Typography>
-                                                  )
-                                                : () => (
-                                                      <Typography
-                                                          textAlign='start'
-                                                          sx={{
-                                                              color: '#03122580',
-                                                              fontWeight: 600,
-                                                              ml: '-0.25rem',
-                                                          }}
-                                                      >
-                                                          Select Container Type
-                                                      </Typography>
-                                                  )
-                                        }
-                                    >
-                                        <MenuItem value=''>
-                                            <em>Select Container Type</em>
-                                        </MenuItem>
-                                        <MenuItem value='20 GP High Cube'>20 GP High Cube</MenuItem>
-                                        <MenuItem value='40 GP High Cube'>40 GP High Cube</MenuItem>
-                                        <MenuItem value='40 HC High Cube'>40 HC High Cube</MenuItem>
-                                        <MenuItem value='20 RH Reeger'>20 RH Reeger</MenuItem>
-                                        <MenuItem value='40 RH Reeger'>40 RH Reeger</MenuItem>
-                                        <MenuItem value='20 OH Open Top'>20 OH Open Top</MenuItem>
-                                        <MenuItem value='20 OT Open Top'>20 OT Open Top</MenuItem>
-                                        <MenuItem value='40 OT Open Top'>40 OT Open Top</MenuItem>
-                                        <MenuItem value='20 FR Flat Rock'>20 FR Flat Rock</MenuItem>
-                                        <MenuItem value='40 FR Flat Rock'>40 FR Flat Rock</MenuItem>
-                                    </Select>
-                                </FormControl>
+                                <SelectSearch
+                                    value={containerType}
+                                    onChange={(event, newValue) => setContainerType(newValue)}
+                                    options={['RF', 'HD', 'TK', 'OT', 'FR', 'GP', 'HC']}
+                                    placeholder='Select Container Type'
+                                />
                             </Box>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={3}>
+
+                        <Grid item xs={12} sm={6} md={2}>
                             <InputLabel>Container Quantity</InputLabel>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <Box
@@ -194,214 +235,328 @@ export default function Home() {
                                         px: theme.spacing(0.5),
                                     }}
                                 >
-                                    <IconButton onClick={decreaseCount}>
+                                    <IconButton onClick={decreaseContainerQuantity}>
                                         <RemoveIcon />
                                     </IconButton>
                                     <Typography sx={{ color: '#03122580', fontWeight: 600 }}>{containerCount}</Typography>
-                                    <IconButton onClick={increaseCount}>
+                                    <IconButton onClick={() => setContainerCount(containerCount + 1)}>
                                         <AddIcon />
                                     </IconButton>
                                 </Box>
 
-                                <IconButton onClick={resetCount}>
+                                <IconButton onClick={() => setContainerCount(0)}>
                                     <DeleteIcon />
                                 </IconButton>
                             </Box>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={3} sx={{ mt: '0.5rem' }}>
-                            <InputLabel>Weight per Container</InputLabel>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px', width: '30%' }}>
-                                    <TextField
-                                        variant='standard'
-                                        placeholder='Weight'
-                                        InputProps={{ disableUnderline: true }}
-                                        inputProps={{
-                                            style: {
-                                                padding: '0.5rem',
-                                                textAlign: 'center',
-                                            },
-                                        }}
-                                        sx={{ input: { color: '#031225', fontWeight: 600 } }}
-                                    />
-                                </Box>
 
-                                <FormControl sx={{ width: '10rem' }}>
-                                    <Select
-                                        value={weightType}
-                                        onChange={handleSetWeight}
-                                        displayEmpty
-                                        renderValue={
-                                            weightType !== ''
-                                                ? () => (
-                                                      <Typography
-                                                          textAlign='start'
-                                                          sx={{
-                                                              color: '#03122580',
-                                                              fontWeight: 600,
-                                                              ml: '-0.25rem',
-                                                          }}
-                                                      >
-                                                          {weightType}
-                                                      </Typography>
-                                                  )
-                                                : () => (
-                                                      <Typography
-                                                          textAlign='start'
-                                                          sx={{
-                                                              color: '#03122580',
-                                                              fontWeight: 600,
-                                                              ml: '-0.25rem',
-                                                          }}
-                                                      >
-                                                          Select kg/lbs
-                                                      </Typography>
-                                                  )
-                                        }
-                                    >
-                                        <MenuItem value=''>
-                                            <em>Select Weight Type</em>
-                                        </MenuItem>
-                                        <MenuItem value='kg'>kg</MenuItem>
-                                        <MenuItem value='lbs'>lbs</MenuItem>
-                                    </Select>
-                                </FormControl>
+                        <Grid item xs={12} sm={6} md={1.75}>
+                            <InputLabel> Container Weight</InputLabel>
+                            <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}>
+                                <TextField
+                                    variant='standard'
+                                    placeholder='Enter Weight'
+                                    InputProps={{ disableUnderline: true }}
+                                    inputProps={{
+                                        style: {
+                                            padding: '0.5rem',
+                                            paddingLeft: '0.75rem',
+                                        },
+                                    }}
+                                    sx={{ input: { color: '#031225', fontWeight: 600 } }}
+                                    fullWidth
+                                    value={weightValue}
+                                    onChange={(event) => setWeightValue(Number(event.target.value))}
+                                />
                             </Box>
+                        </Grid>
+
+                        <Grid item xs={12} sm={6} md={2.25}>
+                            <InputLabel>Unit of Weight</InputLabel>
+                            <SelectSearch
+                                value={weightType}
+                                onChange={(event, newValue) => setWeightType(newValue)}
+                                options={['KG', 'LBS']}
+                                placeholder='Select Unit'
+                                capitalize
+                            />
                         </Grid>
                     </Grid>
                 </Box>
 
                 <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
-                    Customer Status
+                    Customer Details
                 </Typography>
 
-                <Box sx={{ display: 'flex', justifyContent: 'flex-start', my: theme.spacing(1) }}>
-                    <FormControl>
-                        {mobileMode ? (
-                            <RadioGroup>
-                                <FormControlLabel
-                                    value='Price Ownere'
-                                    control={<Radio />}
-                                    label={
-                                        <>
-                                            <Typography variant='h6' sx={{ color: '#003A9B' }}>
-                                                Price Owner
-                                            </Typography>
-                                            <Typography variant='body2' sx={{ color: '#031225' }}>
-                                                Booking as the price owner
-                                            </Typography>
-                                        </>
-                                    }
-                                />
-                                <FormControlLabel
-                                    value='Agent'
-                                    control={<Radio />}
-                                    label={
-                                        <>
-                                            <Typography variant='h6' sx={{ color: '#003A9B' }}>
-                                                Agent
-                                            </Typography>
-                                            <Typography variant='body2' sx={{ color: '#031225' }}>
-                                                Booking on behalf of the price owner
-                                            </Typography>
-                                        </>
-                                    }
-                                />
-                            </RadioGroup>
-                        ) : (
-                            <RadioGroup row>
-                                <FormControlLabel
-                                    value='Price Ownere'
-                                    control={<Radio />}
-                                    label={
-                                        <>
-                                            <Typography variant='h6' sx={{ color: '#003A9B' }}>
-                                                Price Owner
-                                            </Typography>
-                                            <Typography variant='body2' sx={{ color: '#031225' }}>
-                                                Booking as the price owner
-                                            </Typography>
-                                        </>
-                                    }
-                                />
-                                <FormControlLabel
-                                    value='Agent'
-                                    control={<Radio />}
-                                    label={
-                                        <>
-                                            <Typography variant='h6' sx={{ color: '#003A9B' }}>
-                                                Agent
-                                            </Typography>
-                                            <Typography variant='body2' sx={{ color: '#031225' }}>
-                                                Booking on behalf of the price owner
-                                            </Typography>
-                                        </>
-                                    }
-                                    sx={{ ml: theme.spacing(1) }}
-                                />
-                            </RadioGroup>
-                        )}
-                    </FormControl>
-                </Box>
-
-                <Box sx={{ mt: theme.spacing(2) }}>
+                <Box sx={{ my: theme.spacing(1) }}>
                     <Grid container spacing={mobileMode ? 0 : 2}>
-                        <Grid item xs={12} md={6}>
-                            <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600 }}>
-                                Cargo Type
-                            </Typography>
-                            <Box sx={{ mt: theme.spacing(0.5) }}>
-                                <PrimaryTextField />
-                            </Box>
+                        <Grid item xs={12} sm={6} md={3}>
+                            <InputLabel>Customer Name</InputLabel>
+                            <TextField
+                                sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                size='small'
+                                placeholder='Enter Customer Name'
+                                fullWidth
+                                value={cxName}
+                                onChange={(event) => setCxName(event.target.value)}
+                            />
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                            <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600 }}>
-                                Date
-                            </Typography>
-                            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mt: theme.spacing(0.75) }}>
-                                <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
-                                    <DatePicker
-                                        defaultValue={dayjs(currentDate)}
-                                        closeOnSelect
-                                        sx={{
-                                            '& .MuiInputBase-root': {
-                                                height: '2.4rem',
-                                                width: mobileMode ? '9rem' : '12rem',
-                                                backgroundColor: '#0312251A',
-                                                borderRadius: '8px',
-                                                fontSize: '1rem',
-                                                color: '#6D7987',
-                                            },
-                                        }}
-                                        format='DD-MM-YYYY'
-                                    />
-                                </LocalizationProvider>
-                            </Box>
+                        <Grid item xs={12} sm={6} md={3}>
+                            <InputLabel>Customer Type</InputLabel>
+                            <SelectSearch
+                                value={customerType}
+                                onChange={(event, newValue) => setCustomerType(newValue)}
+                                options={['FORWARDER', 'CUSTOM BROKER', 'SHIPPER', 'CONSIGNEE', 'TRANSPORTER']}
+                                placeholder='Select Customer Type'
+                                capitalize
+                            />
+                        </Grid>
+
+                        <Grid item xs={12} sm={6}>
+                            <InputLabel>Email Addresses</InputLabel>
+                            <TextField
+                                sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                size='small'
+                                placeholder='You may enter multiple Email IDs separated by commas'
+                                fullWidth
+                                value={emailList}
+                                onChange={(event) => setEmailList(event.target.value)}
+                            />
                         </Grid>
                     </Grid>
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: theme.spacing(1) }}>
-                    <PrimaryButton text='Get Quote' onClick={onClick} />
-                    <Snackbar
-                        open={open}
-                        autoHideDuration={4000}
-                        onClose={handleClose}
-                        message='Quotation successfully Submitted'
-                        action={
-                            <IconButton size='small' color='inherit' onClick={handleClose}>
-                                <CloseIcon fontSize='small' />
-                            </IconButton>
-                        }
-                        TransitionComponent={(props) => <Slide {...props} direction='right' />}
-                    />
+                <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
+                    Cargo Details
+                </Typography>
+
+                <Box sx={{ mt: theme.spacing(1), mb: theme.spacing(2) }}>
+                    <Grid container spacing={mobileMode ? 0 : 2}>
+                        <Grid item xs={9} sm={6}>
+                            <InputLabel>Commodity</InputLabel>
+                            <TextField
+                                sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                size='small'
+                                placeholder='Enter commodity of transport'
+                                fullWidth
+                                value={commodity}
+                                onChange={(event) => setCommodity(event.target.value)}
+                            />
+                        </Grid>
+
+                        <Grid item xs={6} md={isOOG && isTCR ? 6 : isOOG || isTCR ? 3 : 1.5}>
+                            <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
+                                <FormControlLabel
+                                    control={<Checkbox checked={isHazardous} onChange={handleHazardous} />}
+                                    label={<InputLabel>Hazardous</InputLabel>}
+                                />
+                            </Box>
+                        </Grid>
+
+                        {isOOG ? (
+                            <></>
+                        ) : (
+                            <Grid item xs={6} md={2}>
+                                <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
+                                    <FormControlLabel
+                                        control={<Checkbox checked={isOOG} onChange={handleOOG} />}
+                                        label={<InputLabel>Over-Sized Cargo</InputLabel>}
+                                    />
+                                </Box>
+                            </Grid>
+                        )}
+
+                        {isTCR ? (
+                            <></>
+                        ) : (
+                            <Grid item xs={6} md={isOOG ? 3 : 2.5}>
+                                <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
+                                    <FormControlLabel
+                                        control={<Checkbox checked={isTCR} onChange={handleTCR} />}
+                                        label={<InputLabel>{isOOG || isTCR ? 'Temperarture' : 'Temp'} Control Required</InputLabel>}
+                                    />
+                                </Box>
+                            </Grid>
+                        )}
+
+                        {isHazardous === true && (
+                            <>
+                                <Grid item xs={6} sm={6} md={3}>
+                                    <InputLabel>UN No</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter UN No'
+                                        fullWidth
+                                        value={unCode}
+                                        onChange={(event) => setUnCode(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={3}>
+                                    <InputLabel>IMCO</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter IMCO No. '
+                                        fullWidth
+                                        value={imcoCode}
+                                        onChange={(event) => setImcoCode(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={3}>
+                                    <InputLabel>Package Group</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter Package Group'
+                                        fullWidth
+                                        value={packageGroup}
+                                        onChange={(event) => setPackageGroup(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={3}>
+                                    <InputLabel>PSN</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter PSN No. '
+                                        fullWidth
+                                        value={psnCode}
+                                        onChange={(event) => setPsnCode(event.target.value)}
+                                    />
+                                </Grid>
+                            </>
+                        )}
+
+                        {isOOG === true && (
+                            <>
+                                <Grid item xs={6} sm={3}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
+                                        <FormControlLabel
+                                            control={<Checkbox checked={isOOG} onChange={handleOOG} />}
+                                            label={<InputLabel>Over-Sized Cargo</InputLabel>}
+                                        />
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6} sm={3}>
+                                    <InputLabel>Length</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter length in mm'
+                                        fullWidth
+                                        value={length}
+                                        onChange={(event) => setLength(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={3}>
+                                    <InputLabel>Breadth</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter breadth in mm'
+                                        fullWidth
+                                        value={breadth}
+                                        onChange={(event) => setBreadth(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={3}>
+                                    <InputLabel>Height</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter height in mm'
+                                        fullWidth
+                                        value={height}
+                                        onChange={(event) => setHeight(event.target.value)}
+                                    />
+                                </Grid>
+                            </>
+                        )}
+
+                        {isTCR === true && (
+                            <>
+                                <Grid item xs={6} md={4}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
+                                        <FormControlLabel
+                                            control={<Checkbox checked={isTCR} onChange={handleTCR} />}
+                                            label={<InputLabel>Temperarture Control Required</InputLabel>}
+                                        />
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={6} sm={4}>
+                                    <InputLabel>Temperature</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter Temperature in °C'
+                                        fullWidth
+                                        value={temp}
+                                        onChange={(event) => setTemp(event.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={4}>
+                                    <InputLabel>Ventilation</InputLabel>
+                                    <TextField
+                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                        size='small'
+                                        placeholder='Enter Percentage of Ventilation'
+                                        fullWidth
+                                        value={ventilation}
+                                        onChange={(event) => setVentilation(event.target.value)}
+                                    />
+                                </Grid>
+                            </>
+                        )}
+                    </Grid>
                 </Box>
+
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', my: theme.spacing(1) }}>
+                    <Box>
+                        <InputLabel>Date</InputLabel>
+                        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
+                            <DatePicker
+                                closeOnSelect
+                                sx={{
+                                    '& .MuiInputBase-root': {
+                                        height: '2.4rem',
+                                        width: '20rem',
+                                        backgroundColor: '#0312251A',
+                                        borderRadius: '8px',
+                                        fontSize: '1rem',
+                                        color: '#6D7987',
+                                    },
+                                }}
+                                format='DD-MM-YYYY'
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                            />
+                        </LocalizationProvider>
+                    </Box>
+                    <PrimaryButton text='Get Quote' onClick={handleFormSubmit} />
+                </Box>
+                <Snackbar
+                    open={successSnackbar}
+                    autoHideDuration={4000}
+                    onClose={closeSuccessSnackbar}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                    TransitionComponent={(props) => <Slide {...props} direction='right' />}
+                >
+                    <MuiAlert elevation={6} variant='filled' severity='success'>
+                        Quotation submitted successfully
+                    </MuiAlert>
+                </Snackbar>
+                <Snackbar
+                    open={errorSnackbar}
+                    autoHideDuration={4000}
+                    onClose={closeErrorSnackbar}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                    TransitionComponent={(props) => <Slide {...props} direction='right' />}
+                >
+                    <MuiAlert elevation={6} variant='filled' severity='error'>
+                        {snackbarMessage}
+                    </MuiAlert>
+                </Snackbar>
             </Paper>
         </LayoutHeaderLess>
     )

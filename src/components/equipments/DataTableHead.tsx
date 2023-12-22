@@ -9,11 +9,7 @@ export default function DataTableHead({ lessRows }: { lessRows?: boolean }) {
         <Table sx={{ width: '18rem' }}>
             <TableRow sx={{ height: '4.6rem' }}>
                 <TableCell colSpan={2}>
-                    <Typography
-                        variant='h4'
-                        sx={{ color: '#000000', fontWeight: 600, visibility: 'hidden', textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='h4' sx={{ color: '#000000', fontWeight: 600, visibility: 'hidden', textAlign: 'center' }} noWrap>
                         Head
                     </Typography>
                 </TableCell>
@@ -39,33 +35,21 @@ export default function DataTableHead({ lessRows }: { lessRows?: boolean }) {
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Length
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Width
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Height
                     </Typography>
                 </TableCell>
@@ -95,22 +79,14 @@ export default function DataTableHead({ lessRows }: { lessRows?: boolean }) {
                     </TableRow>
                     <TableRow sx={{ height: '4rem' }}>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 Width
                             </Typography>
                         </TableCell>
                     </TableRow>
                     <TableRow sx={{ height: '4rem' }}>
                         <TableCell>
-                            <Typography
-                                variant='subtitle2'
-                                sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                                noWrap
-                            >
+                            <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                                 Height
                             </Typography>
                         </TableCell>
@@ -138,44 +114,28 @@ export default function DataTableHead({ lessRows }: { lessRows?: boolean }) {
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Max Gross
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Tare Weight (excl. machinery)
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Tare Weight (incl. machinery)
                     </Typography>
                 </TableCell>
             </TableRow>
             <TableRow sx={{ height: '4rem' }}>
                 <TableCell>
-                    <Typography
-                        variant='subtitle2'
-                        sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }}
-                        noWrap
-                    >
+                    <Typography variant='subtitle2' sx={{ color: '#000000', fontWeight: 600, textAlign: 'center' }} noWrap>
                         Max Payload
                     </Typography>
                 </TableCell>

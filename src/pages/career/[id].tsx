@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 import {
     Box,
     Typography,
     Grid,
     Paper,
-    IconButton,
     InputLabel,
     FormControl,
     Select,
     Slide,
     Snackbar,
     MenuItem,
-    AppBar,
     Container,
     useMediaQuery,
-    useScrollTrigger,
 } from '@mui/material'
 import MuiAlert from '@mui/material/Alert'
 import { SelectChangeEvent } from '@mui/material/Select'
@@ -25,15 +21,10 @@ import { useTheme } from '@mui/material/styles'
 import Layout from '../Layout'
 import PrimaryTextField from '../../components/PrimaryTextField'
 // import captcha from '@/assets/images/captcha.png'
-import reload from '@/assets/icons/loop.png'
 import PrimaryButton from '../../components/PrimaryButton'
 import SecondaryButton from '../../components/SecondaryButton'
 import careerBackground from '@/assets/career/career-background.webp'
-import careerBanner from '@/assets/career/marketing_lg.webp'
 import { fetchDataFromApi, postDataToApi } from '../../api/api'
-import Navbar from '@/components/Navbar'
-import FooterSection from '@/sections/FooterSection'
-import HeaderSection from '@/sections/HeaderSection'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 interface JobType {
@@ -89,25 +80,41 @@ export default function JobDetail() {
         setFormData({ ...formData, jobLocation: event.target.value })
     }
 
-    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const [successSnackbar, setSuccessSnackbar] = useState(false)
+    const [errorSnackbar, setErrorSnackbar] = useState(false)
     const [snackbarMessage, setSnackbarMessage] = useState('')
 
-    const openSnackbar = (message: string) => {
-        setSnackbarMessage(message)
-        setSnackbarOpen(true)
+    const openSuccessSnackbar = () => {
+        setSuccessSnackbar(true)
     }
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false)
+    const openErrorSnackbar = (message: string) => {
+        setSnackbarMessage(message)
+        setErrorSnackbar(true)
+    }
+    const closeSuccessSnackbar = () => {
+        setSuccessSnackbar(false)
+    }
+    const closeErrorSnackbar = () => {
+        setErrorSnackbar(false)
     }
 
     const handleFormSubmit = async () => {
         try {
-            const response = await postDataToApi('api/job-create/', formData)
-            console.log('Form submitted successfully:', response)
-            openSnackbar('Form submitted successfully')
+            await postDataToApi('api/job-create/', formData)
+            openSuccessSnackbar()
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                current_salary: '',
+                expected_salary: '',
+                notice_period: '',
+                reason: '',
+                jobLocation: '',
+            })
         } catch (error) {
-            console.error('Error submitting the form:', error)
-            openSnackbar('Form Submission Unsuccessful')
+            // openErrorSnackbar(error as string)
+            openErrorSnackbar(JSON.stringify(error))
         }
     }
 
@@ -319,13 +326,24 @@ export default function JobDetail() {
                         </Box>
                     </Paper>
                     <Snackbar
-                        open={snackbarOpen}
+                        open={successSnackbar}
                         autoHideDuration={4000}
-                        onClose={handleSnackbarClose}
+                        onClose={closeSuccessSnackbar}
                         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                         TransitionComponent={(props) => <Slide {...props} direction='right' />}
                     >
                         <MuiAlert elevation={6} variant='filled' severity='success'>
+                            Form submitted successfully
+                        </MuiAlert>
+                    </Snackbar>
+                    <Snackbar
+                        open={errorSnackbar}
+                        autoHideDuration={4000}
+                        onClose={closeErrorSnackbar}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                        TransitionComponent={(props) => <Slide {...props} direction='right' />}
+                    >
+                        <MuiAlert elevation={6} variant='filled' severity='error'>
                             {snackbarMessage}
                         </MuiAlert>
                     </Snackbar>
