@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Box, Container, Typography, useMediaQuery } from '@mui/material'
+import { Box, Container, Link, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { networkData } from '../data/networkData'
 import { oswald } from '@/styles/fonts'
@@ -45,85 +45,90 @@ export default function NetworkSection() {
                 >
                     {networkData.map((item) => (
                         <SwiperSlide key={item.id}>
-                            {tabletMode ? (
-                                <Box sx={{ my: theme.spacing(2), mx: theme.spacing(1), position: 'relative' }}>
-                                    <Image
-                                        src={item.smBg}
-                                        alt='sm-bg'
-                                        style={{
-                                            width: '100%',
-                                            height: 'auto',
-                                            filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
-                                        }}
-                                    />
+                            <Link href={item.href} underline='none' target='_blank' rel='noopener noreferrer'>
+                                {tabletMode ? (
+                                    <Box sx={{ my: theme.spacing(2), mx: theme.spacing(1), position: 'relative', cursor: 'pointer' }}>
+                                        <Image
+                                            src={item.smBg}
+                                            alt='sm-bg'
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
+                                            }}
+                                        />
 
-                                    <Box
-                                        sx={{
-                                            position: 'absolute',
-                                            top: '48vw',
-                                            left: 0,
-                                            width: '100%',
-                                            px: theme.spacing(2),
-                                        }}
-                                    >
-                                        <Typography variant='subtitle2' sx={{ fontWeight: 600, fontSize: mobileMode ? '1.4rem' : '2rem' }}>
-                                            {item.title}
-                                        </Typography>
-                                        <Typography
-                                            variant='subtitle2'
-                                            textAlign='justify'
-                                            className='ellipsis-8-lines'
-                                            sx={{ fontSize: mobileMode ? '1rem' : '1.5rem', mt: theme.spacing(1) }}
+                                        <Box
+                                            sx={{
+                                                position: 'absolute',
+                                                top: '48vw',
+                                                left: 0,
+                                                width: '100%',
+                                                px: theme.spacing(2),
+                                            }}
                                         >
-                                            {item.subtitle}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            ) : (
-                                <Box sx={{ my: theme.spacing(2), mx: theme.spacing(1), position: 'relative' }}>
-                                    <Image
-                                        src={item.background}
-                                        alt='client-bg'
-                                        style={{
-                                            width: '100%',
-                                            height: 'auto',
-                                            filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
-                                        }}
-                                    />
-
-                                    <Box
-                                        sx={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            right: '4rem',
-                                            width: '50%',
-                                            height: '100%',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <Box>
-                                            <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                                <Image src={item.flag} alt='card image' style={{ height: '5rem', width: 'auto' }} />
-                                            </Box>
                                             <Typography
                                                 variant='subtitle2'
-                                                sx={{
-                                                    fontWeight: 600,
-                                                    fontSize: '1.75rem',
-                                                    mt: theme.spacing(1.5),
-                                                    mb: theme.spacing(1),
-                                                }}
+                                                sx={{ fontWeight: 600, fontSize: mobileMode ? '1.4rem' : '2rem' }}
                                             >
                                                 {item.title}
                                             </Typography>
-                                            <Typography variant='subtitle2' textAlign='justify' className='ellipsis-8-lines'>
+                                            <Typography
+                                                variant='subtitle2'
+                                                textAlign='justify'
+                                                className='ellipsis-8-lines'
+                                                sx={{ fontSize: mobileMode ? '1rem' : '1.5rem', mt: theme.spacing(1) }}
+                                            >
                                                 {item.subtitle}
                                             </Typography>
                                         </Box>
                                     </Box>
-                                </Box>
-                            )}
+                                ) : (
+                                    <Box sx={{ my: theme.spacing(2), mx: theme.spacing(1), position: 'relative', cursor: 'pointer' }}>
+                                        <Image
+                                            src={item.background}
+                                            alt='client-bg'
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
+                                            }}
+                                        />
+
+                                        <Box
+                                            sx={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                right: '4rem',
+                                                width: '50%',
+                                                height: '100%',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                            }}
+                                        >
+                                            <Box>
+                                                <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                    <Image src={item.flag} alt='card image' style={{ height: '5rem', width: 'auto' }} />
+                                                </Box>
+                                                <Typography
+                                                    variant='subtitle2'
+                                                    sx={{
+                                                        fontWeight: 600,
+                                                        fontSize: '1.75rem',
+                                                        mt: theme.spacing(1.5),
+                                                        mb: theme.spacing(1),
+                                                    }}
+                                                >
+                                                    {item.title}
+                                                </Typography>
+                                                <Typography variant='subtitle2' textAlign='justify' className='ellipsis-8-lines'>
+                                                    {item.subtitle}
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                )}
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
