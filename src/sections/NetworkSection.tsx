@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Box, Container, Link, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { networkData } from '../data/networkData'
-import { oswald } from '@/styles/fonts'
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -18,7 +17,7 @@ export default function NetworkSection() {
     return (
         <Box sx={{ my: theme.spacing(6), mx: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
             <Container maxWidth='md' disableGutters>
-                <Typography variant='h2' textAlign='center' sx={{ fontFamily: oswald.style.fontFamily }}>
+                <Typography variant='h2' textAlign='center'>
                     Our Network
                 </Typography>
 

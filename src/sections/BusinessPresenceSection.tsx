@@ -24,7 +24,7 @@ export default function BusinessPresenceSection() {
                             position: 'relative',
                         }}
                     >
-                        <Typography variant='h2' textAlign='center' sx={{ mb: theme.spacing(2), fontFamily: oswald.style.fontFamily }}>
+                        <Typography variant='h2' textAlign='center' sx={{ mb: theme.spacing(2) }}>
                             Our Reach
                         </Typography>
                         <Grid container spacing={2}>

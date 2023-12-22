@@ -40,6 +40,7 @@ const accordionLinks = [
             { href: '/track', link: 'Track Shipments' },
             { href: '/vessel-schedule', link: 'Search Vessel Schedules' },
             { href: '/quote', link: 'Quote' },
+            { href: '/incoterms', link: 'Incoterms' },
         ],
     },
 ]

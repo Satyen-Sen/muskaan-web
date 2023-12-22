@@ -219,6 +219,9 @@ export default function Navbar() {
                             <MenuItem onClick={closeToolsMenu} sx={{ '& a': { color: 'inherit' } }}>
                                 <Link href='/quote'>Quote</Link>
                             </MenuItem>
+                            <MenuItem onClick={closeToolsMenu} sx={{ '& a': { color: 'inherit' } }}>
+                                <Link href='/incoterms'>Incoterms</Link>
+                            </MenuItem>
                         </Menu>
                     </Box>
 

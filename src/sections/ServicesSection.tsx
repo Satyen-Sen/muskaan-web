@@ -9,7 +9,6 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules'
 import ServicesSectionMobile from './ServicesSectionMobile'
-import { oswald } from '@/styles/fonts'
 
 export default function ServicesSection() {
     const theme = useTheme()
@@ -21,7 +20,7 @@ export default function ServicesSection() {
             id='services'
         >
             <Container disableGutters maxWidth='xl'>
-                <Typography variant='h2' textAlign='center' sx={{ fontFamily: oswald.style.fontFamily }}>
+                <Typography variant='h2' textAlign='center'>
                     Our Services
                 </Typography>
 
