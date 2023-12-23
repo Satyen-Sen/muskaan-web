@@ -513,7 +513,7 @@ export default function Home() {
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', my: theme.spacing(1) }}>
                     <Box>
-                        <InputLabel>Date</InputLabel>
+                        <InputLabel>Cargo Readyness Date</InputLabel>
                         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
                             <DatePicker
                                 closeOnSelect
