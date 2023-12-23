@@ -100,7 +100,13 @@ export default function Home() {
 
         try {
             const response = await postDataToApi('api/contact-us/', formData)
-            console.log('Form submitted successfully:', response)
+            const responseData = await response.json()
+            if (response.status === 200) {
+                openSuccessSnackbar()
+            } else {
+                openErrorSnackbar(`Error : ${response.status}`)
+            }
+            console.log(responseData)
             openSuccessSnackbar()
             setFormData({
                 name: '',
@@ -109,10 +115,7 @@ export default function Home() {
                 enquiry_type: '',
                 message: '',
             })
-        } catch (error) {
-            // openErrorSnackbar(error as string)
-            openErrorSnackbar(JSON.stringify(error))
-        }
+        } catch (error) {}
     }
 
     return (

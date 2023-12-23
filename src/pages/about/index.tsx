@@ -33,9 +33,12 @@ export default function Home() {
             pageTitle='About'
         >
             <Tabs value={value} onChange={handleChange} variant='fullWidth'>
-                <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF' }} />
-                <Tab label='Companies' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF' }} />
-                <Tab label='Mission & Vision' sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF' }} />
+                <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF', color: value === 0 ? '#FFFFFF' : '#003A9B' }} />
+                <Tab label='Companies' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF', color: value === 1 ? '#FFFFFF' : '#003A9B' }} />
+                <Tab
+                    label='Mission & Vision'
+                    sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF', color: value === 2 ? '#FFFFFF' : '#003A9B' }}
+                />
             </Tabs>
 
             <TabPanel value={value} index={0}>

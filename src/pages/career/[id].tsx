@@ -100,7 +100,14 @@ export default function JobDetail() {
 
     const handleFormSubmit = async () => {
         try {
-            await postDataToApi('api/job-create/', formData)
+            const response = await postDataToApi('api/job-create/', formData)
+            const responseData = await response.json()
+            if (response.status === 200) {
+                openSuccessSnackbar()
+            } else {
+                openErrorSnackbar(`Error : ${response.status}`)
+            }
+            console.log(responseData)
             openSuccessSnackbar()
             setFormData({
                 name: '',
@@ -112,10 +119,7 @@ export default function JobDetail() {
                 reason: '',
                 jobLocation: '',
             })
-        } catch (error) {
-            // openErrorSnackbar(error as string)
-            openErrorSnackbar(JSON.stringify(error))
-        }
+        } catch (error) {}
     }
 
     const jobData = careerData?.[jobId]
