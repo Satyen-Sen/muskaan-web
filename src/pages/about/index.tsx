@@ -31,6 +31,11 @@ export default function Home() {
             withTabs
             customHeight={mobileMode ? '45vw' : '35vw'}
             pageTitle='About'
+            sx={{
+                '.Mui-selected': {
+                    color: '#FFFFFF',
+                },
+            }}
         >
             <Tabs value={value} onChange={handleChange} variant='fullWidth'>
                 <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF', color: value === 0 ? '#FFFFFF' : '#003A9B' }} />

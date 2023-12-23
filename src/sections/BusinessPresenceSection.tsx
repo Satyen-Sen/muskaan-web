@@ -73,7 +73,7 @@ export default function BusinessPresenceSection() {
                             <Grid item xs={12} sm={4}>
                                 <CompanyReachCard
                                     title='Singapore'
-                                    description='Muskaan Shipping PTE LTD, 35 Selegie road, No. 09-02, Parklane Shopping Mall, Singapore - 188307 | Tel : +65-64921136'
+                                    description='60 Kaki Bukit Place, No. 02-13 Suites, 3 Eunos Techpark, Singapore - 415979.'
                                 />
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -247,8 +247,8 @@ export default function BusinessPresenceSection() {
                         description='Muskan Container Lines Pvt Ltd, Office 72/1, First floor, Shop No 3, Linghi Chetty street, Mannady, Chennai - 600001 | Tel : +91-4442642551'
                     />
                     <MapPointer
-                        top='47vw'
-                        left='48.5vw'
+                        top='49vw'
+                        left='48vw'
                         title='Tuticorin, India'
                         description='OLS Maritime Agencies,  No. 5-A/54, Caldwell Colony, 1st Cross Street, Tuticorin - 628008, Tamilnadu, India.'
                     />
@@ -286,7 +286,7 @@ export default function BusinessPresenceSection() {
                         top='54.5vw'
                         left='69vw'
                         title='Singapore'
-                        description='Muskaan Shipping PTE LTD, 35 Selegie road, No. 09-02, Parklane Shopping Mall, Singapore - 188307 | Tel : +65-64921136'
+                        description='60 Kaki Bukit Place, No. 02-13 Suites, 3 Eunos Techpark, Singapore - 415979.'
                     />
                     <MapPointer
                         top='62vw'

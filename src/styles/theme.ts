@@ -147,7 +147,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     textTransform: 'capitalize',
-                    // color: '#003A9B',
+                    color: '#003A9B',
                     backgroundColor: '#FFFFFF',
                     fontSize: '1.25rem',
                 },
