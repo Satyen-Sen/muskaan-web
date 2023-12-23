@@ -31,13 +31,17 @@ export default function Home() {
             withTabs
             customHeight={mobileMode ? '45vw' : '35vw'}
             pageTitle='About'
-            sx={{
-                '.Mui-selected': {
-                    color: '#FFFFFF',
-                },
-            }}
         >
-            <Tabs value={value} onChange={handleChange} variant='fullWidth'>
+            <Tabs
+                value={value}
+                onChange={handleChange}
+                variant='fullWidth'
+                sx={{
+                    '.Mui-selected': {
+                        color: '#FFFFFF',
+                    },
+                }}
+            >
                 <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF', color: value === 0 ? '#FFFFFF' : '#003A9B' }} />
                 <Tab label='Companies' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF', color: value === 1 ? '#FFFFFF' : '#003A9B' }} />
                 <Tab
