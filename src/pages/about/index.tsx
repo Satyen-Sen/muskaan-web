@@ -32,25 +32,22 @@ export default function Home() {
             customHeight={mobileMode ? '45vw' : '35vw'}
             pageTitle='About'
         >
-            <Tabs
-                value={value}
-                onChange={handleChange}
-                variant='fullWidth'
-                sx={{
-                    '.Mui-selected': {
-                        color: '#FFFFFF',
-                    },
-                }}
-            >
-                <Tab label='About' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF', color: value === 0 ? '#FFFFFF' : '#003A9B' }} />
-                <Tab label='Companies' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF', color: value === 1 ? '#FFFFFF' : '#003A9B' }} />
+            <Tabs value={value} onChange={handleChange} variant='fullWidth'>
                 <Tab
-                    label='Mission & Vision'
-                    sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF', color: value === 2 ? '#FFFFFF' : '#003A9B' }}
+                    label={<span style={{ color: value === 0 ? '#FFFFFF' : '#003A9B' }}>About</span>}
+                    sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF' }}
+                />
+                <Tab
+                    label={<span style={{ color: value === 1 ? '#FFFFFF' : '#003A9B' }}>Companies</span>}
+                    sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF' }}
+                />
+                <Tab
+                    label={<span style={{ color: value === 2 ? '#FFFFFF' : '#003A9B' }}>Mission & Vision</span>}
+                    sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF' }}
                 />
             </Tabs>
 
-            <TabPanel value={value} index={0}>
+            {/* <TabPanel value={value} index={0}>
                 <AboutTab />
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -58,7 +55,7 @@ export default function Home() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <MissionAndVisionTab />
-            </TabPanel>
+            </TabPanel> */}
         </Layout>
     )
 }
