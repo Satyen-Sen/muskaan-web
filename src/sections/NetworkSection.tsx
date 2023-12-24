@@ -62,9 +62,8 @@ export default function NetworkSection() {
                                                 position: 'absolute',
                                                 top: '48vw',
                                                 left: 0,
-                                                // width: '95%',
-                                                pl: theme.spacing(2),
-                                                pr: theme.spacing(2),
+                                                // width: '100%',
+                                                px: theme.spacing(2),
                                             }}
                                         >
                                             <Typography
