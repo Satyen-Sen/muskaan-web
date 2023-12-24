@@ -92,9 +92,9 @@ export default function ContactSection() {
                     <Typography variant='h3' textAlign='start' sx={{ mt: theme.spacing(4), fontSize: '2.5rem' }}>
                         Get in touch
                     </Typography>
-                    <Typography variant='body2' sx={{ mt: theme.spacing(1), fontSize: '1.25rem' }}>
+                    {/* <Typography variant='body2' sx={{ mt: theme.spacing(1), fontSize: '1.25rem' }}>
                         Our team would love to hear from you
-                    </Typography>
+                    </Typography> */}
                     <Box sx={{ my: theme.spacing(1) }}>
                         <SecondaryTextField placeholder='Enter your name' name='name' value={formData.name} onChange={handleInputChange} />
                         <SecondaryTextField
@@ -116,6 +116,9 @@ export default function ContactSection() {
                             value={formData.message}
                             onChange={handleInputChange}
                         />
+                    </Box>
+                    <Box sx={{ overflow: 'hidden', borderRadius: '8px', width: 'fit-content', height: 'fit-content' }}>
+                        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''} />
                     </Box>
 
                     <Box sx={{ display: 'flex' }}>
