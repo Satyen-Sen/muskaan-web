@@ -14,10 +14,11 @@ import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules'
 
 export default function ServicesSectionMobile() {
     const theme = useTheme()
-    const smallMobileMode = useMediaQuery('(max-width:349px)')
+    const smallMobileMode = useMediaQuery('(max-width:449px)')
     const mobileMode = useMediaQuery('(max-width:599px)')
+    const wideMobileMode = useMediaQuery('(max-width:699px)')
     const tabletMode = useMediaQuery('(max-width:999px)')
-    const dynamicHeight = smallMobileMode ? '76vw' : mobileMode ? '42vw' : tabletMode ? '27vw' : '22vw'
+    const dynamicHeight = smallMobileMode ? '78vw' : mobileMode ? '42vw' : wideMobileMode ? '40vw' : tabletMode ? '27vw' : '22vw'
 
     return (
         <Container disableGutters maxWidth='lg'>
@@ -40,8 +41,8 @@ export default function ServicesSectionMobile() {
                 }}
                 breakpoints={{
                     100: { slidesPerView: 1 },
-                    350: { slidesPerView: 2 },
-                    600: { slidesPerView: 3 },
+                    450: { slidesPerView: 2 },
+                    700: { slidesPerView: 3 },
                 }}
                 navigation={true}
                 modules={[Autoplay, Keyboard, Navigation, Pagination]}

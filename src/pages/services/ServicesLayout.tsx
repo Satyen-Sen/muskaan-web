@@ -69,7 +69,7 @@ export default function ServicesLayout({ image, title, subtitle, children, props
                             justifyContent: 'flex-end',
                             px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) },
                             mt: theme.spacing(6),
-                            mb: theme.spacing(-6),
+                            mb: { sm: theme.spacing(-6) },
                         }}
                     >
                         <Link href='/quote'>

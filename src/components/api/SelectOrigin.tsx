@@ -46,7 +46,11 @@ export default function SelectOrigin({ onSelectOrigin }: SelectOriginProps) {
                     />
                 )}
                 renderOption={(props, option) => (
-                    <Typography {...props} textAlign='start' sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize' }}>
+                    <Typography
+                        {...props}
+                        textAlign='start'
+                        sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize', my: { xs: '-1.25rem' } }}
+                    >
                         {option.name.toLowerCase()}
                     </Typography>
                 )}

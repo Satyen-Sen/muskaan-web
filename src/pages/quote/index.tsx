@@ -232,7 +232,7 @@ export default function Home() {
                 </Typography>
 
                 <Box sx={{ my: theme.spacing(1) }}>
-                    <Grid container spacing={mobileMode ? 0 : 2}>
+                    <Grid container spacing={mobileMode ? 1 : 2}>
                         <Grid item xs={12} md={6}>
                             <SelectOrigin onSelectOrigin={setOriginLocation} />
                         </Grid>
@@ -242,100 +242,110 @@ export default function Home() {
                     </Grid>
                 </Box>
 
-                <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
+                <Typography
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2), mb: theme.spacing(1) }}
+                >
                     Container Details
                 </Typography>
                 {formData.containerDetails.map((container, index) => (
-                    <Box sx={{ my: theme.spacing(1) }}>
-                        <Grid container spacing={mobileMode ? 0 : 2}>
-                            <Grid item xs={12} sm={6} md={2}>
-                                <InputLabel>Container Size</InputLabel>
-                                <SelectSearch
-                                    value={container.size}
-                                    onChange={(event, value) => handleContainerDetailsChange(index, 'size', value)}
-                                    options={['20', '40']}
-                                    placeholder='Select Size'
-                                />
-                            </Grid>
-
-                            <Grid item xs={12} sm={6} md={2}>
-                                <Box sx={{ mb: theme.spacing(1) }}>
-                                    <InputLabel>Container Type</InputLabel>
-                                    <SelectSearch
-                                        value={container.type}
-                                        onChange={(event, value) => handleContainerDetailsChange(index, 'type', value)}
-                                        options={['RF', 'HD', 'TK', 'OT', 'FR', 'GP', 'HC']}
-                                        placeholder='Select Type'
-                                    />
-                                </Box>
-                            </Grid>
-
-                            <Grid item xs={12} sm={6} md={2}>
-                                <InputLabel>Container Quantity</InputLabel>
-                                <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}>
-                                    <TextField
-                                        variant='standard'
-                                        placeholder='Enter Quantity'
-                                        InputProps={{ disableUnderline: true }}
-                                        inputProps={{
-                                            style: {
-                                                padding: '0.5rem',
-                                                paddingLeft: '0.75rem',
-                                            },
-                                        }}
-                                        sx={{ input: { color: '#031225', fontWeight: 600 } }}
-                                        fullWidth
-                                        value={container.quantity}
-                                        onChange={(event) => handleContainerDetailsChange(index, 'quantity', event.target.value)}
-                                    />
-                                </Box>
-                            </Grid>
-
-                            <Grid item xs={12} sm={6} md={2}>
-                                <InputLabel> Container Weight</InputLabel>
-                                <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}>
-                                    <TextField
-                                        variant='standard'
-                                        placeholder='Enter Weight'
-                                        InputProps={{ disableUnderline: true }}
-                                        inputProps={{
-                                            style: {
-                                                padding: '0.5rem',
-                                                paddingLeft: '0.75rem',
-                                            },
-                                        }}
-                                        sx={{ input: { color: '#031225', fontWeight: 600 } }}
-                                        fullWidth
-                                        value={container.weight}
-                                        onChange={(event) => handleContainerDetailsChange(index, 'weight', event.target.value)}
-                                    />
-                                </Box>
-                            </Grid>
-
-                            <Grid item xs={12} sm={6} md={2}>
-                                <InputLabel>Unit of Weight</InputLabel>
-                                <SelectSearch
-                                    value={container.unit}
-                                    onChange={(event, value) => handleContainerDetailsChange(index, 'unit', value)}
-                                    options={['KG', 'LBS']}
-                                    placeholder='Select Unit'
-                                    capitalize
-                                />
-                            </Grid>
-                            <Grid item xs={6} sm={3} md={1}>
-                                <InputLabel>Add New</InputLabel>
-                                <IconButton onClick={addMoreData}>
-                                    <AddCircleRoundedIcon />
-                                </IconButton>
-                            </Grid>
-                            <Grid item xs={6} sm={3} md={1}>
-                                <InputLabel>Delete</InputLabel>
-                                <IconButton onClick={() => deleteContainerData(index)}>
-                                    <DeleteIcon />
-                                </IconButton>
-                            </Grid>
+                    <Grid container spacing={mobileMode ? 1 : 2}>
+                        <Grid item xs={6} md={2}>
+                            <InputLabel>Container Size</InputLabel>
+                            <SelectSearch
+                                value={container.size}
+                                onChange={(event, value) => handleContainerDetailsChange(index, 'size', value)}
+                                options={['20', '40']}
+                                placeholder='Select Size'
+                            />
                         </Grid>
-                    </Box>
+
+                        <Grid item xs={6} md={2}>
+                            <InputLabel>Container Type</InputLabel>
+                            <SelectSearch
+                                value={container.type}
+                                onChange={(event, value) => handleContainerDetailsChange(index, 'type', value)}
+                                options={['RF', 'HD', 'TK', 'OT', 'FR', 'GP', 'HC']}
+                                placeholder='Select Type'
+                            />
+                        </Grid>
+
+                        <Grid item xs={6} md={2}>
+                            <InputLabel>Container Quantity</InputLabel>
+                            <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}>
+                                <TextField
+                                    variant='standard'
+                                    placeholder='Enter Quantity'
+                                    InputProps={{ disableUnderline: true }}
+                                    inputProps={{
+                                        style: {
+                                            padding: '0.5rem',
+                                            paddingLeft: '0.75rem',
+                                        },
+                                    }}
+                                    sx={{ input: { color: '#031225', fontWeight: 600 } }}
+                                    fullWidth
+                                    value={container.quantity}
+                                    onChange={(event) => handleContainerDetailsChange(index, 'quantity', event.target.value)}
+                                />
+                            </Box>
+                        </Grid>
+
+                        <Grid item xs={6} md={2}>
+                            <InputLabel> Container Weight</InputLabel>
+                            <Box sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}>
+                                <TextField
+                                    variant='standard'
+                                    placeholder='Enter Weight'
+                                    InputProps={{ disableUnderline: true }}
+                                    inputProps={{
+                                        style: {
+                                            padding: '0.5rem',
+                                            paddingLeft: '0.75rem',
+                                        },
+                                    }}
+                                    sx={{ input: { color: '#031225', fontWeight: 600 } }}
+                                    fullWidth
+                                    value={container.weight}
+                                    onChange={(event) => handleContainerDetailsChange(index, 'weight', event.target.value)}
+                                />
+                            </Box>
+                        </Grid>
+
+                        <Grid item xs={6} md={2}>
+                            <InputLabel>Unit of Weight</InputLabel>
+                            <SelectSearch
+                                value={container.unit}
+                                onChange={(event, value) => handleContainerDetailsChange(index, 'unit', value)}
+                                options={['KG', 'LBS']}
+                                placeholder='Select Unit'
+                                capitalize
+                            />
+                        </Grid>
+                        <Grid item xs={3} md={1}>
+                            <Typography
+                                variant='body1'
+                                sx={{ color: '#003A9B', marginBottom: '4px', textAlign: 'center', fontWeight: 500 }}
+                            >
+                                Add New
+                            </Typography>
+                            <IconButton onClick={addMoreData}>
+                                <AddCircleRoundedIcon />
+                            </IconButton>
+                        </Grid>
+                        <Grid item xs={3} md={1}>
+                            <Typography
+                                variant='body1'
+                                sx={{ color: '#003A9B', marginBottom: '4px', textAlign: 'center', fontWeight: 500 }}
+                            >
+                                Delete
+                            </Typography>
+                            <IconButton onClick={() => deleteContainerData(index)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </Grid>
+                    </Grid>
                 ))}
 
                 <Typography variant='h4' textAlign='start' sx={{ color: '#262626', fontWeight: 600, mt: theme.spacing(2) }}>
@@ -343,7 +353,7 @@ export default function Home() {
                 </Typography>
 
                 <Box sx={{ my: theme.spacing(1) }}>
-                    <Grid container spacing={mobileMode ? 0 : 2}>
+                    <Grid container spacing={mobileMode ? 1 : 2}>
                         <Grid item xs={12} sm={6} md={3}>
                             <InputLabel>Customer Name</InputLabel>
                             <TextField
@@ -366,7 +376,7 @@ export default function Home() {
                             />
                         </Grid>
 
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} md={6}>
                             <InputLabel>Email Addresses</InputLabel>
                             <TextField
                                 sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
@@ -385,8 +395,8 @@ export default function Home() {
                 </Typography>
 
                 <Box sx={{ mt: theme.spacing(1), mb: theme.spacing(2) }}>
-                    <Grid container spacing={mobileMode ? 0 : 2}>
-                        <Grid item xs={9} sm={6}>
+                    <Grid container spacing={mobileMode ? 1 : 2}>
+                        <Grid item xs={12} sm={6}>
                             <InputLabel>Commodity</InputLabel>
                             <TextField
                                 sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
@@ -397,20 +407,96 @@ export default function Home() {
                                 onChange={(event) => handleFormChange('commodity', event.target.value)}
                             />
                         </Grid>
-
-                        <Grid item xs={6} md={isOOG && isTCR ? 6 : isOOG || isTCR ? 3 : 1.5}>
-                            <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
-                                <FormControlLabel
-                                    control={<Checkbox checked={isHazardous} onChange={handleHazardous} />}
-                                    label={<InputLabel>Hazardous</InputLabel>}
+                        <Grid item xs={12} sm={6}>
+                            <InputLabel>Cargo Readyness Date</InputLabel>
+                            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
+                                <DatePicker
+                                    closeOnSelect
+                                    sx={{
+                                        '& .MuiInputBase-root': {
+                                            height: '2.8rem',
+                                            width: '100%',
+                                            backgroundColor: '#0312251A',
+                                            borderRadius: '8px',
+                                            fontSize: '1rem',
+                                            color: '#6D7987',
+                                        },
+                                    }}
+                                    format='DD-MM-YYYY'
+                                    value={formData.cargo_date}
+                                    onChange={(value) => handleFormChange('cargo_date', value)}
+                                    slotProps={{ textField: { fullWidth: true } }}
                                 />
-                            </Box>
+                            </LocalizationProvider>
                         </Grid>
+                    </Grid>
 
-                        {isOOG ? (
-                            <></>
-                        ) : (
-                            <Grid item xs={6} md={2}>
+                    <Box sx={{ mt: theme.spacing(0.5) }}>
+                        <Grid container spacing={mobileMode ? 1 : 2}>
+                            <Grid item xs={6} md={1.5}>
+                                <InputLabel sx={{ visibility: 'hidden' }}>Hazardous</InputLabel>
+                                <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                    <FormControlLabel
+                                        control={<Checkbox checked={isHazardous} onChange={handleHazardous} />}
+                                        label={<InputLabel>Hazardous</InputLabel>}
+                                    />
+                                </Box>
+                            </Grid>
+                            {isHazardous === true && (
+                                <>
+                                    <Grid item xs={6} md={2}>
+                                        <InputLabel>UN No</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter UN No'
+                                            fullWidth
+                                            value={formData.un_no}
+                                            onChange={(event) => handleFormChange('un_no', event.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6} md={2.5}>
+                                        <InputLabel>IMCO</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter IMCO No. '
+                                            fullWidth
+                                            value={formData.imco}
+                                            onChange={(event) => handleFormChange('imco', event.target.value)}
+                                        />
+                                    </Grid>
+
+                                    <Grid item xs={6} md={3}>
+                                        <InputLabel>PSN</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter PSN No. '
+                                            fullWidth
+                                            value={formData.psn}
+                                            onChange={(event) => handleFormChange('psn', event.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} md={3}>
+                                        <InputLabel>Package Group</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter Package Group'
+                                            fullWidth
+                                            value={formData.package_group}
+                                            onChange={(event) => handleFormChange('package_group', event.target.value)}
+                                        />
+                                    </Grid>
+                                </>
+                            )}
+                        </Grid>
+                    </Box>
+
+                    <Box sx={{ mt: theme.spacing(0.5) }}>
+                        <Grid container spacing={mobileMode ? 1 : 2}>
+                            <Grid item sm={6} md={3}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
                                         control={<Checkbox checked={isOOG} onChange={handleOOG} />}
@@ -418,12 +504,49 @@ export default function Home() {
                                     />
                                 </Box>
                             </Grid>
-                        )}
+                            {isOOG === true && (
+                                <>
+                                    <Grid item sm={6} md={3}>
+                                        <InputLabel>Length</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter length in mm'
+                                            fullWidth
+                                            value={formData.length}
+                                            onChange={(event) => handleFormChange('length', event.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item sm={6} md={3}>
+                                        <InputLabel>Breadth</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter breadth in mm'
+                                            fullWidth
+                                            value={formData.breadth}
+                                            onChange={(event) => handleFormChange('breadth', event.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item sm={6} md={3}>
+                                        <InputLabel>Height</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter height in mm'
+                                            fullWidth
+                                            value={formData.height}
+                                            onChange={(event) => handleFormChange('height', event.target.value)}
+                                        />
+                                    </Grid>
+                                </>
+                            )}
+                        </Grid>
+                    </Box>
 
-                        {isTCR ? (
-                            <></>
-                        ) : (
-                            <Grid item xs={6} md={isOOG ? 3 : 2.5}>
+                    <Box sx={{ mt: theme.spacing(0.5) }}>
+                        <Grid container spacing={mobileMode ? 1 : 2}>
+                            <Grid item xs={6} md={4}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
                                         control={<Checkbox checked={isTCR} onChange={handleTCR} />}
@@ -431,162 +554,38 @@ export default function Home() {
                                     />
                                 </Box>
                             </Grid>
-                        )}
 
-                        {isHazardous === true && (
-                            <>
-                                <Grid item xs={6} sm={6} md={3}>
-                                    <InputLabel>UN No</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter UN No'
-                                        fullWidth
-                                        value={formData.un_no}
-                                        onChange={(event) => handleFormChange('un_no', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={6} md={3}>
-                                    <InputLabel>IMCO</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter IMCO No. '
-                                        fullWidth
-                                        value={formData.imco}
-                                        onChange={(event) => handleFormChange('imco', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={6} md={3}>
-                                    <InputLabel>Package Group</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter Package Group'
-                                        fullWidth
-                                        value={formData.package_group}
-                                        onChange={(event) => handleFormChange('package_group', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={6} md={3}>
-                                    <InputLabel>PSN</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter PSN No. '
-                                        fullWidth
-                                        value={formData.psn}
-                                        onChange={(event) => handleFormChange('psn', event.target.value)}
-                                    />
-                                </Grid>
-                            </>
-                        )}
-
-                        {isOOG === true && (
-                            <>
-                                <Grid item xs={6} sm={3}>
-                                    <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
-                                        <FormControlLabel
-                                            control={<Checkbox checked={isOOG} onChange={handleOOG} />}
-                                            label={<InputLabel>Over-Sized Cargo</InputLabel>}
+                            {isTCR === true && (
+                                <>
+                                    <Grid item xs={6} md={4}>
+                                        <InputLabel>Temperature</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter Temperature in °C'
+                                            fullWidth
+                                            value={formData.temp}
+                                            onChange={(event) => handleFormChange('temp', event.target.value)}
                                         />
-                                    </Box>
-                                </Grid>
-                                <Grid item xs={6} sm={3}>
-                                    <InputLabel>Length</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter length in mm'
-                                        fullWidth
-                                        value={formData.length}
-                                        onChange={(event) => handleFormChange('length', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={3}>
-                                    <InputLabel>Breadth</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter breadth in mm'
-                                        fullWidth
-                                        value={formData.breadth}
-                                        onChange={(event) => handleFormChange('breadth', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={3}>
-                                    <InputLabel>Height</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter height in mm'
-                                        fullWidth
-                                        value={formData.height}
-                                        onChange={(event) => handleFormChange('height', event.target.value)}
-                                    />
-                                </Grid>
-                            </>
-                        )}
-
-                        {isTCR === true && (
-                            <>
-                                <Grid item xs={6} md={4}>
-                                    <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
-                                        <FormControlLabel
-                                            control={<Checkbox checked={isTCR} onChange={handleTCR} />}
-                                            label={<InputLabel>Temperarture Control Required</InputLabel>}
+                                    </Grid>
+                                    <Grid item xs={12} md={4}>
+                                        <InputLabel>Ventilation</InputLabel>
+                                        <TextField
+                                            sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
+                                            size='small'
+                                            placeholder='Enter Percentage of Ventilation'
+                                            fullWidth
+                                            value={formData.ventilation}
+                                            onChange={(event) => handleFormChange('ventilation', event.target.value)}
                                         />
-                                    </Box>
-                                </Grid>
-                                <Grid item xs={6} sm={4}>
-                                    <InputLabel>Temperature</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter Temperature in °C'
-                                        fullWidth
-                                        value={formData.temp}
-                                        onChange={(event) => handleFormChange('temp', event.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={6} sm={4}>
-                                    <InputLabel>Ventilation</InputLabel>
-                                    <TextField
-                                        sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
-                                        size='small'
-                                        placeholder='Enter Percentage of Ventilation'
-                                        fullWidth
-                                        value={formData.ventilation}
-                                        onChange={(event) => handleFormChange('ventilation', event.target.value)}
-                                    />
-                                </Grid>
-                            </>
-                        )}
-                    </Grid>
+                                    </Grid>
+                                </>
+                            )}
+                        </Grid>
+                    </Box>
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', my: theme.spacing(1) }}>
-                    <Box>
-                        <InputLabel>Cargo Readyness Date</InputLabel>
-                        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
-                            <DatePicker
-                                closeOnSelect
-                                sx={{
-                                    '& .MuiInputBase-root': {
-                                        height: '2.4rem',
-                                        width: '20rem',
-                                        backgroundColor: '#0312251A',
-                                        borderRadius: '8px',
-                                        fontSize: '1rem',
-                                        color: '#6D7987',
-                                    },
-                                }}
-                                format='DD-MM-YYYY'
-                                value={formData.cargo_date}
-                                onChange={(value) => handleFormChange('cargo_date', value)}
-                            />
-                        </LocalizationProvider>
-                    </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', my: theme.spacing(1) }}>
                     <PrimaryButton text='Get Quote' onClick={handleFormSubmit} />
                 </Box>
                 <Snackbar

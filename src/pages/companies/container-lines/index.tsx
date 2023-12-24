@@ -40,7 +40,7 @@ function ProcessSection() {
                 alt='process banner'
                 style={{
                     width: tabletMode ? 'auto' : '100%',
-                    height: mobileMode ? '220vh' : wideMobileMode ? '134vh' : tabletMode ? '120vh' : 'auto',
+                    height: mobileMode ? '180vh' : tabletMode ? '120vh' : 'auto',
                 }}
             />
 
