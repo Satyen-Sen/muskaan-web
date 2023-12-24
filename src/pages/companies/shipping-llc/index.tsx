@@ -63,7 +63,7 @@ export default function Home() {
             subtitle='جهد الشحن والخدمات اللوجستية'
             companyName='MUSKAAN SHIPPING LLC'
             mapSrc={
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15145022.136160396!2d67.03364636869956!3d22.068134271266782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432a3cfe94f7%3A0x70f0d50a6e4cbbac!2sMUSKAAN+SHIPPING+LLC!5e0!3m2!1sen!2sin!4v1561552755032!5m2!1sen!2sin'
+                'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115466.2092396493!2d55.291758!3d25.259851!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432a3cfe94f7%3A0x70f0d50a6e4cbbac!2sMUSKAAN%20SHIPPING%20LLC!5e0!3m2!1sen!2sin!4v1703424609969!5m2!1sen!2sin'
             }
             mapTitle='Muskaan Shipping LLC'
             address={`Mohammed Noor Talib Building, 701, 7th floor, Khaleed bin waleed Road, Opp. Royal Ascot Hotel Burdubai, \n Dubai - 128160. `}

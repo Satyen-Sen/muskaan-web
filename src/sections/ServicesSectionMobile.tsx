@@ -73,7 +73,7 @@ export default function ServicesSectionMobile() {
                                 <Typography
                                     variant='h6'
                                     textAlign='center'
-                                    sx={{ p: theme.spacing(1), position: 'absolute', fontWeight: 600 }}
+                                    sx={{ p: theme.spacing(1), position: 'absolute', fontWeight: 900 }}
                                 >
                                     {item.title}
                                 </Typography>

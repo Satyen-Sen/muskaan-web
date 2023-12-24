@@ -14,7 +14,6 @@ const BulletList = ({ text }: { text: string }) => {
             textAlign='justify'
             sx={{ color: '#031225', fontWeight: 500, my: theme.spacing(1), pl: theme.spacing(1.5) }}
         >
-            titleImg
             <ul>
                 <li>{text}</li>
             </ul>
@@ -26,7 +25,7 @@ export default function Home() {
     const theme = useTheme()
 
     return (
-        <LayoutCentered image={titleImg} title={'Incoterms'} pageTitle='Incoterms'>
+        <LayoutCentered image={titleImg} title='Incoterms' pageTitle='Incoterms' customHeight='35vw'>
             <Box sx={{ my: theme.spacing(3), mx: { xs: 0, sm: theme.spacing(1), md: theme.spacing(8) } }}>
                 <Typography variant='h2' textAlign='justify'>
                     An overview of Incoterms® 2020 for 11 Terms, 7 for any mode of transport.

@@ -38,10 +38,22 @@ export default function Home() {
         >
             <Box sx={{ overflowX: 'auto' }}>
                 <Tabs value={value} onChange={handleChange} variant='fullWidth'>
-                    <Tab label='High Cube' sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF' }} />
-                    <Tab label='Reefer' sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF' }} />
-                    <Tab label='Open Top' sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF' }} />
-                    <Tab label='Flat Rack' sx={{ bgcolor: value === 3 ? '#003A9B' : '#FFFFFF' }} />
+                    <Tab
+                        label={<span style={{ color: value === 0 ? '#FFFFFF' : '#003A9B' }}>High Cube</span>}
+                        sx={{ bgcolor: value === 0 ? '#003A9B' : '#FFFFFF' }}
+                    />
+                    <Tab
+                        label={<span style={{ color: value === 1 ? '#FFFFFF' : '#003A9B' }}>Reefer</span>}
+                        sx={{ bgcolor: value === 1 ? '#003A9B' : '#FFFFFF' }}
+                    />
+                    <Tab
+                        label={<span style={{ color: value === 2 ? '#FFFFFF' : '#003A9B' }}>Open Top</span>}
+                        sx={{ bgcolor: value === 2 ? '#003A9B' : '#FFFFFF' }}
+                    />
+                    <Tab
+                        label={<span style={{ color: value === 3 ? '#FFFFFF' : '#003A9B' }}>Flat Rack</span>}
+                        sx={{ bgcolor: value === 3 ? '#003A9B' : '#FFFFFF' }}
+                    />
                 </Tabs>
             </Box>
 

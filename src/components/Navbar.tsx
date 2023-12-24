@@ -82,9 +82,12 @@ export default function Navbar() {
 
             {tabletMode ? (
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <MUILink href='http://app.muskan-group.com/' sx={{ mr: theme.spacing(1.25) }}>
-                        <PrimaryButton text='Login' light width='6rem' height='2rem' />
-                    </MUILink>
+                    <Box sx={{ mr: theme.spacing(1.25) }}>
+                        <Link href='http://app.muskan-group.com/' target='_blank'>
+                            <PrimaryButton text='Login' light width='6rem' height='2rem' />
+                        </Link>
+                    </Box>
+
                     <IconButton onClick={handleSidebarToggle}>
                         <MenuRoundedIcon sx={{ color: '#FFFFFF' }} />
                     </IconButton>
@@ -225,9 +228,9 @@ export default function Navbar() {
                     </Box>
 
                     <Box sx={{ mx: theme.spacing(1.5) }}>
-                        <MUILink href='http://app.muskan-group.com/'>
+                        <Link href='http://app.muskan-group.com/' target='_blank'>
                             <PrimaryButton text='Login' light width='8rem' height='2rem' />
-                        </MUILink>
+                        </Link>
                     </Box>
                 </Box>
             )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { postDataToApi } from '../../api/api'
 import {
     Box,
@@ -49,7 +49,18 @@ export default function Home() {
 
     const [originLocation, setOriginLocation] = useState<Port | null>(null)
     const [destinationLocation, setDestinationLocation] = useState<Port | null>(null)
-    const [containerCount, setContainerCount] = useState(0)
+    const [isHazardous, setIsHazardous] = useState(false)
+    const [isOOG, setIsOOG] = useState(false)
+    const [isTCR, setIsTCR] = useState(false)
+    const handleHazardous = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsHazardous(event.target.checked)
+    }
+    const handleOOG = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsOOG(event.target.checked)
+    }
+    const handleTCR = (event: ChangeEvent<HTMLInputElement>) => {
+        setIsTCR(event.target.checked)
+    }
     const [formData, setFormData] = useState({
         origin: null as Port | null,
         destination: null as Port | null,
@@ -57,7 +68,7 @@ export default function Home() {
             {
                 type: '',
                 size: '',
-                quantity: 0,
+                quantity: undefined,
                 weight: undefined,
                 unit: '',
             },
@@ -66,16 +77,16 @@ export default function Home() {
         customer_name: '',
         email: '',
         commodity: '',
-        is_haz: false,
+        is_haz: false as boolean,
         un_no: '',
         imco: '',
         package_group: '',
         psn: '',
-        is_oog: false,
+        is_oog: false as boolean,
         length: '',
         breadth: '',
         height: '',
-        is_temp: false,
+        is_temp: false as boolean,
         temp: '',
         ventilation: '',
         cargo_date: null as dayjs.Dayjs | null,
@@ -104,14 +115,12 @@ export default function Home() {
                     weight: undefined,
                     unit: '',
                 }
-                setContainerCount(0)
                 return { ...prevData, containerDetails: newContainerDetails }
             })
         } else {
             setFormData((prevData) => {
                 const newContainerDetails = [...prevData.containerDetails]
                 newContainerDetails.pop()
-                setContainerCount(newContainerDetails.length)
                 return { ...prevData, containerDetails: newContainerDetails }
             })
         }
@@ -131,7 +140,6 @@ export default function Home() {
             ]
             return { ...prevData, containerDetails: newContainerDetails }
         })
-        setContainerCount(0)
     }
     const [successSnackbar, setSuccessSnackbar] = useState(false)
     const [errorSnackbar, setErrorSnackbar] = useState(false)
@@ -157,6 +165,9 @@ export default function Home() {
                 ...formData,
                 origin: originLocation?.id,
                 destination: destinationLocation?.id,
+                is_haz: isHazardous,
+                is_oog: isOOG,
+                is_temp: isTCR,
             }
             const response = await postDataToApi('api/quote-request/', updatedFormData)
             const responseData = await response.json()
@@ -173,7 +184,7 @@ export default function Home() {
                     {
                         type: '',
                         size: '',
-                        quantity: 0,
+                        quantity: undefined,
                         weight: undefined,
                         unit: '',
                     },
@@ -212,7 +223,7 @@ export default function Home() {
                     mx: 'auto',
                 }}
             >
-                Booking Details
+                Get Quote
             </Typography>
 
             <Paper sx={{ borderRadius: '16px', p: theme.spacing(1), width: { sm: '40rem', md: '100%' }, mx: 'auto' }}>
@@ -387,61 +398,42 @@ export default function Home() {
                             />
                         </Grid>
 
-                        <Grid item xs={6} md={formData.is_oog && formData.is_temp ? 6 : formData.is_oog || formData.is_temp ? 3 : 1.5}>
+                        <Grid item xs={6} md={isOOG && isTCR ? 6 : isOOG || isTCR ? 3 : 1.5}>
                             <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                 <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            checked={formData.is_haz}
-                                            onChange={(event) => handleFormChange('is_haz', event.target.value)}
-                                        />
-                                    }
+                                    control={<Checkbox checked={isHazardous} onChange={handleHazardous} />}
                                     label={<InputLabel>Hazardous</InputLabel>}
                                 />
                             </Box>
                         </Grid>
 
-                        {formData.is_oog ? (
+                        {isOOG ? (
                             <></>
                         ) : (
                             <Grid item xs={6} md={2}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                checked={formData.is_oog}
-                                                onChange={(event) => handleFormChange('is_oog', event.target.value)}
-                                            />
-                                        }
+                                        control={<Checkbox checked={isOOG} onChange={handleOOG} />}
                                         label={<InputLabel>Over-Sized Cargo</InputLabel>}
                                     />
                                 </Box>
                             </Grid>
                         )}
 
-                        {formData.is_temp ? (
+                        {isTCR ? (
                             <></>
                         ) : (
-                            <Grid item xs={6} md={formData.is_oog ? 3 : 2.5}>
+                            <Grid item xs={6} md={isOOG ? 3 : 2.5}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                checked={formData.is_temp}
-                                                onChange={(event) => handleFormChange('is_temp', event.target.value)}
-                                            />
-                                        }
-                                        label={
-                                            <InputLabel>
-                                                {formData.is_oog || formData.is_temp ? 'Temperarture' : 'Temp'} Control Required
-                                            </InputLabel>
-                                        }
+                                        control={<Checkbox checked={isTCR} onChange={handleTCR} />}
+                                        label={<InputLabel>{isOOG || isTCR ? 'Temperarture' : 'Temp'} Control Required</InputLabel>}
                                     />
                                 </Box>
                             </Grid>
                         )}
 
-                        {formData.is_haz === true && (
+                        {isHazardous === true && (
                             <>
                                 <Grid item xs={6} sm={6} md={3}>
                                     <InputLabel>UN No</InputLabel>
@@ -490,17 +482,12 @@ export default function Home() {
                             </>
                         )}
 
-                        {formData.is_oog === true && (
+                        {isOOG === true && (
                             <>
                                 <Grid item xs={6} sm={3}>
                                     <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                         <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    checked={formData.is_oog}
-                                                    onChange={(event) => handleFormChange('is_oog', event.target.value)}
-                                                />
-                                            }
+                                            control={<Checkbox checked={isOOG} onChange={handleOOG} />}
                                             label={<InputLabel>Over-Sized Cargo</InputLabel>}
                                         />
                                     </Box>
@@ -541,17 +528,12 @@ export default function Home() {
                             </>
                         )}
 
-                        {formData.is_temp === true && (
+                        {isTCR === true && (
                             <>
                                 <Grid item xs={6} md={4}>
                                     <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                         <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    checked={formData.is_temp}
-                                                    onChange={(event) => handleFormChange('is_temp', event.target.value)}
-                                                />
-                                            }
+                                            control={<Checkbox checked={isTCR} onChange={handleTCR} />}
                                             label={<InputLabel>Temperarture Control Required</InputLabel>}
                                         />
                                     </Box>

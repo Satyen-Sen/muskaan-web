@@ -53,7 +53,6 @@ export default function NetworkSection() {
                                             style={{
                                                 width: '100%',
                                                 height: 'auto',
-                                                filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
                                             }}
                                         />
 
@@ -90,7 +89,6 @@ export default function NetworkSection() {
                                             style={{
                                                 width: '100%',
                                                 height: 'auto',
-                                                filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))',
                                             }}
                                         />
 

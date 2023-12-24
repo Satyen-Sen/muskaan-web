@@ -32,10 +32,11 @@ declare type LayoutProps = {
     withTabs?: boolean
     children: React.ReactNode
     pageTitle?: string
+    customHeight?: string
     props?: Props
 }
 
-export default function LayoutCentered({ image, title, children, pageTitle, props }: LayoutProps) {
+export default function LayoutCentered({ image, title, children, pageTitle, customHeight, props }: LayoutProps) {
     const theme = useTheme()
     const wideMobileMode = useMediaQuery('(max-width:699px)')
     const mobileMode = useMediaQuery('(max-width:499px)')
@@ -49,7 +50,7 @@ export default function LayoutCentered({ image, title, children, pageTitle, prop
     return (
         <>
             <Head>
-                <title>{pageTitle} | Muskan Group </title>
+                <title>{`${pageTitle} | Muskan Group `}</title>
             </Head>
             <React.Fragment>
                 <ElevationScroll {...props}>
@@ -61,7 +62,7 @@ export default function LayoutCentered({ image, title, children, pageTitle, prop
                     <Box
                         sx={{
                             position: 'relative',
-                            height: '42vw',
+                            height: customHeight ? customHeight : '42vw',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',

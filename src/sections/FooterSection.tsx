@@ -23,7 +23,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
             {mobileMode ? (
                 <Box sx={{ mx: { xs: theme.spacing(2), sm: theme.spacing(4) }, pt: theme.spacing(4) }}>
                     <Link href='/'>
-                        <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
+                        <img src='/logo/logo.png' alt='logo' style={{ marginRight: 'auto', height: '3rem', width: 'auto' }} />
                     </Link>
                     <Typography variant='h6' textAlign='center' sx={{ my: theme.spacing(1) }}>
                         Muskan Group of Companies
@@ -166,7 +166,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                     <Grid container spacing={2}>
                         <Grid item sm={6}>
                             <Link href='/'>
-                                <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
+                                <img src='/logo/logo.png' alt='logo' style={{ marginRight: 'auto', height: '3rem', width: 'auto' }} />
                             </Link>
                             <Typography variant='h6' textAlign='center' sx={{ my: theme.spacing(1) }}>
                                 Muskan Group of Companies
@@ -536,7 +536,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                         <Grid container spacing={4}>
                             <Grid item sm={3}>
                                 <Link href='/'>
-                                    <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
+                                    <img src='/logo/logo.png' alt='logo' style={{ marginRight: 'auto', height: '3rem', width: 'auto' }} />
                                 </Link>
                                 <Typography
                                     variant='h6'
@@ -891,7 +891,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                             }}
                         />
                         <Typography variant='body2' textAlign='end' sx={{ py: theme.spacing(2) }}>
-                            © 2023 Copyright: Muskan Group of Companies
+                            ©2024 Copyright: Muskan Group of Companies
                         </Typography>
                     </Container>
                 </Box>

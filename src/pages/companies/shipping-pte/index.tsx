@@ -75,14 +75,14 @@ export default function Home() {
                         alt=''
                         style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '1rem 0rem' : '1rem 8rem' }}
                     />
-                    {/* <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
+                    <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Overall Exports & Imports of Services (2014-18)
                     </Typography>
                     <Image
                         src={statisticsMerchandiseTrade}
                         alt=''
                         style={{ width: '100%', height: 'auto', padding: mobileMode || customMobileMode ? '1rem 0rem' : '1rem 8rem' }}
-                    /> */}
+                    />
                     <Typography variant='h4' sx={{ textAlign: 'center', mb: '4rem', color: '#1B1B1F', fontWeight: 600 }}>
                         Total Merchandise Tradeat Current Prices, 2018-2022
                     </Typography>

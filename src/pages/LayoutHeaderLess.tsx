@@ -29,7 +29,7 @@ export default function LayoutHeaderLess({ pageTitle, children, props }: { pageT
     return (
         <>
             <Head>
-                <title>{pageTitle} | Muskan Group </title>
+                <title>{`${pageTitle} | Muskan Group `}</title>
             </Head>
             <React.Fragment>
                 <ElevationScroll {...props}>

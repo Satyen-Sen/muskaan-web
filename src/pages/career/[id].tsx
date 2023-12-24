@@ -296,24 +296,8 @@ export default function JobDetail() {
                                 </Box>
                             </Grid>
                             <Grid item sm={6} xs={12}>
-                                {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <PrimaryTextField label='Captcha' placeholder='Enter Captcha' />
-
-                                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                        <Image
-                                    src={captcha}
-                                    alt='reload'
-                                    style={{ height: '2rem', width: 'auto', marginRight: '0.5rem' }}
-                                />
-                                        <IconButton>
-                                            <Image src={reload} alt='reload' style={{ height: '1.5rem', width: 'auto' }} />
-                                        </IconButton>
-                                    </Box>
-                                </Box> */}
-                                <Box>
-                                    <InputLabel>Captcha</InputLabel>
-                                    <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''} />
-                                </Box>
+                                <InputLabel>Captcha</InputLabel>
+                                <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''} />
                             </Grid>
                         </Grid>
 

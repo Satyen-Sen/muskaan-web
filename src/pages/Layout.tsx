@@ -46,7 +46,7 @@ export default function Layout({ image, title, subtitle, withTabs, children, pro
     return (
         <>
             <Head>
-                <title>{pageTitle} | Muskan Group </title>
+                <title>{`${pageTitle} | Muskan Group `}</title>
             </Head>
 
             <React.Fragment>

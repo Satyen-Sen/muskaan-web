@@ -134,21 +134,21 @@ export default function Home() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={4}>
                         <AddressCard
-                            companyLoc='Singapore'
+                            companyLoc='Muskaan Shipping PTE Ltd, Singapore'
                             address='60 Kaki Bukit Place #02-13Suites 3 Eunos Techpark, Singapore 415979'
                             phone='+65 64921136'
                         />
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <AddressCard
-                            companyLoc='Malaysia'
+                            companyLoc='Muskaan Shipping SDN BHD, Malaysia'
                             address='Centro Business CentreSuite #16-02, level 16,No.8 Jalan Batu Tiga Lama,Klang 41200 Selangor, Malaysia'
                             phone='+603-33418460/61'
                         />
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <AddressCard
-                            companyLoc='Dubai'
+                            companyLoc='Muskaan Shipping LLC, Dubai'
                             address='Mohammed Noor Talib Bldg.,701, 7th floor, Khaleed bin waleed Road Opp.Royal Ascot Hotel Burdubai,PO Box : - 128160 Dubai'
                             phone='+97143511215'
                         />

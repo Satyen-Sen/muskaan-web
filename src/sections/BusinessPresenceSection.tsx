@@ -2,19 +2,17 @@ import React from 'react'
 import Image from 'next/image'
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import { oswald } from '../styles/fonts'
 import map from '@/assets/images/map.webp'
 import CompanyReachCard from '../components/CompanyReachCard'
 import MapPointer from '@/components/fab/MapPointer'
 
 export default function BusinessPresenceSection() {
     const theme = useTheme()
-    const mobileMode = useMediaQuery('(max-width:699px)')
-    const maxMode = useMediaQuery('(min-width:1700px)')
+    const mobileMode = useMediaQuery('(max-width:799px)')
 
     return (
         <Box sx={{ mt: theme.spacing(4) }}>
-            {mobileMode || maxMode ? (
+            {mobileMode ? (
                 <Box sx={{ mx: { xs: theme.spacing(2), sm: theme.spacing(4) } }}>
                     <Container
                         maxWidth='md'
@@ -196,9 +194,7 @@ export default function BusinessPresenceSection() {
                     </Container>
                 </Box>
             ) : (
-                <Container
-                    maxWidth='xl'
-                    disableGutters
+                <Box
                     sx={{
                         mt: theme.spacing(8),
                         position: 'relative',
@@ -272,7 +268,7 @@ export default function BusinessPresenceSection() {
                     />
                     <MapPointer
                         top='44vw'
-                        left='72vw'
+                        left='71vw'
                         title='Haiphong City, Vietnam'
                         description='Intercontinental Shipping Co Ltd, 14th Room, 7th Floor, Success Building, No. 3 Le Thanh Tong Street, Ngo Quyen District, Hai Phong City, Vietnam.'
                     />
@@ -372,7 +368,7 @@ export default function BusinessPresenceSection() {
                         title='Alexandria, Egypt'
                         description='Inchcape Shipping Services, 127 El Horia Road, 3rd Floor, Office No. 304, Bab Shark, Flower Clock Square, Above Ahli United Bank, Alexandria, Egypt'
                     />
-                </Container>
+                </Box>
             )}
         </Box>
     )
