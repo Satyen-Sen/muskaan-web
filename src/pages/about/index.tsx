@@ -47,7 +47,7 @@ export default function Home() {
                 />
             </Tabs>
 
-            {/* <TabPanel value={value} index={0}>
+            <TabPanel value={value} index={0}>
                 <AboutTab />
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -55,7 +55,7 @@ export default function Home() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <MissionAndVisionTab />
-            </TabPanel> */}
+            </TabPanel>
         </Layout>
     )
 }

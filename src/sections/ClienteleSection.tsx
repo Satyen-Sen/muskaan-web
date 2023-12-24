@@ -10,7 +10,6 @@ export default function ClienteleSection() {
     const theme = useTheme()
     const mobileMode = useMediaQuery('(max-width:499px)')
     const narrowTabletMode = useMediaQuery('(max-width:749px)')
-    const tabletMode = useMediaQuery('(max-width:849px)')
 
     const visibleIcons = narrowTabletMode ? 3 : 5
     const iconsLength = clientsData.length
@@ -43,22 +42,9 @@ export default function ClienteleSection() {
                     </Box>
                 </Container>
             ) : (
-                <>
-                    {tabletMode ? (
-                        <Box sx={{ my: theme.spacing(2) }}>
-                            <Typography variant='h2' textAlign='center'>
-                                Appreciated by some of the
-                            </Typography>
-                            <Typography variant='h2' textAlign='center'>
-                                best in industry
-                            </Typography>
-                        </Box>
-                    ) : (
-                        <Typography variant='h2' textAlign='center' sx={{ mb: theme.spacing(6), mt: '16rem' }}>
-                            Appreciated by some of the best in industry
-                        </Typography>
-                    )}
-                </>
+                <Typography variant='h2' textAlign='center' sx={{ mb: theme.spacing(6), mt: '16rem' }}>
+                    Appreciated by some of the best in industry
+                </Typography>
             )}
             <Container maxWidth='md' disableGutters sx={{ mb: theme.spacing(4), position: 'relative' }}>
                 <Box
@@ -78,7 +64,7 @@ export default function ClienteleSection() {
                         const arrayIndex = (startIconIndex + index) % iconsLength
                         return (
                             <Box sx={{ height: '4rem', mx: '0.5rem', display: 'flex' }} key={arrayIndex}>
-                                <img src={clientsData[arrayIndex].cardIcon} alt='client icon' width='auto' height='100%' />
+                                <Image src={clientsData[arrayIndex].cardIcon} alt='client icon' style={{ width: 'auto', height: '100%' }} />
                             </Box>
                         )
                     })}

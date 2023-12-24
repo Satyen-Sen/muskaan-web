@@ -4,7 +4,6 @@ import { useTheme } from '@mui/material/styles'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded'
-import logo from '@/assets/logo.png'
 
 const accordionLinks = [
     {
@@ -78,7 +77,7 @@ const Sidebar = ({ open, handleClose }: SidebarProps) => {
             <Box sx={{ display: 'flex', flexDirection: 'column', p: theme.spacing(1), width: '100%' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: theme.spacing(2), mt: theme.spacing(3) }}>
                     <Link href='/' sx={{ display: 'flex', alignItems: 'center' }}>
-                        <img src='/assets/logo.png' alt='logo' width='auto' height='48rem' />
+                        <img src='/logo/logo.png' alt='logo' width='auto' height='48rem' />
                         <Typography variant='body1' sx={{ mx: theme.spacing(1), fontSize: '1.5rem', color: '#FFFFFF' }}>
                             Muskan Group
                         </Typography>
