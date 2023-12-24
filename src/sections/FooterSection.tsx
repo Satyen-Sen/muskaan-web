@@ -1,7 +1,6 @@
 import Image from 'next/image'
-import { Box, Button, Container, Divider, Grid, InputAdornment, Link, TextField, Typography, useMediaQuery } from '@mui/material'
+import { Box, Container, Divider, Grid, Link, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import logo from '@/assets/logo.png'
 import facebook from '@/assets/icons/facebook.png'
 import linkedIn from '@/assets/icons/linkedin.png'
 import twitter from '@/assets/icons/twitter.png'
@@ -24,7 +23,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
             {mobileMode ? (
                 <Box sx={{ mx: { xs: theme.spacing(2), sm: theme.spacing(4) }, pt: theme.spacing(4) }}>
                     <Link href='/'>
-                        <Image src={logo} alt='logo' style={{ height: '3rem', width: 'auto', marginRight: 'auto' }} />
+                        <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
                     </Link>
                     <Typography variant='h6' textAlign='center' sx={{ my: theme.spacing(1) }}>
                         Muskan Group of Companies
@@ -167,7 +166,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                     <Grid container spacing={2}>
                         <Grid item sm={6}>
                             <Link href='/'>
-                                <Image src={logo} alt='logo' style={{ height: '3rem', width: 'auto', marginRight: 'auto' }} />
+                                <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
                             </Link>
                             <Typography variant='h6' textAlign='center' sx={{ my: theme.spacing(1) }}>
                                 Muskan Group of Companies
@@ -537,15 +536,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                         <Grid container spacing={4}>
                             <Grid item sm={3}>
                                 <Link href='/'>
-                                    <Image
-                                        src={logo}
-                                        alt='logo'
-                                        style={{
-                                            height: '3rem',
-                                            width: 'auto',
-                                            marginRight: 'auto',
-                                        }}
-                                    />
+                                    <img src='/logo/logo.png' alt='logo' width='auto' height='3rem' style={{ marginRight: 'auto' }} />
                                 </Link>
                                 <Typography
                                     variant='h6'

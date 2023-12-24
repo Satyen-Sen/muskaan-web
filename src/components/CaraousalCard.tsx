@@ -3,7 +3,7 @@ import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 import { Box, Fade, Link, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import cardBackground from '@/assets/carousel/card-background.png'
+import cardBackground from '@/assets/carousel/card-background.webp'
 
 declare type CarouselCardProps = {
     coverImage: string | StaticImageData
