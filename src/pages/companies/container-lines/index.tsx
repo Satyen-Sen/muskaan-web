@@ -1,133 +1,20 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import CompaniesLayout from '../CompaniesLayout'
 import ServicesCards from '../../../components/services/ServicesCards'
 import containerLinesBg from '@/assets/companies/container-lines-bg.webp'
-import processBanner from '@/assets/companies/process-banner.webp'
 import branchesMap from '@/assets/companies/branches-map.webp'
 import insulatedContainer from '@/assets/companies/muskan_conatiners/insulated_containers.png'
 import openTopContainer from '@/assets/companies/muskan_conatiners/open_to_containers.png'
 import bulkContainer from '@/assets/companies/muskan_conatiners/bult-containers.png'
 import tankContainer from '@/assets/companies/muskan_conatiners/tank-containers.png'
-import { ProcessData, OfficeLoactionIndia, OfficeLoactionInternational } from '../../../data/companiesData'
+import { OfficeLoactionIndia, OfficeLoactionInternational } from '../../../data/companiesData'
 import StatisticsCard from '@/components/companies/StatisticsCard'
 import CustomText from '@/components/companies/CustomText'
-import { Visibility } from '@mui/icons-material'
-import VisibilityTracker, { AnimationType, CollapseOrientation } from '@/components/VisibilityTracker'
 import CompanyReachCard from '../../../components/CompanyReachCard'
-
-function ProcessSection() {
-    const theme = useTheme()
-    const tabletMode = useMediaQuery('(max-width:999px)')
-    const wideMobileMode = useMediaQuery('(max-width:649px)')
-    const mobileMode = useMediaQuery('(max-width:499px)')
-    const [hoveredImage, setHoveredImage] = useState(null)
-
-    const handleMouseEnter = (index: any) => {
-        setHoveredImage(index)
-    }
-
-    const handleMouseLeave = () => {
-        setHoveredImage(null)
-    }
-
-    return (
-        <Box sx={{ position: 'relative' }}>
-            <Image
-                src={processBanner}
-                alt='process banner'
-                style={{
-                    width: tabletMode ? 'auto' : '100%',
-                    height: mobileMode ? '180vh' : tabletMode ? '120vh' : 'auto',
-                }}
-            />
-
-            <Box
-                sx={{
-                    position: 'absolute',
-                    top: 0,
-                    mx: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) },
-                }}
-            >
-                <Typography variant='h3' sx={{ my: '2rem' }}>
-                    Process
-                </Typography>
-                <VisibilityTracker animationType={AnimationType.COLLAPSE} collapseOrientation={CollapseOrientation.VERTICAL} timeout={1500}>
-                    {mobileMode ? (
-                        <Box>
-                            {ProcessData.map((item, index) => (
-                                <Box
-                                    sx={{
-                                        bgcolor: '#FFFFFF',
-                                        borderRadius: '1rem',
-                                        padding: '1.25rem',
-                                        transition: 'transform 0.4s',
-                                        height: '100%',
-                                        mb: '2rem',
-                                        transform: hoveredImage === index ? 'scale(1.1)' : 'scale(1)',
-                                    }}
-                                    onMouseEnter={() => handleMouseEnter(index)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt='card image'
-                                        style={{
-                                            width: 'auto',
-                                            height: '4rem',
-                                        }}
-                                    />
-                                    <Typography variant='h6' textAlign='center' sx={{ fontWeight: 600, color: '#031225', my: '1rem' }}>
-                                        {item.title}
-                                    </Typography>
-                                    <Typography variant='body1' textAlign='center' sx={{ color: '#031225', fontWeight: 300 }}>
-                                        {item.desc}
-                                    </Typography>
-                                </Box>
-                            ))}
-                        </Box>
-                    ) : (
-                        <Grid container spacing={2}>
-                            {ProcessData.map((item, index) => (
-                                <Grid item xs={6} md={3}>
-                                    <Box
-                                        sx={{
-                                            bgcolor: '#FFFFFF',
-                                            borderRadius: '1rem',
-                                            padding: '1.25rem',
-                                            transition: 'transform 0.4s',
-                                            height: '100%',
-                                            transform: hoveredImage === index ? 'scale(1.1)' : 'scale(1)',
-                                        }}
-                                        onMouseEnter={() => handleMouseEnter(index)}
-                                        onMouseLeave={handleMouseLeave}
-                                    >
-                                        <Image
-                                            src={item.image}
-                                            alt='card image'
-                                            style={{
-                                                width: 'auto',
-                                                height: '4rem',
-                                            }}
-                                        />
-                                        <Typography variant='h6' textAlign='center' sx={{ fontWeight: 600, color: '#031225', my: '1rem' }}>
-                                            {item.title}
-                                        </Typography>
-                                        <Typography variant='body1' textAlign='center' sx={{ color: '#031225', fontWeight: 300 }}>
-                                            {item.desc}
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    )}
-                </VisibilityTracker>
-            </Box>
-        </Box>
-    )
-}
+import ProcessCards from '@/components/companies/ProcessCards'
 
 export default function Home() {
     const theme = useTheme()
@@ -215,7 +102,7 @@ export default function Home() {
                     <StatisticsCard exporterRank={16} importerRank={10} tradeBalanceRank={136} totalTradeAmtList={totalTradeAmtList} />
                 </Container>
             </Box>
-            <ProcessSection />
+            <ProcessCards />
             <ServicesCards companiesPage />
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters>
@@ -299,7 +186,7 @@ export default function Home() {
 }
 
 function ContainerType({ image, title, desc }: { image: string | StaticImageData; title: String; desc: String }) {
-    const [hovered, setHovered] = React.useState(false)
+    const [hovered, setHovered] = useState(false)
 
     const handleMouseEnter = () => {
         setHovered(true)

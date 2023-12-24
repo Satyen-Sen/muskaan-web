@@ -496,7 +496,7 @@ export default function Home() {
 
                     <Box sx={{ mt: theme.spacing(0.5) }}>
                         <Grid container spacing={mobileMode ? 1 : 2}>
-                            <Grid item sm={6} md={3}>
+                            <Grid item xs={6} md={3}>
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
                                         control={<Checkbox checked={isOOG} onChange={handleOOG} />}
@@ -506,7 +506,7 @@ export default function Home() {
                             </Grid>
                             {isOOG === true && (
                                 <>
-                                    <Grid item sm={6} md={3}>
+                                    <Grid item xs={6} md={3}>
                                         <InputLabel>Length</InputLabel>
                                         <TextField
                                             sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
@@ -517,7 +517,7 @@ export default function Home() {
                                             onChange={(event) => handleFormChange('length', event.target.value)}
                                         />
                                     </Grid>
-                                    <Grid item sm={6} md={3}>
+                                    <Grid item xs={6} md={3}>
                                         <InputLabel>Breadth</InputLabel>
                                         <TextField
                                             sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
@@ -528,7 +528,7 @@ export default function Home() {
                                             onChange={(event) => handleFormChange('breadth', event.target.value)}
                                         />
                                     </Grid>
-                                    <Grid item sm={6} md={3}>
+                                    <Grid item xs={6} md={3}>
                                         <InputLabel>Height</InputLabel>
                                         <TextField
                                             sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}
@@ -550,14 +550,14 @@ export default function Home() {
                                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'end', height: '100%' }}>
                                     <FormControlLabel
                                         control={<Checkbox checked={isTCR} onChange={handleTCR} />}
-                                        label={<InputLabel>{isOOG || isTCR ? 'Temperarture' : 'Temp'} Control Required</InputLabel>}
+                                        label={<InputLabel>Temperarture Control Required</InputLabel>}
                                     />
                                 </Box>
                             </Grid>
 
                             {isTCR === true && (
                                 <>
-                                    <Grid item xs={6} md={4}>
+                                    <Grid item xs={12} md={4}>
                                         <InputLabel>Temperature</InputLabel>
                                         <TextField
                                             sx={{ backgroundColor: '#0312251A', borderRadius: '8px' }}

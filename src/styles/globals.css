@@ -77,3 +77,11 @@ html {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.ellipsis-10-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 9; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

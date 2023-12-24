@@ -38,9 +38,9 @@ export default function Home() {
                 </Typography>
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     EXW – Ex-Works or Ex-Warehouse
                 </Typography>
@@ -51,9 +51,9 @@ export default function Home() {
                 <BulletList text='The seller does not need to load the goods on any collecting vehicle. Nor does it need to clear them for export, where such clearance is applicable.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     FCA – Free Carrier
                 </Typography>
@@ -61,9 +61,9 @@ export default function Home() {
                 <BulletList text='The parties are well advised to specify as explicitly as possible the point within the named place of delivery, as the risk passes to the buyer at that point.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     FAS – Free Alongside Ship
                 </Typography>
@@ -71,9 +71,9 @@ export default function Home() {
                 <BulletList text='The risk of loss of or damage to the goods passes when the products are alongside the ship. The buyer bears all costs from that moment onwards.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     FOB – Free On Board
                 </Typography>
@@ -81,9 +81,9 @@ export default function Home() {
                 <BulletList text='The risk of loss of or damage to the goods passes when the products are on board the vessel. The buyer bears all costs from that moment onwards.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     CFR – Cost and Freight
                 </Typography>
@@ -92,9 +92,9 @@ export default function Home() {
                 <BulletList text='The seller must contract for and pay the costs and freight necessary to bring the goods to the named port of destination.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     CIF – Cost, Insurance and Freight
                 </Typography>
@@ -104,9 +104,9 @@ export default function Home() {
                 <BulletList text='The buyer should note that under CIF the seller is required to obtain insurance only on minimum cover. Should the buyer wish to have more insurance protection, it will need either to agree as much expressly with the seller or to make its own extra insurance arrangements.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     CPT – Carriage Paid To
                 </Typography>
@@ -114,9 +114,9 @@ export default function Home() {
                 <BulletList text='The seller must contract for and pay the costs of carriage necessary to bring the goods to the named place of destination.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     CIP – Carriage And Insurance Paid To
                 </Typography>
@@ -124,9 +124,9 @@ export default function Home() {
                 <BulletList text='The buyer should note that under CIP the seller is required to obtain insurance only on minimum cover. Should the buyer wish to have more insurance protection, it will need either to agree as much expressly with the seller or to make its own extra insurance arrangements.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     DAP – Delivered At Place
                 </Typography>
@@ -134,9 +134,9 @@ export default function Home() {
                 <BulletList text='The seller bears all risks involved in bringing the goods to the named place.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     DPU – Delivered At Place Unloaded (replaces Incoterm® 2010 DAT)
                 </Typography>
@@ -144,9 +144,9 @@ export default function Home() {
                 <BulletList text='The seller bears all risks involved in bringing the goods to, and unloading them at the named place of destination.' />
 
                 <Typography
-                    variant={mobileMode ? 'h5' : 'h4'}
-                    textAlign='justify'
-                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3) }}
+                    variant='h4'
+                    textAlign='start'
+                    sx={{ color: '#031225', fontWeight: 600, mt: theme.spacing(3), fontSize: mobileMode ? '1.125rem' : '1.5rem' }}
                 >
                     DDP – Delivered Duty Paid
                 </Typography>
