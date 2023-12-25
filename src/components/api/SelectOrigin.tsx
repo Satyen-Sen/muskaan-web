@@ -49,7 +49,7 @@ export default function SelectOrigin({ onSelectOrigin }: SelectOriginProps) {
                     <Typography
                         {...props}
                         textAlign='start'
-                        sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize', my: { xs: '-1.25rem' } }}
+                        sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize', my: { xs: '-0.5rem', sm: 0 } }}
                     >
                         {option.name.toLowerCase()}
                     </Typography>
