@@ -48,7 +48,12 @@ export default function JobDetail() {
     const jobId = id ? (Array.isArray(id) ? parseInt(id[0], 10) : parseInt(id, 10)) : 0
 
     const [careerData, setCareerData] = useState<JobType[] | null>(null)
+    const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0]
+        setSelectedFile(file ?? null)
+    }
     useEffect(() => {
         async function fetchCareerData() {
             try {
@@ -100,6 +105,10 @@ export default function JobDetail() {
 
     const handleFormSubmit = async () => {
         try {
+            const updatedFormData = {
+                ...formData,
+                resume: selectedFile,
+            }
             const response = await postDataToApi('api/job-create/', formData)
             const responseData = await response.json()
             if (response.status === 200) {
@@ -119,6 +128,7 @@ export default function JobDetail() {
                 reason: '',
                 jobLocation: '',
             })
+            setSelectedFile(null)
         } catch (error) {}
     }
 
@@ -286,13 +296,17 @@ export default function JobDetail() {
                             <Grid item sm={6} xs={12}>
                                 <InputLabel> Upload CV</InputLabel>
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <input type='file' style={{ display: 'none' }} onChange={handleFileChange} />
                                     <PrimaryButton
                                         text='Choose File'
                                         onClick={() => {
-                                            console.log('File Uploaded')
+                                            const fileInput = document.querySelector('input[type="file"]') as HTMLElement
+                                            fileInput?.click()
                                         }}
                                     />
-                                    <Typography sx={{ marginLeft: '1rem' }}>No File Choosen</Typography>
+                                    <Typography sx={{ marginLeft: '1rem' }}>
+                                        {selectedFile ? selectedFile.name : 'No File Chosen'}
+                                    </Typography>
                                 </Box>
                             </Grid>
                             <Grid item sm={6} xs={12}>
