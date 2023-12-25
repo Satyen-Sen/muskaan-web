@@ -46,7 +46,11 @@ export default function SelectDestination({ onSelectDestination }: SelectDestina
                     />
                 )}
                 renderOption={(props, option) => (
-                    <Typography {...props} textAlign='start' sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize' }}>
+                    <Typography
+                        {...props}
+                        textAlign='start'
+                        sx={{ color: '#FFFFFF', fontWeight: 500, textTransform: 'capitalize', my: { xs: '-0.5rem' } }}
+                    >
                         {option.name.toLowerCase()}
                     </Typography>
                 )}
