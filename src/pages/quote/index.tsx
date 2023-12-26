@@ -210,6 +210,10 @@ export default function Home() {
         } catch (error) {}
     }
 
+    React.useEffect(() => {
+        console.log('Type =>', typeof formData.customer_type)
+        console.log('formData.customer_type', formData.customer_type)
+    }, [formData.customer_type])
     return (
         <LayoutHeaderLess pageTitle='Send Your Quotation'>
             <Typography
@@ -369,7 +373,7 @@ export default function Home() {
                             <InputLabel>Customer Type</InputLabel>
                             <SelectSearch
                                 value={formData.customer_type}
-                                onChange={(event) => handleFormChange('customer_type', (event.target as HTMLInputElement).value)}
+                                onChange={(event, value) => handleFormChange('customer_type', value)}
                                 options={['FORWARDER', 'CUSTOM BROKER', 'SHIPPER', 'CONSIGNEE', 'TRANSPORTER']}
                                 placeholder='Select Customer Type'
                                 capitalize
