@@ -120,10 +120,10 @@ export default function Navbar() {
                                 <Link href='/companies/logistics'>Muskan Logistics</Link>
                             </MenuItem>
                             <MenuItem onClick={closeCompaniesMenu}>
-                                <Link href='/companies/shipping-pte'>Muskaan Shipping PTE Ltd.</Link>
+                                <Link href='/companies/shipping-pte'>Muskaan Shipping Pte Ltd.</Link>
                             </MenuItem>
                             <MenuItem onClick={closeCompaniesMenu}>
-                                <Link href='/companies/shipping-sdn-bhd'>Muskaan Shipping SDN BHD</Link>
+                                <Link href='/companies/shipping-sdn-bhd'>Muskaan Shipping Sdn Bhd</Link>
                             </MenuItem>
                             <MenuItem onClick={closeCompaniesMenu}>
                                 <Link href='/companies/shipping-llc'>Muskaan Shipping LLC</Link>

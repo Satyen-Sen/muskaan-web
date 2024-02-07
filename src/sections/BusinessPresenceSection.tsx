@@ -29,7 +29,7 @@ export default function BusinessPresenceSection() {
                             <Grid item xs={12} sm={4}>
                                 <CompanyReachCard
                                     title='New Delhi, India'
-                                    description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
+                                    description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
                                 />
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -77,7 +77,7 @@ export default function BusinessPresenceSection() {
                             <Grid item xs={12} sm={4}>
                                 <CompanyReachCard
                                     title='Port Klang, Malaysia'
-                                    description='Muskaan Shipping SDN BHD, No. 16-02, Centro Business Centre Suite, No.8 Jalan Batu Tiga Lama, Klang 41200, Malaysia | Tel : 00603-33418460/61 | Fax : 00603-33428462'
+                                    description='Muskaan Shipping Sdn Bhd, No. 16-02, Centro Business Centre Suite, No.8 Jalan Batu Tiga Lama, Klang 41200, Malaysia | Tel : 00603-33418460/61 | Fax : 00603-33428462'
                                 />
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -181,7 +181,7 @@ export default function BusinessPresenceSection() {
                             <Grid item xs={12} sm={4}>
                                 <CompanyReachCard
                                     title='Dubai, UAE'
-                                    description='Muskaan Shipping LLC, 701, 7th floor, Mohammed Noor Talib Bldg, Khaleed bin waleed Road, Near Royal Ascot Hotel, Dubai - 128160 | Office : +9714 3511215 | Fax : +9714 3511216'
+                                    description='Muskaan Shipping Llc, 701, 7th floor, Mohammed Noor Talib Bldg, Khaleed bin waleed Road, Near Royal Ascot Hotel, Dubai - 128160 | Office : +9714 3511215 | Fax : +9714 3511216'
                                 />
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -216,7 +216,7 @@ export default function BusinessPresenceSection() {
                         top='34vw'
                         left='48vw'
                         title='New Delhi, India'
-                        description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
+                        description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
                     />
                     <MapPointer
                         top='42vw'
@@ -294,7 +294,7 @@ export default function BusinessPresenceSection() {
                         top='52.5vw'
                         left='67.2vw'
                         title='Port Klang, Malaysia'
-                        description='Muskaan Shipping SDN BHD, No. 16-02, Centro Business Centre Suite, No.8 Jalan Batu Tiga Lama, Klang 41200, Malaysia | Tel : 00603-33418460/61 | Fax : 00603-33428462'
+                        description='Muskaan Shipping Sdn Bhd, No. 16-02, Centro Business Centre Suite, No.8 Jalan Batu Tiga Lama, Klang 41200, Malaysia | Tel : 00603-33418460/61 | Fax : 00603-33428462'
                     />
                     <MapPointer
                         top='26vw'
@@ -360,7 +360,7 @@ export default function BusinessPresenceSection() {
                         top='38vw'
                         left='28.2vw'
                         title='Dubai, UAE'
-                        description='Muskaan Shipping LLC, 701, 7th floor, Mohammed Noor Talib Bldg, Khaleed bin waleed Road, Near Royal Ascot Hotel, Dubai - 128160 | Office : +9714 3511215 | Fax : +9714 3511216'
+                        description='Muskaan Shipping Llc, 701, 7th floor, Mohammed Noor Talib Bldg, Khaleed bin waleed Road, Near Royal Ascot Hotel, Dubai - 128160 | Office : +9714 3511215 | Fax : +9714 3511216'
                     />
                     <MapPointer
                         top='34vw'

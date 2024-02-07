@@ -12,8 +12,8 @@ const accordionLinks = [
         content: [
             { href: '/companies/container-lines', link: 'Muskan Container lines Pvt. Ltd.' },
             { href: '/companies/logistics', link: 'Muskan Logistics' },
-            { href: '/companies/shipping-pte', link: 'Muskaan Shipping PTE Ltd.' },
-            { href: '/companies/shipping-sdn-bhd', link: 'Muskaan Shipping SDN BHD' },
+            { href: '/companies/shipping-pte', link: 'Muskaan Shipping Pte Ltd.' },
+            { href: '/companies/shipping-sdn-bhd', link: 'Muskaan Shipping Sdn Bhd' },
             { href: '/companies/shipping-llc', link: 'Muskaan Shipping LLC' },
         ],
     },

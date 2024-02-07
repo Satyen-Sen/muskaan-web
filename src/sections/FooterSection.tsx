@@ -56,7 +56,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                     <Box sx={{ display: 'flex', alignItems: 'start' }}>
                         <Image src={address} alt='logo' style={{ height: '1.125rem', width: 'auto', marginRight: '1rem' }} />
                         <Typography variant='body1' sx={{ fontWeight: 300, color: '#FFFFFF', textAlign: 'start', fontSize: '0.9rem' }}>
-                            Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, NEW DELHI - 110078
+                            Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, NEW DELHI - 110078
                         </Typography>
                     </Box>
 
@@ -69,14 +69,14 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                     >
                         <Image src={phone} alt='logo' style={{ height: '1rem', width: 'auto', marginRight: '1rem' }} />
                         <Typography variant='body1' sx={{ fontWeight: 300, color: '#FFFFFF', textAlign: 'start', fontSize: '0.9rem' }}>
-                            011 41587468/40687469
+                            011 41587468 / 40687469
                         </Typography>
                     </Box>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: theme.spacing(2) }}>
                         <Image src={email} alt='logo' style={{ height: '1rem', width: 'auto', marginRight: '1rem' }} />
                         <Typography variant='body1' sx={{ fontWeight: 300, color: '#FFFFFF', textAlign: 'start', fontSize: '0.9rem' }}>
-                            info@mclpl.co.in
+                            info@muskan-group.com
                         </Typography>
                     </Box>
                     <Typography variant='h6' sx={{ my: theme.spacing(1) }}>
@@ -247,7 +247,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                         fontSize: '0.75rem',
                                     }}
                                 >
-                                    Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, NEW DELHI - 110078
+                                    Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, NEW DELHI - 110078
                                 </Typography>
                             </Box>
 
@@ -276,7 +276,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                         fontSize: '0.75rem',
                                     }}
                                 >
-                                    011 41587468/40687469
+                                    011 41587468 / 40687469
                                 </Typography>
                             </Box>
 
@@ -299,7 +299,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                         fontSize: '0.75rem',
                                     }}
                                 >
-                                    info@mclpl.co.in
+                                    info@muskan-group.com
                                 </Typography>
                             </Box>
                         </Grid>
@@ -627,7 +627,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                             fontSize: '0.75rem',
                                         }}
                                     >
-                                        Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, NEW DELHI - 110078
+                                        Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, NEW DELHI - 110078
                                     </Typography>
                                 </Box>
 
@@ -656,7 +656,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                             fontSize: '0.75rem',
                                         }}
                                     >
-                                        011 41587468/40687469
+                                        011 41587468 / 40687469
                                     </Typography>
                                 </Box>
 
@@ -679,7 +679,7 @@ export default function FooterSection({ noMargin }: { noMargin?: boolean }) {
                                             fontSize: '0.75rem',
                                         }}
                                     >
-                                        info@mclpl.co.in
+                                        info@muskan-group.com
                                     </Typography>
                                 </Box>
                             </Grid>

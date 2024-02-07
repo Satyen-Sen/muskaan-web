@@ -65,10 +65,10 @@ export default function Home() {
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115466.2092396493!2d55.291758!3d25.259851!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432a3cfe94f7%3A0x70f0d50a6e4cbbac!2sMUSKAAN%20SHIPPING%20LLC!5e0!3m2!1sen!2sin!4v1703424609969!5m2!1sen!2sin'
             }
-            mapTitle='Muskaan Shipping LLC'
+            mapTitle='Muskaan Shipping Llc'
             address={`Mohammed Noor Talib Building, 701, 7th floor, Khaleed bin waleed Road, Opp. Royal Ascot Hotel Burdubai, \n Dubai - 128160. `}
-            telephoneNumber='+97143511215'
-            emailId='Dubai@muskaan-group.com'
+            telephoneNumber='+971 558970491 / 43511215'
+            emailId='info@muskaan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters sx={{ position: 'relative' }}>
@@ -89,7 +89,7 @@ export default function Home() {
                     </Typography>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                            <CustomText text='Muskaan Shipping LLC, based in the vibrant city of Dubai, is committed to excellence in the shipping and logistics industry. Our seasoned team brings decades of experience and expertise, ensuring the highest level of service quality and customer satisfaction. We have strategically invested in expanding our business reach, fostering trade growth, and harnessing cutting-edge technology to provide innovative solutions to our clients. With a strong global presence and strategic partnerships in North America, South America, Europe, the USA, Far East, North East Asia, South East Asia, CIS, East Africa, West Africa, and the Middle East, we are well-positioned to meet the diverse needs of our clients on a global scale. muskaan Shipping LLC is dedicated to creating a customer-oriented environment and delivering top-notch services worldwide.' />
+                            <CustomText text='Muskaan Shipping Llc, based in the vibrant city of Dubai, is committed to excellence in the shipping and logistics industry. Our seasoned team brings decades of experience and expertise, ensuring the highest level of service quality and customer satisfaction. We have strategically invested in expanding our business reach, fostering trade growth, and harnessing cutting-edge technology to provide innovative solutions to our clients. With a strong global presence and strategic partnerships in North America, South America, Europe, the USA, Far East, North East Asia, South East Asia, CIS, East Africa, West Africa, and the Middle East, we are well-positioned to meet the diverse needs of our clients on a global scale. muskaan Shipping LLC is dedicated to creating a customer-oriented environment and delivering top-notch services worldwide.' />
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <Image src={titleImg} alt='' style={{ width: '100%', height: 'auto' }} />
@@ -281,7 +281,7 @@ export default function Home() {
                     <Typography variant='h5' sx={{ textAlign: 'start', mt: '2rem', mb: '0.5rem', color: '#1B1B1F' }}>
                         Freight Forwarding:
                     </Typography>
-                    <CustomText text="Muskaan Shipping LLC, located in Dubai, U.A.E., is a dynamic and rapidly expanding NVOCC shipping agency and international freight forwarding company. Our global presence enables us to deliver international shipping and logistics solutions to clients worldwide. Our proficient team of seasoned management professionals, boasting decades of experience in the shipping and freight forwarding industry, oversees the company's operations. We are supported by substantial multimillion-dollar investments earmarked for business expansion, trade development, and cutting-edge technology implementation. With a corporate vision of becoming a preferred integrated global shipping company, we prioritize a customer-centric approach and foster an employee-friendly environment. Our dedicated team of professionals is committed to delivering top-quality services to both international and domestic clients. We have established a robust global network, with key offices and partners strategically located across North America, South America, Europe, the USA, Far East, North East Asia, South East Asia, CIS, East Africa, West Africa, and the Middle East." />
+                    <CustomText text="Muskaan Shipping Llc, located in Dubai, U.A.E., is a dynamic and rapidly expanding NVOCC shipping agency and international freight forwarding company. Our global presence enables us to deliver international shipping and logistics solutions to clients worldwide. Our proficient team of seasoned management professionals, boasting decades of experience in the shipping and freight forwarding industry, oversees the company's operations. We are supported by substantial multimillion-dollar investments earmarked for business expansion, trade development, and cutting-edge technology implementation. With a corporate vision of becoming a preferred integrated global shipping company, we prioritize a customer-centric approach and foster an employee-friendly environment. Our dedicated team of professionals is committed to delivering top-quality services to both international and domestic clients. We have established a robust global network, with key offices and partners strategically located across North America, South America, Europe, the USA, Far East, North East Asia, South East Asia, CIS, East Africa, West Africa, and the Middle East." />
                     {mobileMode ? (
                         <Box>
                             <ServicesCardMobile

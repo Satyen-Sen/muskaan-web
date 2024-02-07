@@ -141,14 +141,14 @@ export default function Home() {
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <AddressCard
-                            companyLoc='Muskaan Shipping SDN BHD, Malaysia'
+                            companyLoc='Muskaan Shipping Sdn Bhd, Malaysia'
                             address='Centro Business CentreSuite #16-02, level 16,No.8 Jalan Batu Tiga Lama,Klang 41200 Selangor, Malaysia'
                             phone='+603-33418460/61'
                         />
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <AddressCard
-                            companyLoc='Muskaan Shipping LLC, Dubai'
+                            companyLoc='Muskaan Shipping Llc, Dubai'
                             address='Mohammed Noor Talib Bldg.,701, 7th floor, Khaleed bin waleed Road Opp.Royal Ascot Hotel Burdubai,PO Box : - 128160 Dubai'
                             phone='+97143511215'
                         />
@@ -162,7 +162,7 @@ export default function Home() {
                     <Grid item xs={12} sm={4}>
                         <AddressCard
                             companyLoc='New Delhi'
-                            address='Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, NEW DELHI - 110078'
+                            address='Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, NEW DELHI - 110078'
                             phone='011-41587468'
                         />
                     </Grid>

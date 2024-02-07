@@ -27,16 +27,16 @@ export default function Home() {
     return (
         <CompaniesLayout
             image={shippingBg}
-            title='Muskaan Shipping PTE Ltd.'
-            subtitle='Effortless Shipping and Logisics'
+            title='Muskaan Shipping Pte Ltd.'
+            subtitle='Effortless Shipping and Logistics'
             caption='UEN 201219318Z'
             mapSrc={
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.184303450182!2d103.9045156231366!3d1.333844262451175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17fac0a6a723%3A0x168dad5006e4ed5e!2sEunos%20Techpark!5e0!3m2!1sen!2sin!4v1702716372440!5m2!1sen!2sin'
             }
-            mapTitle='Muskaan Shipping PTE Ltd.'
+            mapTitle='Muskaan Shipping Pte Ltd.'
             address='60 Kaki Bukit Place, #02-13 Suites 3, Eunos Techpark, Singapore 415979'
-            telephoneNumber='+65 63224420'
-            emailId='Singapore@muskaan-group.com'
+            telephoneNumber='+65 92354723 / 63224420'
+            emailId='info@muskaan-group.com'
         >
             <Box sx={{ px: { xs: theme.spacing(2), sm: theme.spacing(4), md: theme.spacing(12) } }}>
                 <Container maxWidth='xl' disableGutters sx={{ position: 'relative' }}>

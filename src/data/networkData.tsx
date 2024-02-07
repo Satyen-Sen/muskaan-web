@@ -39,7 +39,7 @@ export const networkData = [
         smBg: sm3,
         flag: singaporeFlag,
         href: '/companies/shipping-pte',
-        title: 'Muskaan Shipping PTE Ltd.',
+        title: 'Muskaan Shipping Pte Ltd.',
         subtitle:
             'Muskaan Shipping (Pte) Ltd, established in Singapore in 2010, is a dynamic freight forwarder connecting 30+ locations across 10 countries in the Indian Subcontinent and Southeast Asia. We offer reliable services, efficient fleets, and competitive rates, with strong connectivity to Main Line Operator (MLO) sailings. Our global network spans key trade routes.',
     },
@@ -49,7 +49,7 @@ export const networkData = [
         smBg: sm4,
         flag: malayFlag,
         href: '/companies/shipping-sdn-bhd',
-        title: 'Muskaan Shipping SDN BHD',
+        title: 'Muskaan Shipping Sdn Bhd',
         subtitle: `Established in 2008, Muskaan Shipping Sdn. Bhd. began as an agency network in Malaysian ports. By 2010, it was officially founded in Port Kelang. With branch offices and sub-agents in India, the Gulf, and Europe, the company manages a container fleet of over 1000 units, operating closely with 'Muskaan' Line's global network to provide efficient shipping services.`,
     },
     {
@@ -58,8 +58,8 @@ export const networkData = [
         smBg: sm5,
         flag: dubaiFlag,
         href: '/companies/shipping-llc',
-        title: 'Muskaan Shipping LLC',
+        title: 'Muskaan Shipping Llc',
         subtitle:
-            'Muskaan Shipping LLC, headquartered in Dubai, U.A.E., is a rapidly growing NVOCC shipping agency and international freight forwarder. Our experienced management team, substantial investments in business expansion, and commitment to customer satisfaction position us as a leading global shipping company. With a strong worldwide network and dedicated professionals, we provide top-quality international and domestic shipping and logistics solutions.',
+            'Muskaan Shipping Llc, headquartered in Dubai, U.A.E., is a rapidly growing NVOCC shipping agency and international freight forwarder. Our experienced management team, substantial investments in business expansion, and commitment to customer satisfaction position us as a leading global shipping company. With a strong worldwide network and dedicated professionals, we provide top-quality international and domestic shipping and logistics solutions.',
     },
 ]

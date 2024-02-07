@@ -114,7 +114,7 @@ export default function Home() {
                             <Grid item xs={12} sm={4}>
                                 <CompanyReachCard
                                     title='New Delhi'
-                                    description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
+                                    description='Muskan Container Lines Pvt Ltd, Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, New Delhi, Delhi - 110078 | Tel : +91 11 41587468 / 40687469'
                                 />
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -148,7 +148,7 @@ export default function Home() {
                                 <Grid item sm={4} xs={6}>
                                     <AddressCard
                                         companyLoc='New Delhi'
-                                        address='Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, kakrola Mor, NEW DELHI - 110078'
+                                        address='Muskan Tower, Plot no.83, Old Palam Rd, Shiv Park, Kakrola Mor, NEW DELHI - 110078'
                                     />
                                 </Grid>
                                 <Grid item sm={4} xs={6}>

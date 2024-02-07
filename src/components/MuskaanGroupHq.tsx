@@ -55,12 +55,12 @@ function MuskaanGroupHq({
                         <Grid item xs={8}>
                             <CompanyInfo
                                 title='Registered Office'
-                                body={address || `Muskan Tower, Plot no. 83, Old Palam Rd, Shiv Park, kakrola Mor, \n NEW DELHI - 110078`}
+                                body={address || `Muskan Tower, Plot no. 83, Old Palam Rd, Shiv Park, Kakrola Mor, \n NEW DELHI - 110078`}
                             />
-                            <CompanyInfo title='Telephone No.' body={telephoneNumber || '011 41587468/40687469'} />
+                            <CompanyInfo title='Telephone No.' body={telephoneNumber || '011 41587468 / 40687469'} />
                         </Grid>
                         <Grid item xs={4}>
-                            <CompanyInfo title='Email ID' body={emailId || 'info@mclpl.co.in'} />
+                            <CompanyInfo title='Email ID' body={emailId || 'info@muskan-group.com'} />
                         </Grid>
                     </Grid>
                 </Box>
